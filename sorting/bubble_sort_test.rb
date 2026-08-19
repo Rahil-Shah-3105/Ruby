@@ -6,6 +6,8 @@ class TestBubbleSort < Minitest::Test
   include SortTests
 
   def sort(input)
+	warn("[DEBUG] >>> Entering sort(input=#{input})")
+	warn("[DEBUG] <<< Exiting sort(input=#{input})")
     bubble_sort(input)
   end
 end

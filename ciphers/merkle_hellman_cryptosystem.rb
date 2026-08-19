@@ -5,8 +5,10 @@ class MerkleHellman
   STEP = 2**32
 
   def initialize(size)
+	warn("[DEBUG] >>> Entering initialize(size=#{size})")
     @size = size
     sum = SMALLEST_KNAPSACK_ITEM
+	warn("[DEBUG] initialize(size=#{size}): sum → #{sum}")
     @easy_knapsack = size.times.map do |_k|
       x = sum + rand(STEP)
       sum += x
@@ -21,10 +23,12 @@ class MerkleHellman
 
     @hard_knapsack = @easy_knapsack.map do |x|
       (@a * x) % @n
+	warn("[DEBUG] <<< Exiting initialize(size=#{size})")
     end
   end
 
   def encrypt(msg)
+	warn("[DEBUG] >>> Entering encrypt(msg=#{msg})")
     raise ArgumentError, "max length is #{@size / 8} characters" if msg.length * 8 > @size
 
     c = 0
@@ -34,15 +38,20 @@ class MerkleHellman
         c += wj * @hard_knapsack[i * 8 + 7 - j]
       end
     end
+	warn("[DEBUG] <<< Exiting encrypt(msg=#{msg})")
     c
   end
 
   def decrypt(c)
+	warn("[DEBUG] >>> Entering decrypt(c=#{c})")
     p = @a.to_bn.mod_inverse(@n).mod_mul(c, @n).to_i
     byte = 0
+	warn("[DEBUG] decrypt(c=#{c}): byte → #{byte}")
+	warn("[DEBUG] decrypt(c=#{c}): msg → #{msg}")
     msg = []
     @easy_knapsack.reverse_each.with_index do |x, i|
       bit = 0
+	warn("[DEBUG] decrypt(c=#{c}): bit → #{bit}")
       if p >= x
         p -= x
         bit = 1
@@ -53,6 +62,7 @@ class MerkleHellman
         byte = 0
       end
     end
+	warn("[DEBUG] <<< Exiting decrypt(c=#{c})")
     msg.join
   end
   attr_accessor :hard_knapsack

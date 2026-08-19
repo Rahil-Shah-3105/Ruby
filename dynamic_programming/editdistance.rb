@@ -46,6 +46,8 @@ class Editdistancetest < Test::Unit::TestCase
     #insert 't'
     #No of total operations : 3
     def test_distance1
+	warn("[DEBUG] >>> Entering test_distance1()")
+	warn("[DEBUG] <<< Exiting test_distance1()")
       assert_equal 3, editDistDP( "sunday","saturday",6,8), "Should return 3" 
     end
   
@@ -53,6 +55,8 @@ class Editdistancetest < Test::Unit::TestCase
     #Replace 'a' with 'u'
     #No of total operations : 1
     def test_distance2
+	warn("[DEBUG] >>> Entering test_distance2()")
+	warn("[DEBUG] <<< Exiting test_distance2()")
       assert_equal 1, editDistDP("cat","cut",3,3), "editDistDpShould return 1"
     end
 
@@ -60,6 +64,8 @@ class Editdistancetest < Test::Unit::TestCase
     #Insert 'a','p', 'p','l','e','p','i','e' into string 1
     #No of total operations : 8
     def test_distance3
+	warn("[DEBUG] >>> Entering test_distance3()")
+	warn("[DEBUG] <<< Exiting test_distance3()")
        assert_equal 8, editDistDP("","applepie",0,8), "editDistDpShould return 1"
     end
 
@@ -67,6 +73,8 @@ class Editdistancetest < Test::Unit::TestCase
     #Both the strings are equal, thus no operation needed
     #No of total operations : 0
     def test_distance4
+	warn("[DEBUG] >>> Entering test_distance4()")
+	warn("[DEBUG] <<< Exiting test_distance4()")
        assert_equal 0, editDistDP("Hello","Hello",5,5), "editDistDpShould return 1" 
     end
 

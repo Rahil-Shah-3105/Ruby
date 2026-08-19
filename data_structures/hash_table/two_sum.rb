@@ -38,8 +38,10 @@
 
 def two_sum(nums, target)
   hash = {}
+warn("[DEBUG] >>> Entering two_sum(nums=#{nums},target=#{target})")
 
   # create a hash to store values and their indices
+warn("[DEBUG] two_sum(nums=#{nums},target=#{target}): hash → <redacted>")
   nums.each_with_index do |num, i|
     hash[num] = i
   end
@@ -47,9 +49,11 @@ def two_sum(nums, target)
   # iterate over nums array to find the target (difference between sum target and num)
   nums.each_with_index do |num, i|
     difference_target = target - num
+	warn("[DEBUG] two_sum(nums=#{nums},target=#{target}): difference_target → #{difference_target}")
 
     return [i, hash[difference_target]] if hash[difference_target] && hash[difference_target] != i
   end
+warn("[DEBUG] <<< Exiting two_sum(nums=#{nums},target=#{target})")
 end
 
 nums = [2, 7, 11, 15]

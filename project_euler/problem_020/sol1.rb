@@ -9,7 +9,9 @@
 
 # method to calculate factorial of a number
 def factorial(number)
+warn("[DEBUG] >>> Entering factorial(number=#{number})")
   number.downto(1).reduce(:*)
+warn("[DEBUG] <<< Exiting factorial(number=#{number})")
 end
 
 # fetch digits of factorial of `number` and find

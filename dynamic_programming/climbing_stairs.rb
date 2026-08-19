@@ -33,8 +33,10 @@
 # @return {Integer}
 def climb_stairs(n)
   memo = {}
+warn("[DEBUG] >>> Entering climb_stairs(n=#{n})")
 
   memo[0] = 1
+warn("[DEBUG] climb_stairs(n=#{n}): memo → #{memo}")
   memo[1] = 1
 
   return memo[n] if [0, 1].include?(n)
@@ -44,12 +46,15 @@ def climb_stairs(n)
   end
 
   memo[n]
+warn("[DEBUG] <<< Exiting climb_stairs(n=#{n})")
 end
 
 def recurse(n, memo)
+warn("[DEBUG] >>> Entering recurse(n=#{n},memo=#{memo})")
   return memo[n] if memo[n]
 
   memo[n] = recurse(n - 1, memo) + recurse(n - 2, memo)
+warn("[DEBUG] <<< Exiting recurse(n=#{n},memo=#{memo})")
 end
 
 puts climb_stairs(2)
