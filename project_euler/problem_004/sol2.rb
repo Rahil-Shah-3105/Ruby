@@ -5,18 +5,22 @@
 
 class Integer
   def parindrome?
+	warn("[DEBUG] >>> Entering parindrome?()")
+	warn("[DEBUG] <<< Exiting parindrome?()")
     self == reverse
   end
 
   # 123.reverse == 321
   # 100.reverse == 1
   def reverse
+	warn("[DEBUG] >>> Entering reverse()")
     result = 0
     n = self
     loop do
       result = result * 10 + n % 10
       break if (n /= 10).zero?
     end
+	warn("[DEBUG] <<< Exiting reverse()")
     result
   end
 end

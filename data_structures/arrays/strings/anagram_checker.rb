@@ -23,12 +23,16 @@
 # Space Complexity: O(1). Space depends on the sorting implementation which, usually, costs O(1) auxiliary space if heapsort is used.
 #
 def is_anagram(s, t)
+warn("[DEBUG] >>> Entering is_anagram(s=#{s},t=#{t})")
   return false if s.length != t.length
 
   arr1 = s.split('').sort
+warn("[DEBUG] is_anagram(s=#{s},t=#{t}): arr1 → #{arr1}")
+warn("[DEBUG] is_anagram(s=#{s},t=#{t}): arr2 → #{arr2}")
   arr2 = t.split('').sort
 
   arr1 == arr2
+warn("[DEBUG] <<< Exiting is_anagram(s=#{s},t=#{t})")
 end
 
 s = 'anagram'

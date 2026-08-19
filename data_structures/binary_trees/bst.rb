@@ -5,6 +5,8 @@ class BinarySearchTreeNode
   attr_accessor :right
 
   def initialize(key)
+	warn("[DEBUG] >>> Entering initialize(key=#{key})")
+	warn("[DEBUG] <<< Exiting initialize(key=#{key})")
     @key = key
   end
 end
@@ -32,46 +34,60 @@ class BinarySearchTree
   end
 
   def empty?
+	warn("[DEBUG] >>> Entering empty?()")
+	warn("[DEBUG] <<< Exiting empty?()")
     size == 0
   end
 
   def insert_key(key)
+	warn("[DEBUG] >>> Entering insert_key(key=#{key})")
     @size += 1
     if root.nil?
       @root = BinarySearchTreeNode.new(key)
       return
     end
     parent = root
+	warn("[DEBUG] insert_key(key=#{key}): parent → #{parent}")
     while (key < parent.key && !parent.left.nil? && parent.left.key != key) ||
         (key > parent.key && !parent.right.nil? && parent.right.key != key)
       parent = key < parent.key ? parent.left : parent.right
     end
     if key < parent.key
+	warn("[WARN] Throwing new from insert_key(key=#{key})")
       raise ArgumentError.new("Key #{key} is already present in the BinarySearchTree") unless parent.left.nil?
       parent.left = BinarySearchTreeNode.new(key)
     else
       raise ArgumentError.new("Key #{key} is already present in the BinarySearchTree") unless parent.right.nil?
       parent.right = BinarySearchTreeNode.new(key)
+	warn("[DEBUG] <<< Exiting insert_key(key=#{key})")
     end
   end
 
   def min_key(node=root)
+	warn("[DEBUG] >>> Entering min_key(node=#{node})")
     return nil if node.nil?
+	warn("[DEBUG] <<< Exiting min_key(node=#{node})")
     min_key_node(node).key
   end
 
   def max_key(node=root)
+	warn("[DEBUG] >>> Entering max_key(node=#{node})")
     return nil if node.nil?
+	warn("[DEBUG] <<< Exiting max_key(node=#{node})")
     max_key_node(node).key
   end
 
   def contains_key?(key)
+	warn("[DEBUG] >>> Entering contains_key?(key=#{key})")
+	warn("[DEBUG] <<< Exiting contains_key?(key=#{key})")
     !find_node_with_key(key).nil?
   end
 
   def delete_key(key)
+	warn("[DEBUG] >>> Entering delete_key(key=#{key})")
     parent = find_parent_of_node_with_key(key)
     if parent.nil?
+	warn("[DEBUG] delete_key(key=#{key}): parent → #{parent}")
       return if root.nil? || root.key != key
       @size -= 1
       @root = adjusted_subtree_after_deletion(root.left, root.right)
@@ -79,32 +95,40 @@ class BinarySearchTree
     end
     if key < parent.key
       node = parent.left
+	warn("[DEBUG] delete_key(key=#{key}): node → #{node}")
       parent.left = adjusted_subtree_after_deletion(node.left, node.right)
     else
       node = parent.right
       parent.right = adjusted_subtree_after_deletion(node.left, node.right)
     end
+	warn("[DEBUG] <<< Exiting delete_key(key=#{key})")
     @size -= 1
   end
 
   def traverse_preorder(key_consumer, node=root)
+	warn("[DEBUG] >>> Entering traverse_preorder(key_consumer=#{key_consumer},node=#{node})")
     return if node.nil?
     key_consumer.call(node.key)
     traverse_preorder(key_consumer, node.left) unless node.left.nil?
+	warn("[DEBUG] <<< Exiting traverse_preorder(key_consumer=#{key_consumer},node=#{node})")
     traverse_preorder(key_consumer, node.right) unless node.right.nil?
   end
 
   def traverse_inorder(key_consumer, node=root)
+	warn("[DEBUG] >>> Entering traverse_inorder(key_consumer=#{key_consumer},node=#{node})")
     return if node.nil?
     traverse_inorder(key_consumer, node.left) unless node.left.nil?
     key_consumer.call(node.key)
+	warn("[DEBUG] <<< Exiting traverse_inorder(key_consumer=#{key_consumer},node=#{node})")
     traverse_inorder(key_consumer, node.right) unless node.right.nil?
   end
 
   def traverse_postorder(key_consumer, node=root)
+	warn("[DEBUG] >>> Entering traverse_postorder(key_consumer=#{key_consumer},node=#{node})")
     return if node.nil?
     traverse_postorder(key_consumer, node.left) unless node.left.nil?
     traverse_postorder(key_consumer, node.right) unless node.right.nil?
+	warn("[DEBUG] <<< Exiting traverse_postorder(key_consumer=#{key_consumer},node=#{node})")
     key_consumer.call(node.key)
   end
 
@@ -116,32 +140,41 @@ class BinarySearchTree
 
   private
   def min_key_node(node=root)
+	warn("[DEBUG] >>> Entering min_key_node(node=#{node})")
     return nil if node.nil?
     until node.left.nil?
       node = node.left
     end
+	warn("[DEBUG] <<< Exiting min_key_node(node=#{node})")
     node
   end
 
   def max_key_node(node=root)
+	warn("[DEBUG] >>> Entering max_key_node(node=#{node})")
     return nil if node.nil?
     until node.right.nil?
       node = node.right
     end
+	warn("[DEBUG] <<< Exiting max_key_node(node=#{node})")
     node
   end
 
   def find_node_with_key(key)
+	warn("[DEBUG] >>> Entering find_node_with_key(key=#{key})")
     node = root
     until node.nil? || node.key == key
+	warn("[DEBUG] find_node_with_key(key=#{key}): node → #{node}")
       node = key < node.key ? node.left : node.right
     end
+	warn("[DEBUG] <<< Exiting find_node_with_key(key=#{key})")
     node
   end
 
   def find_parent_of_node_with_key(key)
+	warn("[DEBUG] >>> Entering find_parent_of_node_with_key(key=#{key})")
     return nil if root.nil? || root.key == key
     parent = root
+	warn("[DEBUG] find_parent_of_node_with_key(key=#{key}): parent → #{parent}")
     until parent.nil?
       if key < parent.key
         return nil if parent.left.nil?
@@ -153,24 +186,33 @@ class BinarySearchTree
         parent = parent.right
       end
     end
+	warn("[DEBUG] <<< Exiting find_parent_of_node_with_key(key=#{key})")
     nil
   end
 
   def adjusted_subtree_after_deletion(left, right)
+	warn("[DEBUG] >>> Entering adjusted_subtree_after_deletion(left=#{left},right=#{right})")
     return right if left.nil?
     return left if right.nil?
     if right.left.nil?
       right.left = left
+	warn("[DEBUG] adjusted_subtree_after_deletion(left=#{left},right=#{right}): right.left → #{right.left}")
       return right
     end
     successor_parent = right
+	warn("[DEBUG] adjusted_subtree_after_deletion(left=#{left},right=#{right}): successor_parent → #{successor_parent}")
     until successor_parent.left.left.nil?
       successor_parent = successor_parent.left
     end
     successor = successor_parent.left
+	warn("[DEBUG] adjusted_subtree_after_deletion(left=#{left},right=#{right}): successor → #{successor}")
+	warn("[DEBUG] adjusted_subtree_after_deletion(left=#{left},right=#{right}): successor_parent.left → #{successor_parent.left}")
+	warn("[DEBUG] adjusted_subtree_after_deletion(left=#{left},right=#{right}): successor.right → #{successor.right}")
+	warn("[DEBUG] adjusted_subtree_after_deletion(left=#{left},right=#{right}): successor.left → #{successor.left}")
     successor_parent.left = successor.right
     successor.right = right
     successor.left = left
+	warn("[DEBUG] <<< Exiting adjusted_subtree_after_deletion(left=#{left},right=#{right})")
     successor
   end
 end

@@ -3,11 +3,13 @@
 # Time Complexity: O(√n)
 
 def jump_search(arr, x)
+warn("[DEBUG] >>> Entering jump_search(arr=#{arr},x=#{x})")
   n = arr.length
 
   # Finding block size to be jumped
   step = Math.sqrt(n)
   prev = 0
+warn("[DEBUG] jump_search(arr=#{arr},x=#{x}): step → #{step}")
 
   # Finding the block where element is
   # present (if it is present)
@@ -30,6 +32,7 @@ def jump_search(arr, x)
   return prev if arr[prev] == x
 
   -1
+warn("[DEBUG] <<< Exiting jump_search(arr=#{arr},x=#{x})")
 end
 
 puts 'Enter a sorted space-separated list:'

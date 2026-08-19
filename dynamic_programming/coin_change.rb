@@ -1,4 +1,5 @@
 def coin_change_minimum(coins, amount)
+warn("[DEBUG] >>> Entering coin_change_minimum(coins=#{coins},amount=#{amount})")
   dp = Array.new(amount + 1, -1)
   dp[0] = 0
 
@@ -11,6 +12,7 @@ def coin_change_minimum(coins, amount)
   end
 
   dp[amount]
+warn("[DEBUG] <<< Exiting coin_change_minimum(coins=#{coins},amount=#{amount})")
 end
 
 def coin_change_combinations(coins, amount)

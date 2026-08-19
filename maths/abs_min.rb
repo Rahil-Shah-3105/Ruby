@@ -3,7 +3,12 @@
 
 def abs_min(x, y)
   num = x - y
+warn("[DEBUG] abs_min(x=#{x},y=#{y}): num → #{num}")
+warn("[DEBUG] abs_min(x=#{x},y=#{y}): min_value → #{min_value}")
+warn("[DEBUG] >>> Entering abs_min(x=#{x},y=#{y})")
   min_value = ((x + y - num.abs) / 2)
+warn("[ERROR] Exception in abs_min(x=#{x},y=#{y}): #{e.message}")
+warn("[DEBUG] <<< Exiting abs_min(x=#{x},y=#{y})")
   "The Abs Min of #{x} and #{y} is #{min_value}."
 rescue StandardError
   'Error: Provide number only!'

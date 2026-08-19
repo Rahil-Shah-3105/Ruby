@@ -37,16 +37,20 @@
 #
 def find_richest_customer_wealth(accounts)
   result_hash = {}
+warn("[DEBUG] >>> Entering find_richest_customer_wealth(accounts=#{accounts})")
   accounts.each_with_index do |customer, i|
+	warn("[DEBUG] find_richest_customer_wealth(accounts=#{accounts}): result_hash → <redacted>")
     result_hash[i] = customer.sum
   end
 
   highest_value = 0
+warn("[DEBUG] find_richest_customer_wealth(accounts=#{accounts}): highest_value → #{highest_value}")
   result_hash.each do |_k, v|
     highest_value = v if v > highest_value
   end
 
   highest_value
+warn("[DEBUG] <<< Exiting find_richest_customer_wealth(accounts=#{accounts})")
 end
 
 puts find_richest_customer_wealth([[1, 2, 3], [3, 2, 1]])

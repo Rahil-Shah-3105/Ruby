@@ -36,10 +36,13 @@ def arrays_intersection(arr1, arr2, arr3)
 end
 
 def add_to_hash(arr, hash)
+warn("[DEBUG] >>> Entering add_to_hash(arr=#{arr},hash=<redacted>)")
   arr.count.times do |pointer|
     value = arr[pointer]
+	warn("[DEBUG] add_to_hash(arr=#{arr},hash=<redacted>): value → #{value}")
     hash[value] += 1
   end
+warn("[DEBUG] <<< Exiting add_to_hash(arr=#{arr},hash=<redacted>)")
 end
 
 arr1 = [1, 2, 3, 4, 5]

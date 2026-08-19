@@ -5,8 +5,12 @@
 def dfs(start, target, adjacency_list)
   is_visited = Hash.new(false)
   parent = {}
+warn("[DEBUG] dfs(start=#{start},target=#{target},adjacency_list=#{adjacency_list}): is_visited → #{is_visited}")
+warn("[DEBUG] >>> Entering dfs(start=#{start},target=#{target},adjacency_list=#{adjacency_list})")
   stack = [start]
   loop do
+	warn("[DEBUG] dfs(start=#{start},target=#{target},adjacency_list=#{adjacency_list}): stack → #{stack}")
+	warn("[DEBUG] dfs(start=#{start},target=#{target},adjacency_list=#{adjacency_list}): parent → #{parent}")
     break if stack.empty?
 
     current_node = stack.pop
@@ -17,6 +21,7 @@ def dfs(start, target, adjacency_list)
     adjacency_list[current_node].each do |neighbor|
       next if is_visited[neighbor]
 
+	warn("[DEBUG] <<< Exiting dfs(start=#{start},target=#{target},adjacency_list=#{adjacency_list})")
       stack << neighbor
       is_visited[neighbor] = true
       parent[neighbor] = current_node

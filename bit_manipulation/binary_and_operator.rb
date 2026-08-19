@@ -1,7 +1,9 @@
 def binary_and(x, y)
+warn("[DEBUG] >>> Entering binary_and(x=#{x},y=#{y})")
   raise 'Input must only contain positive integers' if (x < 0) || (y < 0)
 
   '0b' + (x & y).to_s(2)
+warn("[DEBUG] <<< Exiting binary_and(x=#{x},y=#{y})")
 end
 
 begin
