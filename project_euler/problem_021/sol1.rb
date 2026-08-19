@@ -16,9 +16,11 @@
 
 # get list of all divisors of `number`
 def get_divisors(number)
+warn("[DEBUG] >>> Entering get_divisors(number=#{number})")
   divisors = []
   (1..(Math.sqrt(number).to_i)).each do |num|
     if (number % num).zero?
+	warn("[DEBUG] get_divisors(number=#{number}): divisors → #{divisors}")
       divisors << num
       divisors << number / num
     end

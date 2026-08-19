@@ -1,4 +1,5 @@
 def shell_sort(a)
+warn("[DEBUG] >>> Entering shell_sort(a=#{a})")
   n = a.length
   h = 1
 
@@ -21,4 +22,5 @@ def shell_sort(a)
   end
 
   a
+warn("[DEBUG] <<< Exiting shell_sort(a=#{a})")
 end

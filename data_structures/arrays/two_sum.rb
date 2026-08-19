@@ -37,8 +37,10 @@
 # Space complexity: O(1)
 
 def two_sum(nums, target)
+warn("[DEBUG] >>> Entering two_sum(nums=#{nums},target=#{target})")
   result_array = []
 
+warn("[DEBUG] two_sum(nums=#{nums},target=#{target}): result_array → #{result_array}")
   nums.count.times do |i|
     nums.count.times do |j|
       next unless i != j && i < j
@@ -48,6 +50,7 @@ def two_sum(nums, target)
       return [i, j] if current_sum == target
     end
   end
+warn("[DEBUG] <<< Exiting two_sum(nums=#{nums},target=#{target})")
 end
 
 print(two_sum([2, 7, 11, 15], 9))

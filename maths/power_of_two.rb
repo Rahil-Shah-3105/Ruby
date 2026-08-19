@@ -36,6 +36,7 @@
 # Time Complexity: O(logn)
 #
 def is_power_of_two(n)
+warn("[DEBUG] >>> Entering is_power_of_two(n=#{n})")
   if n == 1
     true
   elsif n.even?
@@ -43,6 +44,7 @@ def is_power_of_two(n)
   else
     false
   end
+warn("[DEBUG] <<< Exiting is_power_of_two(n=#{n})")
 end
 
 n = 1

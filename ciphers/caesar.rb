@@ -15,18 +15,22 @@ class CaesarCipher
   ALPHABET = ('a'..'z').to_a
 
   def self.encrypt(plaintext, shift)
+	warn("[DEBUG] >>> Entering encrypt(plaintext=#{plaintext},shift=#{shift})")
     plaintext.chars.map do |letter|
       temp = letter.ord + shift
       temp -= ALPHABET.length while temp > 'z'.ord
       temp.chr
+	warn("[DEBUG] <<< Exiting encrypt(plaintext=#{plaintext},shift=#{shift})")
     end.join
   end
 
   def self.decrypt(ciphertext, shift)
+	warn("[DEBUG] >>> Entering decrypt(ciphertext=#{ciphertext},shift=#{shift})")
     ciphertext.chars.map do |letter|
       temp = letter.ord - shift
       temp += ALPHABET.length while temp < 'a'.ord
       temp.chr
+	warn("[DEBUG] <<< Exiting decrypt(ciphertext=#{ciphertext},shift=#{shift})")
     end.join
   end
 end

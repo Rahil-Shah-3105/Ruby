@@ -5,9 +5,11 @@
 
 # find all factors of the given number
 def get_factors(number)
+warn("[DEBUG] >>> Entering get_factors(number=#{number})")
   factors = []
   (1..Math.sqrt(number).to_i).each do |num|
     if (number % num).zero?
+	warn("[DEBUG] get_factors(number=#{number}): factors → #{factors}")
       factors << num
       factors << number / num
     end

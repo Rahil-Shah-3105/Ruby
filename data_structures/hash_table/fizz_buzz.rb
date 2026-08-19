@@ -16,9 +16,11 @@
 # @param {Integer} n
 # @return {String[]}
 def fizz_buzz(n, fizz_buzz = { 3 => 'Fizz', 5 => 'Buzz' })
+warn("[DEBUG] >>> Entering fizz_buzz(n=#{n},fizz_buzz=#{fizz_buzz})")
   n.times.map do |i|
     i += 1
     num_str = ''
+	warn("[DEBUG] fizz_buzz(n=#{n},fizz_buzz=#{fizz_buzz}): num_str → #{num_str}")
 
     fizz_buzz.each do |key, value|
       num_str += value if i % key == 0
@@ -26,6 +28,7 @@ def fizz_buzz(n, fizz_buzz = { 3 => 'Fizz', 5 => 'Buzz' })
 
     num_str.empty? ? i.to_s : num_str
   end
+warn("[DEBUG] <<< Exiting fizz_buzz(n=#{n},fizz_buzz=#{fizz_buzz})")
 end
 
 n = 15
