@@ -3,6 +3,7 @@
 
 # Prime number check function
 def prime_number(number)
+warn("[DEBUG] >>> Entering prime_number(number=#{number})")
   non_prime_flag = if number <= 1
                      true
                    elsif number == 2
@@ -10,6 +11,7 @@ def prime_number(number)
                    elsif number.even?
                      true
                    else
+					warn("[DEBUG] <<< Exiting prime_number(number=#{number})")
                      (2..Math.sqrt(number)).any? { |i| number % i == 0 }
                    end
 

@@ -25,18 +25,23 @@
 # @param {Integer[]} gain
 # @return {Integer}
 def largest_altitude(gain)
+warn("[DEBUG] >>> Entering largest_altitude(gain=#{gain})")
   arr = [0]
 
+warn("[DEBUG] largest_altitude(gain=#{gain}): arr → #{arr}")
   # calculate altitude array
   (1..gain.count).each do |pointer|
     sum = arr[pointer - 1] + gain[pointer - 1]
+	warn("[DEBUG] largest_altitude(gain=#{gain}): sum → #{sum}")
     arr.push(sum)
   end
 
   # find maximum altitude
   max = 0
+warn("[INFO] largest_altitude(gain=#{gain}): max → #{max}")
   arr.each { |i| max = i if max < i }
   max
+warn("[DEBUG] <<< Exiting largest_altitude(gain=#{gain})")
 end
 
 gain = [-5, 1, 5, 0, -7]

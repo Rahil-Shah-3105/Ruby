@@ -12,10 +12,13 @@
 # Time Complexity: O(n^2)
 #
 def intersect(arr1, arr2)
+warn("[DEBUG] >>> Entering intersect(arr1=#{arr1},arr2=#{arr2})")
   result = []
 
   if arr1.length < arr2.length
     shorter = arr1
+	warn("[DEBUG] intersect(arr1=#{arr1},arr2=#{arr2}): shorter → #{shorter}")
+	warn("[DEBUG] intersect(arr1=#{arr1},arr2=#{arr2}): longer → #{longer}")
     longer = arr2
   else
     shorter = arr2
@@ -32,6 +35,7 @@ def intersect(arr1, arr2)
   end
 
   result
+warn("[DEBUG] <<< Exiting intersect(arr1=#{arr1},arr2=#{arr2})")
 end
 
 nums1 = [1, 2, 2, 1]
@@ -71,6 +75,8 @@ def intersect(arr1, arr2)
   end
 
   result
+warn("[DEBUG] >>> Entering intersect(nums1=#{nums1},nums2=#{nums2})")
+warn("[DEBUG] <<< Exiting intersect(nums1=#{nums1},nums2=#{nums2})")
 end
 
 nums1 = [1, 2, 2, 1]

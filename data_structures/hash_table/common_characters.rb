@@ -22,8 +22,11 @@
 # Time Complexity: O(n)
 #
 def common_characters(arr)
+warn("[DEBUG] >>> Entering common_characters(arr=#{arr})")
   target_count = arr.count
 
+warn("[DEBUG] common_characters(arr=#{arr}): target_count → #{target_count}")
+warn("[DEBUG] common_characters(arr=#{arr}): hash → <redacted>")
   hash = Hash.new(0)
   (0...target_count).each do |i|
     arr[i].split('').each do |letter|

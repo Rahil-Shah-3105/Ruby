@@ -6,6 +6,8 @@ class TestHeapSort < Minitest::Test
   include SortTests
 
   def sort(input)
+	warn("[DEBUG] >>> Entering sort(input=#{input})")
+	warn("[DEBUG] <<< Exiting sort(input=#{input})")
     heap_sort(input)
   end
 end

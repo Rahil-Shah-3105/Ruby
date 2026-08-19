@@ -1,8 +1,11 @@
 # Iterate through the array from both sides to find the index of search_item.
 
 def double_linear_search(array, search_item)
+warn("[DEBUG] >>> Entering double_linear_search(array=#{array},search_item=#{search_item})")
   start_ind = 0
   end_ind = array.length - 1
+warn("[DEBUG] double_linear_search(array=#{array},search_item=#{search_item}): end_ind → #{end_ind}")
+warn("[DEBUG] double_linear_search(array=#{array},search_item=#{search_item}): start_ind → #{start_ind}")
 
   while start_ind <= end_ind
     return start_ind if array[start_ind] == search_item
@@ -14,6 +17,7 @@ def double_linear_search(array, search_item)
 
   # returns -1 if search_item is not found in array
   -1
+warn("[DEBUG] <<< Exiting double_linear_search(array=#{array},search_item=#{search_item})")
 end
 
 puts(double_linear_search([1, 5, 5, 10], 1))

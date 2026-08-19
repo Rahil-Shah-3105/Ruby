@@ -8,13 +8,16 @@ class StackOverflowError < StandardError; end
 
 class Stack
   def initialize(limit, stack = [])
+	warn("[DEBUG] >>> Entering initialize(limit=#{limit},stack=#{stack})")
     @stack = stack
+	warn("[DEBUG] <<< Exiting initialize(limit=#{limit},stack=#{stack})")
     @limit = limit
   end
 
   attr_accessor :stack, :limit
 
   def push(item)
+	warn("[DEBUG] >>> Entering push(item=#{item})")
     raise StackOverflowError unless stack.count < limit
 
     stack << item

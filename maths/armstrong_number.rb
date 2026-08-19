@@ -8,11 +8,15 @@
 #
 
 def armstrong_number(number)
+warn("[DEBUG] >>> Entering armstrong_number(number=#{number})")
   num = number
   sum = 0
+warn("[DEBUG] armstrong_number(number=#{number}): sum → #{sum}")
+warn("[DEBUG] armstrong_number(number=#{number}): len → #{len}")
   len = number.digits.count
   while number != 0
     remainder = number % 10
+	warn("[DEBUG] armstrong_number(number=#{number}): remainder → #{remainder}")
     sum += remainder**len
     number /= 10
   end
@@ -21,6 +25,8 @@ def armstrong_number(number)
     "The number #{num} is an Armstrong number."
   else
     "The number #{num} is not an Armstrong number."
+	warn("[DEBUG] <<< Exiting armstrong_number(number=#{number})")
+	warn("[ERROR] Exception in armstrong_number(number=#{number}): #{e.message}")
   end
 rescue StandardError
   'Error: Please provide number only!'

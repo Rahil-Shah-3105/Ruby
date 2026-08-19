@@ -32,6 +32,9 @@ def shuffle(nums, n)
     result.push(nums[i], nums[i + n])
   end
   result
+warn("[DEBUG] >>> Entering shuffle(nums=#{nums},n=#{n})")
+warn("[DEBUG] shuffle(nums=#{nums},n=#{n}): current_index → #{current_index}")
+warn("[DEBUG] <<< Exiting shuffle(nums=#{nums},n=#{n})")
 end
 
 nums = [2, 5, 1, 3, 4, 7]

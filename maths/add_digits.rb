@@ -22,10 +22,12 @@
 # Space Complexity: O(1).
 
 def add_digits(num)
+warn("[DEBUG] >>> Entering add_digits(num=#{num})")
   return 0 if num == 0
   return 9 if num % 9 == 0
 
   num % 9
+warn("[DEBUG] <<< Exiting add_digits(num=#{num})")
 end
 
 puts(add_digits(38))

@@ -43,6 +43,10 @@ def is_anagram(s, t)
   end
 
   true
+warn("[DEBUG] >>> Entering is_anagram(s=#{s},t=#{t})")
+warn("[DEBUG] is_anagram(s=#{s},t=#{t}): t_length → #{t_length}")
+warn("[DEBUG] is_anagram(s=#{s},t=#{t}): counter → #{counter}")
+warn("[DEBUG] <<< Exiting is_anagram(s=#{s},t=#{t})")
 end
 
 s = 'anagram'

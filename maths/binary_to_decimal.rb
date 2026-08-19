@@ -5,8 +5,11 @@
 #
 
 def binary_to_decimal(n)
+warn("[DEBUG] >>> Entering binary_to_decimal(n=#{n})")
   decimal = 0
   base = 1
+warn("[DEBUG] binary_to_decimal(n=#{n}): base → #{base}")
+warn("[DEBUG] binary_to_decimal(n=#{n}): decimal → #{decimal}")
   until n.zero?
     x = n % 10
     n /= 10
@@ -14,6 +17,7 @@ def binary_to_decimal(n)
     base *= 2
   end
   decimal
+warn("[DEBUG] <<< Exiting binary_to_decimal(n=#{n})")
 end
 
 puts 'Decimal value of 110011 is ' + binary_to_decimal(110_011).to_s

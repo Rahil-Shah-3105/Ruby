@@ -2,10 +2,14 @@
 
 # This find_min method will return the min element out of the array
 def find_min(*array)
+warn("[DEBUG] >>> Entering find_min(array=#{array})")
   min = array[0]
   array.each do |a|
+	warn("[INFO] find_min(array=#{array}): min → #{min}")
     min = a if a <= min
   end
+warn("[ERROR] Exception in find_min(array=#{array}): #{e.message}")
+warn("[DEBUG] <<< Exiting find_min(array=#{array})")
   "The Min of the following elements #{array} is #{min}."
 rescue StandardError
   'Error: Please provide number only!'
@@ -13,6 +17,9 @@ end
 
 # Min method will return the minimum element from the set of input elements provided
 def predefined_min(*array)
+warn("[DEBUG] >>> Entering predefined_min(array=#{array})")
+warn("[ERROR] Exception in predefined_min(array=#{array}): #{e.message}")
+warn("[DEBUG] <<< Exiting predefined_min(array=#{array})")
   "The Min of the following elements #{array} is #{array.min}."
 rescue StandardError
   'Error: Please provide number only!'
@@ -20,6 +27,9 @@ end
 
 # Sort method will sort the elements in ascending order. First method will return the beginning element out of the array
 def predefined_sort_first_min(*array)
+warn("[DEBUG] >>> Entering predefined_sort_first_min(array=#{array})")
+warn("[ERROR] Exception in predefined_sort_first_min(array=#{array}): #{e.message}")
+warn("[DEBUG] <<< Exiting predefined_sort_first_min(array=#{array})")
   "The Min of the following elements #{array} is #{array.min}."
 rescue StandardError
   'Error: Please provide number only!'

@@ -1,8 +1,10 @@
 # Given a number, find number of digits in it.
 
 def count_digits(n)
+warn("[DEBUG] >>> Entering count_digits(n=#{n})")
   count = 0
   temp = n
+warn("[DEBUG] count_digits(n=#{n}): count → #{count}")
 
   return 1 if n == 0
 
@@ -12,6 +14,7 @@ def count_digits(n)
   end
 
   count
+warn("[DEBUG] <<< Exiting count_digits(n=#{n})")
 end
 
 puts 'Number of digits in 8732 is ' + count_digits(8732).to_s

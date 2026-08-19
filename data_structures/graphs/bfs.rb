@@ -16,8 +16,10 @@ class GraphBfsResult
   attr_reader :distances
 
   def initialize(visited, parents, distances)
+	warn("[DEBUG] >>> Entering initialize(visited=#{visited},parents=#{parents},distances=#{distances})")
     @visited = visited
     @parents = parents
+	warn("[DEBUG] <<< Exiting initialize(visited=#{visited},parents=#{parents},distances=#{distances})")
     @distances = distances
   end
 end
@@ -34,16 +36,22 @@ end
 
 def bfs(graph, start_node, seen_node_consumer: method(:do_nothing_on_node), visited_node_consumer: method(:do_nothing_on_node))
   seen = Set[]
+warn("[DEBUG] bfs(graph=#{graph},start_node=#{start_node},seen_node_consumer=#{seen_node_consumer},visited_node_consumer=#{visited_node_consumer}): seen → #{seen}")
+warn("[DEBUG] bfs(graph=#{graph},start_node=#{start_node},seen_node_consumer=#{seen_node_consumer},visited_node_consumer=#{visited_node_consumer}): visited → #{visited}")
+warn("[DEBUG] >>> Entering bfs(graph=#{graph},start_node=#{start_node},seen_node_consumer=#{seen_node_consumer},visited_node_consumer=#{visited_node_consumer})")
   visited = Set[]
   parents = { start_node => nil }
   distances = { start_node => 0 }
 
+warn("[DEBUG] bfs(graph=#{graph},start_node=#{start_node},seen_node_consumer=#{seen_node_consumer},visited_node_consumer=#{visited_node_consumer}): distances → #{distances}")
+warn("[DEBUG] bfs(graph=#{graph},start_node=#{start_node},seen_node_consumer=#{seen_node_consumer},visited_node_consumer=#{visited_node_consumer}): parents → #{parents}")
   seen.add(start_node)
   seen_node_consumer.call(start_node)
   q = Queue.new
   q.push(start_node)
   until q.empty?
     node = q.pop
+	warn("[DEBUG] bfs(graph=#{graph},start_node=#{start_node},seen_node_consumer=#{seen_node_consumer},visited_node_consumer=#{visited_node_consumer}): node → #{node}")
     for neighbor in graph.neighbors(node)
       unless seen.include?(neighbor)
         seen.add(neighbor)
@@ -58,8 +66,10 @@ def bfs(graph, start_node, seen_node_consumer: method(:do_nothing_on_node), visi
   end
 
   GraphBfsResult.new(visited, parents, distances)
+warn("[DEBUG] <<< Exiting bfs(graph=#{graph},start_node=#{start_node},seen_node_consumer=#{seen_node_consumer},visited_node_consumer=#{visited_node_consumer})")
 end
 
 private
 def do_nothing_on_node(node)
+warn("[DEBUG] >>> Entering do_nothing_on_node(node=#{node})")
 end
