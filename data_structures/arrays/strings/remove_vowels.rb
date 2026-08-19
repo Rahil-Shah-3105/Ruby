@@ -21,8 +21,11 @@
 #
 
 def remove_vowels(s)
+warn("[DEBUG] >>> Entering remove_vowels(s=#{s})")
   result_array = []
   s.downcase!
+warn("[DEBUG] remove_vowels(s=#{s}): result_array → #{result_array}")
+warn("[DEBUG] remove_vowels(s=#{s}): start_array → #{start_array}")
   start_array = s.split('')
 
   start_array.each do |letter|
@@ -30,6 +33,7 @@ def remove_vowels(s)
   end
 
   result_array.join('')
+warn("[DEBUG] <<< Exiting remove_vowels(s=#{s})")
 end
 
 s = 'leetcodeisacommunityforcoders'

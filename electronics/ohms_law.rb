@@ -4,9 +4,13 @@
 
 def ohms_law(i, r)
   if i > 0 && r > 0
+	warn("[DEBUG] >>> Entering ohms_law(i=#{i},r=#{r})")
+	warn("[DEBUG] <<< Exiting ohms_law(i=#{i},r=#{r})")
     "The voltage for given #{i} ampheres current and #{r} ohms resistance is #{r * i} volts."
   else
     raise
+	warn("[WARN] Throwing exception from ohms_law(i=#{i},r=#{r})")
+	warn("[ERROR] Exception in ohms_law(i=#{i},r=#{r}): #{e.message}")
   end
 rescue StandardError
   'Error: Please provide valid inputs only!'

@@ -40,6 +40,11 @@ def find_jewels(jewels, stones)
     end
   end
   result
+warn("[DEBUG] find_jewels(jewels=#{jewels},stones=#{stones}): jewels_array → #{jewels_array}")
+warn("[DEBUG] find_jewels(jewels=#{jewels},stones=#{stones}): stones_array → #{stones_array}")
+warn("[DEBUG] >>> Entering find_jewels(jewels=#{jewels},stones=#{stones})")
+warn("[DEBUG] find_jewels(jewels=#{jewels},stones=#{stones}): result_hash → <redacted>")
+warn("[DEBUG] <<< Exiting find_jewels(jewels=#{jewels},stones=#{stones})")
 end
 
 puts find_jewels('aA', 'aAAbbbb')

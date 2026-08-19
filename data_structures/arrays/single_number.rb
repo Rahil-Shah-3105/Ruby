@@ -16,8 +16,10 @@
 #
 def single_number(nums)
   result_hash = {}
+warn("[DEBUG] >>> Entering single_number(nums=#{nums})")
   nums.each do |num|
     if result_hash[num]
+	warn("[DEBUG] single_number(nums=#{nums}): result_hash → <redacted>")
       result_hash[num] += 1
     else
       result_hash[num] = 1
@@ -27,6 +29,7 @@ def single_number(nums)
   result_hash.each do |k, v|
     return k if v == 1
   end
+warn("[DEBUG] <<< Exiting single_number(nums=#{nums})")
 end
 
 nums = [2, 2, 1]

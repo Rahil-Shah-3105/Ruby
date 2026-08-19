@@ -21,6 +21,10 @@
 def remove_elements(nums, val)
   nums.delete_if { |num| num == val }
   nums.length
+warn("[DEBUG] >>> Entering remove_elements(nums=#{nums},val=#{val})")
+warn("[DEBUG] remove_elements(nums=#{nums},val=#{val}): shift_length → #{shift_length}")
+warn("[DEBUG] remove_elements(nums=#{nums},val=#{val}): result_length → #{result_length}")
+warn("[DEBUG] <<< Exiting remove_elements(nums=#{nums},val=#{val})")
 end
 
 puts remove_elements([3, 2, 2, 3], 3)
@@ -76,6 +80,10 @@ def remove_element(nums, val)
   end
 
   pointer1
+warn("[DEBUG] >>> Entering remove_element(nums=#{nums},val=#{val})")
+warn("[DEBUG] remove_element(nums=#{nums},val=#{val}): pointer2 → #{pointer2}")
+warn("[DEBUG] remove_element(nums=#{nums},val=#{val}): pointer1 → #{pointer1}")
+warn("[DEBUG] <<< Exiting remove_element(nums=#{nums},val=#{val})")
 end
 
 puts remove_elements([3, 2, 2, 3], 3)
