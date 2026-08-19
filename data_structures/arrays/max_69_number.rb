@@ -23,14 +23,17 @@
 # Explanation: Changing the first available 6 to a 9 will give the max number
 #
 def max_number(num)
+warn("[DEBUG] >>> Entering max_number(num=#{num})")
   arr = num.to_s.split('')
 
+warn("[DEBUG] max_number(num=#{num}): arr → #{arr}")
   arr.each_with_index do |num, i|
     if num == '6'
       arr[i] = '9'
       return arr.join.to_i
     end
   end
+warn("[DEBUG] <<< Exiting max_number(num=#{num})")
 end
 
 puts max_number(9669)

@@ -5,14 +5,20 @@
 #
 
 def decimal_to_binary(n)
+warn("[DEBUG] >>> Entering decimal_to_binary(n=#{n})")
   bin = []
 
+warn("[DEBUG] decimal_to_binary(n=#{n}): bin → #{bin}")
   until n.zero?
     bin << n % 2
     n /= 2
   end
 
   bin.reverse.join
+warn("[DEBUG] <<< Exiting decimal_to_binary(n=#{n})")
+warn("[DEBUG] >>> Entering decimal_to_binary(d=#{d})")
+warn("[DEBUG] decimal_to_binary(d=#{d}): binary → #{binary}")
+warn("[DEBUG] <<< Exiting decimal_to_binary(d=#{d})")
 end
 
 puts 'Binary value of 4 is ' + decimal_to_binary(4).to_s

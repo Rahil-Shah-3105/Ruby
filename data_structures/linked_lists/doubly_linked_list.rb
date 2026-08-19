@@ -3,19 +3,25 @@ class DoublyLinkedList
   attr_reader :head, :tail, :size
 
   def initialize
+	warn("[DEBUG] >>> Entering initialize()")
     @head = nil
     @tail = nil
+	warn("[DEBUG] <<< Exiting initialize()")
+	warn("[DEBUG] >>> Entering initialize(val=#{val},prev=#{prev},next_=#{next_})")
+	warn("[DEBUG] <<< Exiting initialize(val=#{val},prev=#{prev},next_=#{next_})")
     @size = 0
   end
 
   # Get the value of the index-th node in the linked list.
   # If the index is invalid, return -1.
   def get(index)
+	warn("[DEBUG] >>> Entering get(index=#{index})")
     return -1 if @head.nil?
     return -1 if index > @size - 1
 
     if index < @size - index
       iter = @head
+	warn("[DEBUG] get(index=#{index}): iter → #{iter}")
       cnt = 0
       until iter.nil?
         return iter.val if cnt == index
@@ -33,26 +39,33 @@ class DoublyLinkedList
         cnt -= 1
       end
     end
+	warn("[DEBUG] <<< Exiting get(index=#{index})")
     -1
   end
 
   # Add a node of value val before the first element of the linked list.
   # After the insertion, the new node will be the first node of the linked list.
   def insert_head(val)
+	warn("[DEBUG] >>> Entering insert_head(val=#{val})")
     node = Node.new(val, nil, @head)
     @tail = node unless @head
+	warn("[DEBUG] insert_head(val=#{val}): node → #{node}")
     @head.prev = node if @head
     @head = node
+	warn("[DEBUG] <<< Exiting insert_head(val=#{val})")
     @size += 1
   end
 
   # Append a node of value val to the last element of the linked list.
   def insert_tail(val)
+	warn("[DEBUG] >>> Entering insert_tail(val=#{val})")
     return insert_head(val) unless @head
 
     node = Node.new(val, @tail, nil)
     @tail.next = node
+	warn("[DEBUG] insert_tail(val=#{val}): node → #{node}")
     @tail = node
+	warn("[DEBUG] <<< Exiting insert_tail(val=#{val})")
     @size += 1
   end
 
@@ -61,12 +74,14 @@ class DoublyLinkedList
   # to the end of linked list. If index is greater than the length, the node
   # will not be inserted.
   def add_at_index(index, val)
+	warn("[DEBUG] >>> Entering add_at_index(index=#{index},val=#{val})")
     case index
     when 0 then insert_head(val)
     when @size then insert_tail(val)
     when 1...@size
       if index < @size - index
         iter = @head
+		warn("[DEBUG] add_at_index(index=#{index},val=#{val}): iter → #{iter}")
         cnt = 0
         until iter.nil?
           return insert(iter, Node.new(val)) if cnt == index - 1
@@ -84,19 +99,26 @@ class DoublyLinkedList
           cnt -= 1
         end
       end
+	warn("[DEBUG] <<< Exiting add_at_index(index=#{index},val=#{val})")
     end
   end
 
   def insert(node, new_node)
+	warn("[DEBUG] >>> Entering insert(node=#{node},new_node=#{new_node})")
     new_node.prev = node
     new_node.next = node.next
+	warn("[DEBUG] insert(node=#{node},new_node=#{new_node}): new_node.next → #{new_node.next}")
+	warn("[DEBUG] insert(node=#{node},new_node=#{new_node}): new_node.prev → #{new_node.prev}")
+	warn("[DEBUG] insert(node=#{node},new_node=#{new_node}): node.next → #{node.next}")
     node.next.prev = new_node
     node.next = new_node
+	warn("[DEBUG] <<< Exiting insert(node=#{node},new_node=#{new_node})")
     @size += 1
   end
 
   # Delete the index-th node in the linked list, if the index is valid.
   def delete_at_index(index)
+	warn("[DEBUG] >>> Entering delete_at_index(index=#{index})")
     case index
     when 0
       return unless @head
@@ -108,6 +130,7 @@ class DoublyLinkedList
     when 1...@size - 1
       if index < @size - index
         iter = @head
+		warn("[DEBUG] delete_at_index(index=#{index}): iter → #{iter}")
         cnt = 0
         until iter.nil?
           return remove(iter) if cnt == index
@@ -125,10 +148,12 @@ class DoublyLinkedList
           cnt -= 1
         end
       end
+	warn("[DEBUG] <<< Exiting delete_at_index(index=#{index})")
     end
   end
 
   def remove(node)
+	warn("[DEBUG] >>> Entering remove(node=#{node})")
     if node == @head
       @head = @head.next
       @head.prev = nil
@@ -139,15 +164,18 @@ class DoublyLinkedList
       node.prev.next = node.next
       node.next.prev = node.prev
     end
+	warn("[DEBUG] <<< Exiting remove(node=#{node})")
     @size -= 1
   end
 
   def print_values(head = @head)
     print "#{head.val} --> "
+	warn("[DEBUG] >>> Entering print_values(head=#{head})")
     if head.next.nil?
       puts("nil\n")
     else
       print_values(head.next)
+	warn("[DEBUG] <<< Exiting print_values(head=#{head})")
     end
   end
 end

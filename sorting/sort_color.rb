@@ -25,15 +25,20 @@
 # @param {Integer[]} nums
 # @return {Void} Do not return anything, modify nums in-place instead.
 def sort_colors(nums)
+warn("[DEBUG] >>> Entering sort_colors(nums=#{nums})")
   bubble_sort(nums)
+warn("[DEBUG] <<< Exiting sort_colors(nums=#{nums})")
 end
 
 def bubble_sort(array)
+warn("[DEBUG] >>> Entering bubble_sort(array=#{array})")
   array_length = array.size
+warn("[DEBUG] bubble_sort(array=#{array}): array_length → #{array_length}")
   return array if array_length <= 1
 
   loop do
     swapped = false
+	warn("[DEBUG] bubble_sort(array=#{array}): swapped → #{swapped}")
 
     (array_length - 1).times do |i|
       if array[i] > array[i + 1]
@@ -46,6 +51,7 @@ def bubble_sort(array)
   end
 
   array
+warn("[DEBUG] <<< Exiting bubble_sort(array=#{array})")
 end
 
 nums = [2, 0, 2, 1, 1, 0]

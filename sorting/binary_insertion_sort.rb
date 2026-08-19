@@ -1,9 +1,11 @@
 # Ruby implementation of binary insertion sort algorithm
 
 def binary_search(arr, val, start, stop)
+warn("[DEBUG] >>> Entering binary_search(arr=#{arr},val=#{val},start=#{start},stop=#{stop})")
   while start <= stop
 
     mid = (start + stop) / 2
+	warn("[DEBUG] binary_search(arr=#{arr},val=#{val},start=#{start},stop=#{stop}): mid → #{mid}")
 
     if val == arr[mid] # val is in the middle
       return mid
@@ -15,18 +17,22 @@ def binary_search(arr, val, start, stop)
   end
 
   start
+warn("[DEBUG] <<< Exiting binary_search(arr=#{arr},val=#{val},start=#{start},stop=#{stop})")
 end
 
 def binary_insertion_sort(arr)
+warn("[DEBUG] >>> Entering binary_insertion_sort(arr=#{arr})")
   n = arr.size
 
   (0...n).each do |index|
     j = index - 1
     selected = arr[index]
+	warn("[DEBUG] binary_insertion_sort(arr=#{arr}): selected → #{selected}")
 
     # find location where selected value should be inserted
     location = binary_search(arr, selected, 0, j)
 
+	warn("[DEBUG] binary_insertion_sort(arr=#{arr}): location → #{location}")
     # move all elements after location to make space
     while j >= location
       arr[j + 1] = arr[j]
@@ -36,6 +42,7 @@ def binary_insertion_sort(arr)
   end
 
   arr
+warn("[DEBUG] <<< Exiting binary_insertion_sort(arr=#{arr})")
 end
 
 if $0 == __FILE__

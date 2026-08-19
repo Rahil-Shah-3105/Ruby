@@ -20,11 +20,14 @@ print(sorted_squares([4, -1, -9, 2]))
 #
 
 def bubble_sort(array)
+warn("[DEBUG] >>> Entering bubble_sort(array=#{array})")
   array_length = array.size
+warn("[DEBUG] bubble_sort(array=#{array}): array_length → #{array_length}")
   return array if array_length <= 1
 
   loop do
     swapped = false
+	warn("[DEBUG] bubble_sort(array=#{array}): swapped → #{swapped}")
     (array_length - 1).times do |i|
       if array[i] > array[i + 1]
         array[i], array[i + 1] = array[i + 1], array[i]
@@ -34,6 +37,7 @@ def bubble_sort(array)
     break unless swapped
   end
   array
+warn("[DEBUG] <<< Exiting bubble_sort(array=#{array})")
 end
 
 #
@@ -46,6 +50,11 @@ def sorted_squares(nums)
   nums.map! { |num| num**2 }
   # This can take Ο(n logn)
   bubble_sort(nums)
+warn("[DEBUG] >>> Entering sorted_squares(nums=#{nums})")
+warn("[DEBUG] sorted_squares(nums=#{nums}): max_index → #{max_index}")
+warn("[DEBUG] sorted_squares(nums=#{nums}): output → #{output}")
+warn("[DEBUG] sorted_squares(nums=#{nums}): nums1_square → #{nums1_square}")
+warn("[DEBUG] sorted_squares(nums=#{nums}): nums2_square → #{nums2_square}")
 end
 print(sorted_squares([4, -1, -9, 2]))
 
@@ -85,4 +94,5 @@ def sorted_squares(nums)
   output
 end
 
+warn("[DEBUG] <<< Exiting sorted_squares(nums=#{nums})")
 print(sorted_squares([4, -1, -9, 2]))

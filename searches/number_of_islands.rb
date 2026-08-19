@@ -40,10 +40,12 @@
 # @param {Character[][]} grid
 # @return {Integer}
 def num_islands(grid)
+warn("[DEBUG] >>> Entering num_islands(grid=#{grid})")
   return 0 if grid.empty?
 
   # init num of islands
   islands = 0
+warn("[DEBUG] num_islands(grid=#{grid}): islands → #{islands}")
 
   # loop through each element (plot) in the 2d array
   grid.each_with_index do |row, x|
@@ -59,9 +61,11 @@ def num_islands(grid)
 
   # return ans
   islands
+warn("[DEBUG] <<< Exiting num_islands(grid=#{grid})")
 end
 
 def dfs(grid, x, y)
+warn("[DEBUG] >>> Entering dfs(grid=#{grid},x=#{x},y=#{y})")
   # don't search if out of bounds, or if it's already water
   return if x < 0 || x >= grid.length || y < 0 || y >= grid[0].length || grid[x][y] == '0'
 
@@ -73,4 +77,5 @@ def dfs(grid, x, y)
   dfs(grid, x + 1, y) # down
   dfs(grid, x, y - 1) # left
   dfs(grid, x, y + 1) # right
+warn("[DEBUG] <<< Exiting dfs(grid=#{grid},x=#{x},y=#{y})")
 end

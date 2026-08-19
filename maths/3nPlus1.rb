@@ -7,8 +7,10 @@
 # Wiki: https://en.wikipedia.org/wiki/Collatz_conjecture
 
 def collatz_conjecture(number)
+warn("[DEBUG] >>> Entering collatz_conjecture(number=#{number})")
   n = number
   nums = []
+warn("[DEBUG] collatz_conjecture(number=#{number}): nums → #{nums}")
   nums.push(number)
 
   while number > 1
@@ -21,6 +23,8 @@ def collatz_conjecture(number)
     end
   end
 
+warn("[ERROR] Exception in collatz_conjecture(number=#{number}): #{e.message}")
+warn("[DEBUG] <<< Exiting collatz_conjecture(number=#{number})")
   "The 3N + 1 series of #{n} is #{nums}."
 rescue StandardError
   'Error: Please provide number only!'
