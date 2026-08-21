@@ -7,8 +7,11 @@ class TestBfs < Minitest::Test
     graph = UnweightedGraph.new(nodes: [:u, :v, :w], directed: false)
     graph.add_edge(:u, :v)
 
+	warn("[DEBUG] >>> Entering test_bfs_visits_single_graph_node()")
+	warn("[DEBUG] test_bfs_visits_single_graph_node(): graph → #{graph}")
     bfs_result = bfs(graph, :w)
 
+	warn("[DEBUG] test_bfs_visits_single_graph_node(): bfs_result → #{bfs_result}")
     assert bfs_result.visited.to_set == [:w].to_set
     assert bfs_result.parents == {
         :w => nil
@@ -24,8 +27,11 @@ class TestBfs < Minitest::Test
     graph.add_edge(:u, :w)
     graph.add_edge(:w, :x)
 
+	warn("[DEBUG] >>> Entering test_bfs_visits_graph_fully()")
+	warn("[DEBUG] test_bfs_visits_graph_fully(): graph → #{graph}")
     bfs_result = bfs(graph, :u)
 
+	warn("[DEBUG] test_bfs_visits_graph_fully(): bfs_result → #{bfs_result}")
     assert bfs_result.visited.to_set == [:u, :v, :w, :x].to_set
     assert bfs_result.parents == {
         :u => nil,
@@ -48,8 +54,11 @@ class TestBfs < Minitest::Test
     graph.add_edge(:x, :y)
     graph.add_edge(:y, :z)
 
+	warn("[DEBUG] >>> Entering test_bfs_visits_graph_partially()")
+	warn("[DEBUG] test_bfs_visits_graph_partially(): graph → #{graph}")
     bfs_result = bfs(graph, :x)
 
+	warn("[DEBUG] test_bfs_visits_graph_partially(): bfs_result → #{bfs_result}")
     assert bfs_result.visited.to_set == [:w, :x, :y, :z].to_set
     assert bfs_result.parents == {
         :w => :x,

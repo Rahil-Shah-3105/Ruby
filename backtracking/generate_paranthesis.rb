@@ -36,12 +36,16 @@
 # @param {Integer} n
 # @return {String[]}
 def generate_parenthesis(n)
+warn("[DEBUG] >>> Entering generate_parenthesis(n=#{n})")
   parenthesis = []
   backtrack(parenthesis, '', 0, 0, n)
   parenthesis
+warn("[DEBUG] generate_parenthesis(n=#{n}): parenthesis → #{parenthesis}")
+warn("[DEBUG] <<< Exiting generate_parenthesis(n=#{n})")
 end
 
 def backtrack(parenthesis, curr, open, close, max)
+warn("[DEBUG] >>> Entering backtrack(parenthesis=#{parenthesis},curr=#{curr},open=#{open},close=#{close},max=#{max})")
   if curr.length == max * 2
     parenthesis.push(curr)
     return
@@ -50,6 +54,7 @@ def backtrack(parenthesis, curr, open, close, max)
   backtrack(parenthesis, curr + '(', open + 1, close, max) if open < max
 
   backtrack(parenthesis, curr + ')', open, close + 1, max) if close < open
+warn("[DEBUG] <<< Exiting backtrack(parenthesis=#{parenthesis},curr=#{curr},open=#{open},close=#{close},max=#{max})")
 end
 
 n = 3

@@ -13,20 +13,27 @@
 
 class ArrayQueue
   def initialize(queue = [])
+	warn("[DEBUG] >>> Entering initialize(queue=#{queue})")
+	warn("[DEBUG] <<< Exiting initialize(queue=#{queue})")
     @queue = queue
   end
 
   attr_accessor :queue
 
   def add(item)
+	warn("[DEBUG] >>> Entering add(item=#{item})")
+	warn("[DEBUG] <<< Exiting add(item=#{item})")
     queue.unshift(item)
   end
 
   def pop
+	warn("[DEBUG] >>> Entering pop()")
+	warn("[DEBUG] <<< Exiting pop()")
     queue.pop
   end
 
   def peek
+	warn("[DEBUG] >>> Entering peek()")
     queue[-1]
   end
 end

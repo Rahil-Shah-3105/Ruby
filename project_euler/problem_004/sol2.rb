@@ -5,6 +5,8 @@
 
 class Integer
   def parindrome?
+	warn("[DEBUG] >>> Entering parindrome?()")
+	warn("[DEBUG] <<< Exiting parindrome?()")
     self == reverse
   end
 
@@ -15,8 +17,10 @@ class Integer
     n = self
     loop do
       result = result * 10 + n % 10
+	warn("[DEBUG] >>> Entering reverse()")
       break if (n /= 10).zero?
     end
+	warn("[DEBUG] <<< Exiting reverse()")
     result
   end
 end

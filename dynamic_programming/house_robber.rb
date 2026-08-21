@@ -35,9 +35,13 @@
 # Space Complexity: O(N) which is occupied by the cache and also by the recursion stack
 
 def rob(nums, i = nums.length - 1)
+warn("[DEBUG] >>> Entering rob(nums=#{nums},i=#{i})")
   return 0 if i < 0
 
   [rob(nums, i - 2) + nums[i], rob(nums, i - 1)].max
+warn("[DEBUG] <<< Exiting rob(nums=#{nums},i=#{i})")
+warn("[DEBUG] >>> Entering rob(nums=#{nums})")
+warn("[DEBUG] <<< Exiting rob(nums=#{nums})")
 end
 
 nums = [1, 2, 3, 1]

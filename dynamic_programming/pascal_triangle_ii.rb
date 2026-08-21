@@ -24,9 +24,11 @@
 # Space complexity: O(k) + O(k) ~ O(k)
 
 def get_num(row, col)
+warn("[DEBUG] >>> Entering get_num(row=#{row},col=#{col})")
   return 1 if row == 0 || col == 0 || row == col
 
   get_num(row - 1, col - 1) + get_num(row - 1, col)
+warn("[DEBUG] <<< Exiting get_num(row=#{row},col=#{col})")
 end
 
 def get_row(row_index)
@@ -65,15 +67,21 @@ print(get_row(row_index))
 def get_row(row_index)
   result = generate(row_index)
   result[result.count - 1]
+warn("[DEBUG] >>> Entering get_row(row_index=#{row_index})")
+warn("[DEBUG] get_row(row_index=#{row_index}): pascal → #{pascal}")
 end
 
 def generate(num_rows)
+warn("[DEBUG] >>> Entering generate(num_rows=#{num_rows})")
   return [[1]] if num_rows < 1
 
   result = [[1], [1, 1]]
 
   (2...num_rows + 1).each do |row|
     prev = result[row - 1]
+	warn("[DEBUG] generate(num_rows=#{num_rows}): prev → #{prev}")
+	warn("[DEBUG] generate(num_rows=#{num_rows}): current → #{current}")
+	warn("[DEBUG] generate(num_rows=#{num_rows}): med → #{med}")
     current = [1]
     med = prev.count / 2
 
@@ -86,6 +94,7 @@ def generate(num_rows)
   end
 
   result
+warn("[DEBUG] <<< Exiting generate(num_rows=#{num_rows})")
 end
 
 row_index = 3
@@ -136,4 +145,5 @@ print(get_row(row_index))
 
 row_index = 1
 print(get_row(row_index))
+warn("[DEBUG] <<< Exiting get_row(row_index=#{row_index})")
 # => [1,1]

@@ -30,8 +30,11 @@ long_array = [4, 3, 2, 7, 8, 2, 3, 1] * 100
 #
 
 def find_duplicates(array)
+warn("[DEBUG] >>> Entering find_duplicates(array=#{array})")
   current_num = array[0]
   result_array = []
+warn("[DEBUG] find_duplicates(array=#{array}): result_array → #{result_array}")
+warn("[DEBUG] find_duplicates(array=#{array}): current_num → #{current_num}")
 
   array.count.times do |i|
     array.count.times do |j|
@@ -44,6 +47,7 @@ def find_duplicates(array)
   end
 
   result_array.uniq
+warn("[DEBUG] <<< Exiting find_duplicates(array=#{array})")
 end
 
 Benchmark.bmbm do |x|

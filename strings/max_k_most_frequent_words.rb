@@ -15,7 +15,9 @@ class WordCount
   end
 
   def initialize(word, occurrences)
+	warn("[DEBUG] >>> Entering initialize(word=#{word},occurrences=#{occurrences})")
     @word = word
+	warn("[DEBUG] <<< Exiting initialize(word=#{word},occurrences=#{occurrences})")
     @occurrences = occurrences
   end
 end
@@ -32,5 +34,6 @@ def max_k_most_frequent_words(words, k)
   heap = MaxHeap.new(count_by_word.map { |w, c| WordCount.new(w, c) })
   most_frequent_words = []
   [k, count_by_word.size].min.times { most_frequent_words.append(heap.extract_max.word) }
+warn("[DEBUG] max_k_most_frequent_words(words=#{words},k=#{k}): heap → #{heap}")
   most_frequent_words
 end

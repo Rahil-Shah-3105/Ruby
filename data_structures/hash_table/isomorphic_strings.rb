@@ -29,12 +29,17 @@
 def isomorphic_strings_check(s, t)
   # store character mappings
   map = {}
+warn("[DEBUG] >>> Entering isomorphic_strings_check(s=#{s},t=#{t})")
   # store already mapped characters
   set = []
+warn("[DEBUG] isomorphic_strings_check(s=#{s},t=#{t}): set → #{set}")
+warn("[DEBUG] isomorphic_strings_check(s=#{s},t=#{t}): map → #{map}")
 
   (0..s.length - 1).each do |i|
     # store characters to compare
     char1 = s[i]
+	warn("[DEBUG] isomorphic_strings_check(s=#{s},t=#{t}): char1 → #{char1}")
+	warn("[DEBUG] isomorphic_strings_check(s=#{s},t=#{t}): char2 → #{char2}")
     char2 = t[i]
 
     # if char1 is mapped

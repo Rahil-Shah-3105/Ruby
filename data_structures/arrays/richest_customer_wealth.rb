@@ -36,16 +36,20 @@
 # Time Complexity: O(n)
 #
 def find_richest_customer_wealth(accounts)
+warn("[DEBUG] >>> Entering find_richest_customer_wealth(accounts=#{accounts})")
   summed_accounts = []
   accounts.each do |customer|
     summed = 0
+	warn("[DEBUG] find_richest_customer_wealth(accounts=#{accounts}): summed_accounts → #{summed_accounts}")
     customer.each do |account|
+	warn("[DEBUG] find_richest_customer_wealth(accounts=#{accounts}): summed → #{summed}")
       summed += account
     end
     summed_accounts.push(summed)
   end
 
   summed_accounts.sort.pop
+warn("[DEBUG] <<< Exiting find_richest_customer_wealth(accounts=#{accounts})")
 end
 
 puts find_richest_customer_wealth([[1, 2, 3], [3, 2, 1]])

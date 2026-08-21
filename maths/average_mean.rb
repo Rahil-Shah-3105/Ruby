@@ -5,11 +5,15 @@ module AverageMean
   def self.average_mean(n, *array)
     if n.instance_of? Integer
       if n == array.size
+		warn("[DEBUG] >>> Entering average_mean(n=#{n},array=#{array})")
+		warn("[ERROR] Exception in average_mean(n=#{n},array=#{array}): #{e.message}")
+		warn("[DEBUG] <<< Exiting average_mean(n=#{n},array=#{array})")
         puts "The average mean of the following elements #{array} is #{array.sum / array.size}."
       else
         puts "Provide the required #{n} elements properly!"
       end
     else
+	warn("[WARN] Throwing exception from average_mean(n=#{n},array=#{array})")
       raise
     end
   rescue StandardError

@@ -3,21 +3,28 @@
 
 module AverageMedian
   def self.average_median(n, *array)
+	warn("[DEBUG] >>> Entering average_median(n=#{n},array=#{array})")
     if n.instance_of? Integer
       if n == array.size
         array.sort
         if array.size.even?
           mid_element_1 = array.size / 2
+		warn("[DEBUG] average_median(n=#{n},array=#{array}): mid_element_1 → #{mid_element_1}")
+		warn("[DEBUG] average_median(n=#{n},array=#{array}): mid_element_2 → #{mid_element_2}")
           mid_element_2 = mid_element_1 + 1
           puts "The average median of the following elements #{array} is #{(array[mid_element_1 - 1] + array[mid_element_2 - 1]) / 2}."
         else
           mid_element = (array.size + 1) / 2
+		warn("[DEBUG] average_median(n=#{n},array=#{array}): mid_element → #{mid_element}")
           puts "The average median of the following elements #{array} is #{array[mid_element - 1]}."
         end
       else
         puts "Provide the required #{n} elements properly!"
       end
     else
+	warn("[WARN] Throwing exception from average_median(n=#{n},array=#{array})")
+	warn("[ERROR] Exception in average_median(n=#{n},array=#{array}): #{e.message}")
+	warn("[DEBUG] <<< Exiting average_median(n=#{n},array=#{array})")
       raise
     end
   rescue StandardError

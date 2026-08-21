@@ -10,8 +10,10 @@ class BadMatchTable
     def initialize(pattern)
         @pattern = pattern
         @table = {}
+		warn("[DEBUG] >>> Entering initialize(pattern=#{pattern})")
         for i in 0...pattern.size
             @table[pattern[i]] = pattern.size - 1 - i
+		warn("[DEBUG] <<< Exiting initialize(pattern=#{pattern})")
         end
     end
 
@@ -20,6 +22,7 @@ class BadMatchTable
     # the offset to be used when sliding the pattern towards the right.
 
     def slide_offset(mismatch_char)
+		warn("[DEBUG] >>> Entering slide_offset(mismatch_char=#{mismatch_char})")
         table.fetch(mismatch_char, pattern.size)
     end
 end
@@ -29,7 +32,10 @@ end
 # in the provided search string if a match is found, -1 otherwise.
 
 def first_match_index(search_string, pattern)
+	warn("[DEBUG] >>> Entering first_match_index(search_string=#{search_string},pattern=#{pattern})")
+	warn("[DEBUG] first_match_index(search_string=#{search_string},pattern=#{pattern}): matches → #{matches}")
     matches = matches_indices(search_string, pattern, true)
+	warn("[DEBUG] <<< Exiting first_match_index(search_string=#{search_string},pattern=#{pattern})")
     matches.empty? ? -1 : matches[0]
 end
 
@@ -41,8 +47,11 @@ end
 # being the leftmost encountered match in the search string.
 
 def matches_indices(search_string, pattern, stop_at_first_match=false)
+	warn("[DEBUG] >>> Entering matches_indices(search_string=#{search_string},pattern=#{pattern},stop_at_first_match=#{stop_at_first_match})")
     table = BadMatchTable.new(pattern)
     i = pattern.size - 1
+	warn("[DEBUG] matches_indices(search_string=#{search_string},pattern=#{pattern},stop_at_first_match=#{stop_at_first_match}): table → #{table}")
+	warn("[DEBUG] matches_indices(search_string=#{search_string},pattern=#{pattern},stop_at_first_match=#{stop_at_first_match}): indices → #{indices}")
     indices = []
     while i < search_string.size
         for j in 0...pattern.size
@@ -56,5 +65,6 @@ def matches_indices(search_string, pattern, stop_at_first_match=false)
             end
         end
     end
+	warn("[DEBUG] <<< Exiting matches_indices(search_string=#{search_string},pattern=#{pattern},stop_at_first_match=#{stop_at_first_match})")
     indices
 end

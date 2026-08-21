@@ -6,6 +6,8 @@ class TestBucketSort < Minitest::Test
   include SortTests
 
   def sort(input)
+	warn("[DEBUG] >>> Entering sort(input=#{input})")
+	warn("[DEBUG] <<< Exiting sort(input=#{input})")
     bucket_sort(input)
   end
 end

@@ -10,12 +10,15 @@
 # @param {TreeNode} root
 # @return {Integer[]}
 def preorder_traversal(root)
+warn("[DEBUG] >>> Entering preorder_traversal(root=#{root})")
   ans = []
   def traverse(node, ans)
+	warn("[DEBUG] >>> Entering traverse(node=#{node},ans=#{ans})")
     unless node.nil?
       ans.push(node.val)
       traverse(node.left, ans)
       traverse(node.right, ans)
+	warn("[DEBUG] <<< Exiting traverse(node=#{node},ans=#{ans})")
     end
   end
   traverse(root, ans)

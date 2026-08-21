@@ -29,6 +29,9 @@ def add_digits(num)
   end
 
   add_digits(sum)
+warn("[DEBUG] >>> Entering add_digits(num=#{num})")
+warn("[DEBUG] add_digits(num=#{num}): digits_to_sum → #{digits_to_sum}")
+warn("[DEBUG] <<< Exiting add_digits(num=#{num})")
 end
 
 puts(add_digits(38))

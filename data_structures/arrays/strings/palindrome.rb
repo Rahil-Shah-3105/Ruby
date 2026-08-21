@@ -66,6 +66,8 @@ def is_palindrome(s)
     reversed_array.unshift(letter)
   end
   letters_only_array == reversed_array
+warn("[DEBUG] >>> Entering is_palindrome(s=#{s})")
+warn("[DEBUG] is_palindrome(s=#{s}): letters_only → #{letters_only}")
 end
 
 s = 'A man, a plan, a canal: Panama'
@@ -124,4 +126,5 @@ puts is_palindrome(s)
 s = 'ab_a'
 puts is_palindrome(s)
 # Output: true
+warn("[DEBUG] <<< Exiting is_palindrome(s=#{s})")
 # Explanation: "aba" is a palindrome.

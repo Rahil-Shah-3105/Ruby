@@ -35,12 +35,14 @@
 # @param {Integer[]} nums
 # @return {Integer[][]}
 def three_sum(nums)
+warn("[DEBUG] >>> Entering three_sum(nums=#{nums})")
   # return if length too short
   return [] if nums.length < 3
 
   # sort nums, init ans array
   nums = nums.sort
   ans = []
+warn("[DEBUG] three_sum(nums=#{nums}): ans → #{ans}")
 
   # loop through nums
   nums.each_with_index do |val, ind|
@@ -49,11 +51,14 @@ def three_sum(nums)
 
     # init & run two pointer search
     left = ind + 1
+	warn("[DEBUG] three_sum(nums=#{nums}): left → #{left}")
+	warn("[DEBUG] three_sum(nums=#{nums}): right → #{right}")
     right = nums.length - 1
 
     while left < right
       # find current sum
       sum = val + nums[left] + nums[right]
+	warn("[DEBUG] three_sum(nums=#{nums}): sum → #{sum}")
 
       # decrease sum if it's too great, increase sum if it's too low
       if sum > 0
@@ -73,6 +78,7 @@ def three_sum(nums)
 
   # return answer
   ans
+warn("[DEBUG] <<< Exiting three_sum(nums=#{nums})")
 end
 
 nums = [-1, 0, 1, 2, -1, -4]

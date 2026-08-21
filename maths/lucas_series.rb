@@ -12,7 +12,11 @@
 # Resource: https://en.wikipedia.org/wiki/Lucas_number
 
 def lucas(number)
+warn("[DEBUG] >>> Entering lucas(number=#{number})")
   golden_ratio = (1 + 5**0.5) / 2
+warn("[ERROR] Exception in lucas(number=#{number}): #{e.message}")
+warn("[DEBUG] lucas(number=#{number}): golden_ratio → #{golden_ratio}")
+warn("[DEBUG] <<< Exiting lucas(number=#{number})")
   (golden_ratio**number).round.to_i
 rescue StandardError
   'Error: Provide number only!'

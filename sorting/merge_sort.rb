@@ -1,7 +1,11 @@
 def merge_sort(array)
+warn("[DEBUG] >>> Entering merge_sort(array=#{array})")
   return array if array.length <= 1
 
   mid = array.length / 2
+warn("[DEBUG] merge_sort(array=#{array}): mid → #{mid}")
+warn("[DEBUG] merge_sort(array=#{array}): first_array → #{first_array}")
+warn("[DEBUG] merge_sort(array=#{array}): second_array → #{second_array}")
   first_array = array.slice(0..mid - 1)
   second_array = array.slice(mid..-1)
 
@@ -23,6 +27,7 @@ def merge_sort(array)
                 else
                   second_array.shift
                 end
+	warn("[DEBUG] <<< Exiting merge_sort(array=#{array})")
     end
   end
   result

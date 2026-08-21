@@ -14,6 +14,7 @@
 # is_palindrome(0)    #=> true
 # is_palindrome(-121) #=> false
 def is_palindrome(number)
+warn("[DEBUG] >>> Entering is_palindrome(number=#{number})")
   # Negative numbers are not considered palindromes
   return false if number < 0
 
@@ -21,12 +22,15 @@ def is_palindrome(number)
   # return true if number < 10 # This line is optional but efficient
 
   original_number = number
+warn("[DEBUG] is_palindrome(number=#{number}): original_number → #{original_number}")
+warn("[DEBUG] is_palindrome(number=#{number}): reversed_number → #{reversed_number}")
   reversed_number = 0
 
   # Loop while the number is greater than 0
   while number > 0
     # Get the last digit
     remainder = number % 10
+	warn("[DEBUG] is_palindrome(number=#{number}): remainder → #{remainder}")
 
     # Build the reversed number
     reversed_number = (reversed_number * 10) + remainder
@@ -37,6 +41,7 @@ def is_palindrome(number)
 
   # Return true if the original and reversed numbers are the same
   original_number == reversed_number
+warn("[DEBUG] <<< Exiting is_palindrome(number=#{number})")
 end
 
 # --- Examples ---
