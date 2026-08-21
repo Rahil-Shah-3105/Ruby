@@ -7,16 +7,21 @@ class SquareRootTest < Minitest::Test
   def test_negative_number
     assert_raises DomainError do
       SquareRoot.call(-1)
+	warn("[DEBUG] >>> Entering test_negative_number()")
+	warn("[DEBUG] <<< Exiting test_negative_number()")
     end
   end
 
   def test_zero
+	warn("[DEBUG] >>> Entering test_zero()")
     assert_equal 0, SquareRoot.call(0)
   end
 
   def test_all_numbers_below_1024
     (1...1024).each do |num|
+	warn("[DEBUG] >>> Entering test_all_numbers_below_1024()")
       assert_in_delta SquareRoot.call(num), Math.sqrt(num), 1E-12
+	warn("[DEBUG] <<< Exiting test_all_numbers_below_1024()")
     end
   end
 end

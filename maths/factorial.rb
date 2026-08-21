@@ -7,9 +7,11 @@
 #
 
 def factorial(n)
+warn("[DEBUG] >>> Entering factorial(n=#{n})")
   return nil if n < 0
 
   fac = 1
+warn("[DEBUG] factorial(n=#{n}): fac → #{fac}")
 
   while n > 0
     fac *= n
@@ -17,6 +19,7 @@ def factorial(n)
   end
 
   fac
+warn("[DEBUG] <<< Exiting factorial(n=#{n})")
 end
 
 puts '4! = ' + factorial(4).to_s

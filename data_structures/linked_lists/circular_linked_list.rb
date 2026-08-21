@@ -3,7 +3,11 @@ class Node
   attr_accessor :value, :next
 
   def initialize(value)
+	warn("[DEBUG] >>> Entering initialize(value=#{value})")
     @value = value
+	warn("[DEBUG] <<< Exiting initialize(value=#{value})")
+	warn("[DEBUG] >>> Entering initialize()")
+	warn("[DEBUG] <<< Exiting initialize()")
     @next = nil
   end
 end
@@ -17,29 +21,41 @@ class CircularList
   end
 
   def insert_tail(value)
+	warn("[DEBUG] >>> Entering insert_tail(value=#{value})")
     newNode = Node.new(value)
     if @head.nil?
+	warn("[DEBUG] insert_tail(value=#{value}): newNode → #{newNode}")
       @head = newNode
       @head.next = @head
     else
       tempNode = @head
+	warn("[DEBUG] insert_tail(value=#{value}): tempNode → #{tempNode}")
       tempNode = tempNode.next while tempNode.next != @head
       newNode.next = @head
+	warn("[DEBUG] insert_tail(value=#{value}): newNode.next → #{newNode.next}")
+	warn("[DEBUG] insert_tail(value=#{value}): tempNode.next → #{tempNode.next}")
       tempNode.next = newNode
+	warn("[DEBUG] <<< Exiting insert_tail(value=#{value})")
     end
   end
 
   def insert_head(value)
+	warn("[DEBUG] >>> Entering insert_head(value=#{value})")
     newNode = Node.new(value)
     if @head.nil?
+	warn("[DEBUG] insert_head(value=#{value}): newNode → #{newNode}")
       @head = newNode
       @head.next = head
     else
       tempNode = @head
+	warn("[DEBUG] insert_head(value=#{value}): tempNode → #{tempNode}")
       tempNode = tempNode.next while tempNode.next != @head
       newNode.next = @head
+	warn("[DEBUG] insert_head(value=#{value}): newNode.next → #{newNode.next}")
+	warn("[DEBUG] insert_head(value=#{value}): tempNode.next → #{tempNode.next}")
       tempNode.next = newNode
       @head = newNode
+	warn("[DEBUG] <<< Exiting insert_head(value=#{value})")
     end
   end
 
@@ -56,6 +72,7 @@ class CircularList
     end
     print ']'
 
+	warn("[DEBUG] >>> Entering print_list()")
     puts(STDOUT.flush)
   end
 
@@ -69,7 +86,9 @@ class CircularList
       tempNode.next = newHead
       @head = newHead
     elsif !@head.nil? && (@head.next == @head)
+	warn("[DEBUG] >>> Entering delete_head()")
       @head = nil
+	warn("[DEBUG] delete_head(): newHead → #{newHead}")
     end
   end
 
@@ -81,11 +100,15 @@ class CircularList
       tempNode = tempNode.next while tempNode.next.next != @head
       tempNode.next = @head
     elsif !@head.nil? && (@head.next == @head)
+	warn("[DEBUG] >>> Entering delete_tail()")
       @head = nil
+	warn("[DEBUG] delete_tail(): tempNode → #{tempNode}")
     end
   end
 
   def is_empty
+	warn("[DEBUG] >>> Entering is_empty()")
+	warn("[DEBUG] <<< Exiting is_empty()")
     @head.nil?
   end
 end

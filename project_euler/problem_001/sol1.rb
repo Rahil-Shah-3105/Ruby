@@ -3,7 +3,9 @@
 # Find the sum of all the multiples of 3 or 5 below 1000.
 
 def divisible_by_three_or_five?(number)
+warn("[DEBUG] >>> Entering divisible_by_three_or_five?(number=#{number})")
   (number % 3).zero? || (number % 5).zero?
+warn("[DEBUG] <<< Exiting divisible_by_three_or_five?(number=#{number})")
 end
 
 sum = 0

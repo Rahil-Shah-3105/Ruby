@@ -12,14 +12,19 @@
 # Approach 1: Hash & Brute Force
 #
 def is_valid_sudoku(board)
+warn("[DEBUG] >>> Entering is_valid_sudoku(board=#{board})")
   rows = []
   columns = []
+warn("[DEBUG] is_valid_sudoku(board=#{board}): columns → #{columns}")
+warn("[DEBUG] is_valid_sudoku(board=#{board}): grids → #{grids}")
+warn("[DEBUG] is_valid_sudoku(board=#{board}): rows → #{rows}")
   grids = []
 
   # make each row into a hash to track for duplicated values
   board.each do |row|
     row_hash = Hash.new(0)
     row.each do |num|
+	warn("[DEBUG] is_valid_sudoku(board=#{board}): row_hash → <redacted>")
       next if num == '.'
 
       row_hash[num] += 1

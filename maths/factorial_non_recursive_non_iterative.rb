@@ -10,6 +10,9 @@ def factorial(number)
   if number < 0
     'Please check your input number! The given number is a negative number.'
   elsif number == 0
+	warn("[DEBUG] >>> Entering factorial(number=#{number})")
+	warn("[ERROR] Exception in factorial(number=#{number}): #{e.message}")
+	warn("[DEBUG] <<< Exiting factorial(number=#{number})")
     "The factorial of #{number} is 1."
   else
     result = (1..number).inject(:*)

@@ -3,7 +3,12 @@
 
 def abs_max(x, y)
   num = x - y
+warn("[DEBUG] abs_max(x=#{x},y=#{y}): num → #{num}")
+warn("[DEBUG] abs_max(x=#{x},y=#{y}): max_value → #{max_value}")
+warn("[DEBUG] >>> Entering abs_max(x=#{x},y=#{y})")
   max_value = ((x + y + num.abs) / 2)
+warn("[ERROR] Exception in abs_max(x=#{x},y=#{y}): #{e.message}")
+warn("[DEBUG] <<< Exiting abs_max(x=#{x},y=#{y})")
   "The Abs Max of #{x} and #{y} is #{max_value}."
 rescue StandardError
   'Error: Provide number only!'

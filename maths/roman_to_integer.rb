@@ -56,8 +56,10 @@ ROM_NUMS = {
 # go forward 2 places.
 
 def roman_to_int(s)
+warn("[DEBUG] >>> Entering roman_to_int(s=#{s})")
   res = 0
   temp = 0
+warn("[DEBUG] roman_to_int(s=#{s}): res → #{res}")
 
   s.chars.each_with_index do |el, i|
     # subtractive case: if at least 2 symbols remaining AND value of s[i] < value of s[i + 1]
@@ -71,6 +73,7 @@ def roman_to_int(s)
   end
 
   res
+warn("[DEBUG] <<< Exiting roman_to_int(s=#{s})")
 end
 
 s = 'III'

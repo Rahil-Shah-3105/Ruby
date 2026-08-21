@@ -31,8 +31,11 @@ long_array = [4, 3, 2, 7, 8, 2, 3, 1] * 100
 
 def find_duplicates(array)
   result_hash = {}
+warn("[DEBUG] >>> Entering find_duplicates(array=#{array})")
   result_array = []
 
+warn("[DEBUG] find_duplicates(array=#{array}): result_array → #{result_array}")
+warn("[DEBUG] find_duplicates(array=#{array}): result_hash → <redacted>")
   # loop through array and build a hash with counters
   # where the key is the array element and the counter is the value
   # increase counter when duplicate is found
@@ -51,6 +54,7 @@ def find_duplicates(array)
 
   # return keys
   result_array
+warn("[DEBUG] <<< Exiting find_duplicates(array=#{array})")
 end
 
 Benchmark.bmbm do |x|

@@ -25,7 +25,10 @@
 # to store the golden ratio formula.
 
 def fibonacci(n)
+warn("[DEBUG] >>> Entering fibonacci(n=#{n})")
+warn("[DEBUG] fibonacci(n=#{n}): golden_ratio → #{golden_ratio}")
   golden_ratio = (1 + 5**0.5) / 2
+warn("[DEBUG] <<< Exiting fibonacci(n=#{n})")
   ((golden_ratio**n + 1) / 5**0.5).to_i
 end
 

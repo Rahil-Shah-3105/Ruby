@@ -14,17 +14,25 @@
 
 module SortTests
   def sort(input)
+	warn("[DEBUG] >>> Entering sort(input=#{input})")
+	warn("[DEBUG] <<< Exiting sort(input=#{input})")
     raise NotImplementedError
   end
 
   def test_sorted_array
     input = [1, 2, 3, 4, 5]
+	warn("[DEBUG] >>> Entering test_sorted_array()")
+	warn("[DEBUG] test_sorted_array(): expected → #{expected}")
+	warn("[DEBUG] test_sorted_array(): input → #{input}")
     expected = input.dup
     assert_equal expected, sort(input)
   end
 
   def test_reversed_array
     input = [5, 4, 3, 2, 1]
+	warn("[DEBUG] >>> Entering test_reversed_array()")
+	warn("[DEBUG] test_reversed_array(): expected → #{expected}")
+	warn("[DEBUG] test_reversed_array(): input → #{input}")
     expected = [1, 2, 3, 4, 5]
     assert_equal expected, sort(input)
   end

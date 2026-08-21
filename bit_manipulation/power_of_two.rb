@@ -46,9 +46,11 @@
 # Space complexity: O(1).
 
 def is_power_of_two(n)
+warn("[DEBUG] >>> Entering is_power_of_two(n=#{n})")
   return false if n < 1
 
   n & (n - 1) == 0
+warn("[DEBUG] <<< Exiting is_power_of_two(n=#{n})")
 end
 
 n = 1

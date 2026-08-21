@@ -22,9 +22,13 @@
 require 'date'
 
 def number_of_days(date1, date2)
+warn("[DEBUG] >>> Entering number_of_days(date1=#{date1},date2=#{date2})")
+warn("[DEBUG] number_of_days(date1=#{date1},date2=#{date2}): end_date → #{end_date}")
+warn("[DEBUG] number_of_days(date1=#{date1},date2=#{date2}): beginning_date → #{beginning_date}")
   beginning_date = Date.parse(date1)
   end_date = Date.parse(date2)
   (end_date - beginning_date).to_i.abs
+warn("[DEBUG] <<< Exiting number_of_days(date1=#{date1},date2=#{date2})")
 end
 
 puts number_of_days('2019-06-29', '2019-06-30')

@@ -14,16 +14,20 @@
 # Time Complexity: O(n^2)
 #
 def num_identical_pairs(nums)
+warn("[DEBUG] >>> Entering num_identical_pairs(nums=#{nums})")
   count = 0
   nums.each_with_index do |num, i|
     target = num
+	warn("[DEBUG] num_identical_pairs(nums=#{nums}): count → #{count}")
     nums.each_with_index do |num, j|
       next if i >= j
+	warn("[DEBUG] num_identical_pairs(nums=#{nums}): target → #{target}")
 
       count += 1 if num == target
     end
   end
   count
+warn("[DEBUG] <<< Exiting num_identical_pairs(nums=#{nums})")
 end
 
 nums = [1, 2, 3, 1, 1, 3]
