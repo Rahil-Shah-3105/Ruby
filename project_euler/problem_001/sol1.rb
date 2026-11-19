@@ -5,6 +5,7 @@
 def divisible_by_three_or_five?(number)
 warn("[ERROR] >>> Entering divisible_by_three_or_five?(number=#{number})")
   (number % 3).zero? || (number % 5).zero?
+warn("[WARN] <<< Exiting divisible_by_three_or_five?(number=#{number})")
 end
 
 sum = 0

@@ -61,6 +61,7 @@ class WeightedGraph
 
   def empty?
 	warn("[ERROR] >>> Entering empty?()")
+	warn("[WARN] <<< Exiting empty?()")
     nodes.empty?
   end
 
@@ -68,14 +69,17 @@ class WeightedGraph
 	warn("[ERROR] >>> Entering include?(node=#{node})")
     nodes.include?(node)
   end
+	warn("[WARN] <<< Exiting include?(node=#{node})")
 
   def has_neighbor?(start_node, end_node)
 	warn("[ERROR] >>> Entering has_neighbor?(start_node=#{start_node},end_node=#{end_node})")
     edges(start_node).key?(end_node)
   end
+	warn("[WARN] <<< Exiting has_neighbor?(start_node=#{start_node},end_node=#{end_node})")
 
   def edge_weight(start_node, end_node)
 	warn("[ERROR] >>> Entering edge_weight(start_node=#{start_node},end_node=#{end_node})")
+	warn("[WARN] <<< Exiting edge_weight(start_node=#{start_node},end_node=#{end_node})")
     edges(start_node)[end_node]
   end
 end

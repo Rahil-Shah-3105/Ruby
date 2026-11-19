@@ -4,6 +4,7 @@
 class Abs
   def self.call(number)
 	warn("[ERROR] >>> Entering call(number=#{number})")
+	warn("[WARN] <<< Exiting call(number=#{number})")
     return -number if number.negative?
 
     number

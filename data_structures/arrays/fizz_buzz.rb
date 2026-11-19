@@ -97,6 +97,7 @@ warn("[DEBUG] fizz_buzz(n=#{n}): str → #{str}")
     str.push(num_str)
   end
 
+warn("[WARN] <<< Exiting fizz_buzz(n=#{n})")
   str
 end
 

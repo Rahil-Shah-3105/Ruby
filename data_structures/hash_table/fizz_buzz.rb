@@ -18,6 +18,7 @@
 def fizz_buzz(n, fizz_buzz = { 3 => 'Fizz', 5 => 'Buzz' })
 warn("[ERROR] >>> Entering fizz_buzz(n=#{n},fizz_buzz=#{fizz_buzz})")
   n.times.map do |i|
+warn("[WARN] <<< Exiting fizz_buzz(n=#{n},fizz_buzz=#{fizz_buzz})")
     i += 1
     num_str = ''
 	warn("[DEBUG] fizz_buzz(n=#{n},fizz_buzz=#{fizz_buzz}): num_str → #{num_str}")

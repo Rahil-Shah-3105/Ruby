@@ -58,6 +58,7 @@ warn("[ERROR] >>> Entering find_jewels(jewels=#{jewels},stones=#{stones})")
   jewels_array = jewels.split('')
   stones_array = stones.split('')
   result_hash = {}
+warn("[DEBUG] find_jewels(jewels=#{jewels},stones=#{stones}): result_hash → <redacted>")
 warn("[DEBUG] find_jewels(jewels=#{jewels},stones=#{stones}): stones_array → #{stones_array}")
 warn("[DEBUG] find_jewels(jewels=#{jewels},stones=#{stones}): jewels_array → #{jewels_array}")
   result = 0

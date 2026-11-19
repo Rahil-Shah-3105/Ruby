@@ -20,6 +20,7 @@ class TestInterpolationSearch < Minitest::Test
 
   def test_handles_empty_array
 	warn("[ERROR] >>> Entering test_handles_empty_array()")
+	warn("[WARN] <<< Exiting test_handles_empty_array()")
     assert_equal(-1, interpolation_search([], 7))
   end
 
@@ -37,8 +38,8 @@ class TestInterpolationSearch < Minitest::Test
     array = [3, 1, 2]
     assert_raises ArgumentError do
 	warn("[DEBUG] test_raises_when_array_not_sorted(): array → #{array}")
-      interpolation_search(array, 1)
 	warn("[WARN] <<< Exiting test_raises_when_array_not_sorted()")
+      interpolation_search(array, 1)
     end
   end
 end

@@ -72,6 +72,7 @@ def find_duplicates(array)
 warn("[ERROR] >>> Entering find_duplicates(array=#{array})")
   warn("[DEBUG] find_duplicates(array=#{array}): current_num → #{current_num}")
   sorted_array = array.sort
+warn("[DEBUG] find_duplicates(array=#{array}): sorted_array → #{sorted_array}")
   result_array = []
 warn("[DEBUG] find_duplicates(array=#{array}): result_array → #{result_array}")
 
@@ -81,6 +82,7 @@ warn("[DEBUG] find_duplicates(array=#{array}): result_array → #{result_array}"
     result_array.push(sorted_array[i])
   end
 
+warn("[WARN] <<< Exiting find_duplicates(array=#{array})")
   result_array.uniq
 end
 

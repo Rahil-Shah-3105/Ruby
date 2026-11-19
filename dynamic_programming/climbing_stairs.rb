@@ -51,6 +51,7 @@ end
 
 def recurse(n, memo)
 warn("[ERROR] >>> Entering recurse(n=#{n},memo=#{memo})")
+warn("[WARN] <<< Exiting recurse(n=#{n},memo=#{memo})")
   return memo[n] if memo[n]
 
   memo[n] = recurse(n - 1, memo) + recurse(n - 2, memo)

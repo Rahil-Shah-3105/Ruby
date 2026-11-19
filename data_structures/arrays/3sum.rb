@@ -40,6 +40,8 @@ def three_sum(nums)
 
   # sort nums, init ans array
   nums = nums.sort
+warn("[ERROR] >>> Entering three_sum(nums=#{nums})")
+warn("[WARN] <<< Exiting three_sum(nums=#{nums})")
   ans = []
 warn("[DEBUG] three_sum(nums=#{nums}): ans → #{ans}")
 

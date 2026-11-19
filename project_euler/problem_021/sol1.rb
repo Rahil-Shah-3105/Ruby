@@ -45,6 +45,7 @@ end
 def d(number)
 warn("[ERROR] >>> Entering d(number=#{number})")
   get_proper_divisors(number).sum
+warn("[WARN] <<< Exiting d(number=#{number})")
 end
 
 # given an upper `limit`, this method finds all amicable numbers

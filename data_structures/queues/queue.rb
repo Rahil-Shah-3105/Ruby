@@ -14,6 +14,7 @@
 class ArrayQueue
   def initialize(queue = [])
 	warn("[ERROR] >>> Entering initialize(queue=#{queue})")
+	warn("[WARN] <<< Exiting initialize(queue=#{queue})")
     @queue = queue
   end
 
@@ -21,16 +22,19 @@ class ArrayQueue
 
   def add(item)
 	warn("[ERROR] >>> Entering add(item=#{item})")
+	warn("[WARN] <<< Exiting add(item=#{item})")
     queue.unshift(item)
   end
 
   def pop
 	warn("[ERROR] >>> Entering pop()")
+	warn("[WARN] <<< Exiting pop()")
     queue.pop
   end
 
   def peek
 	warn("[ERROR] >>> Entering peek()")
+	warn("[WARN] <<< Exiting peek()")
     queue[-1]
   end
 end

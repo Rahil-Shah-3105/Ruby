@@ -13,6 +13,7 @@ end
 class DisjointSets
   def make_set(d)
 	warn("[ERROR] >>> Entering make_set(d=#{d})")
+	warn("[WARN] <<< Exiting make_set(d=#{d})")
     Node.new(d)
   end
 
@@ -33,11 +34,11 @@ class DisjointSets
     return if px == py
 
     if px.rank > py.rank
-      py.parent = px
 	warn("[DEBUG] union_set(x=#{x},y=#{y}): py.parent → #{py.parent}")
+      py.parent = px
     elsif py.rank > px.rank
-      px.parent = py
 	warn("[DEBUG] union_set(x=#{x},y=#{y}): px.parent → #{px.parent}")
+      px.parent = py
     else
       px.parent = py
       py.rank += 1

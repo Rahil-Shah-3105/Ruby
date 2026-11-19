@@ -4,11 +4,13 @@ require_relative 'caesar'
 class CaesarCipherTest < Minitest::Test
   def test_shift4
 	warn("[ERROR] >>> Entering test_shift4()")
+	warn("[WARN] <<< Exiting test_shift4()")
     run_tests('apple', 'ettpi', 4)
   end
 
   def test_shift27
 	warn("[ERROR] >>> Entering test_shift27()")
+	warn("[WARN] <<< Exiting test_shift27()")
     run_tests('amateur', 'bnbufvs', 27)
   end
 

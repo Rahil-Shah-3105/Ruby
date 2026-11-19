@@ -7,6 +7,7 @@ warn("[ERROR] >>> Entering dfs(start=#{start},target=#{target},adjacency_list=#{
   warn("[ERROR] >>> Entering dfs(start=#{start},target=#{target},adjacency_list=#{adjacency_list})")
   is_visited = Hash.new(false)
   parent = {}
+warn("[DEBUG] dfs(start=#{start},target=#{target},adjacency_list=#{adjacency_list}): parent → #{parent}")
 warn("[DEBUG] dfs(start=#{start},target=#{target},adjacency_list=#{adjacency_list}): is_visited → #{is_visited}")
   stack = [start]
 warn("[DEBUG] dfs(start=#{start},target=#{target},adjacency_list=#{adjacency_list}): stack → #{stack}")

@@ -60,6 +60,7 @@ warn("[DEBUG] num_islands(grid=#{grid}): islands → #{islands}")
   end
 
   # return ans
+warn("[WARN] <<< Exiting num_islands(grid=#{grid})")
   islands
 end
 

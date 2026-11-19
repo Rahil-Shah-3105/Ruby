@@ -26,32 +26,38 @@ class Stack
 
   def pop
 	warn("[ERROR] >>> Entering pop()")
+	warn("[WARN] <<< Exiting pop()")
     stack.pop
   end
 
   def peek
 	warn("[ERROR] >>> Entering peek()")
+	warn("[WARN] <<< Exiting peek()")
     stack.last
   end
 
   def empty?
 	warn("[ERROR] >>> Entering empty?()")
+	warn("[WARN] <<< Exiting empty?()")
     stack.count.zero?
   end
 
   def full?
 	warn("[ERROR] >>> Entering full?()")
+	warn("[WARN] <<< Exiting full?()")
     stack.count == limit
   end
 
   def size
 	warn("[ERROR] >>> Entering size()")
+	warn("[WARN] <<< Exiting size()")
     stack.count
   end
 
   def contains?(item)
 	warn("[ERROR] >>> Entering contains?(item=#{item})")
     stack.include?(item)
+	warn("[WARN] <<< Exiting contains?(item=#{item})")
   end
 end
 

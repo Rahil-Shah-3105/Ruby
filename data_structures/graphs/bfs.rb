@@ -72,4 +72,5 @@ end
 private
 def do_nothing_on_node(node)
 warn("[ERROR] >>> Entering do_nothing_on_node(node=#{node})")
+warn("[WARN] <<< Exiting do_nothing_on_node(node=#{node})")
 end

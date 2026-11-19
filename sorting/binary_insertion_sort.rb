@@ -10,6 +10,7 @@ def binary_search(arr, val, start, stop)
     elsif val > arr[mid] # val is on the right side
       start = mid + 1
     else
+	warn("[DEBUG] binary_search(arr=#{arr},val=#{val},start=#{start},stop=#{stop}): mid → #{mid}")
       stop = mid - 1 # val is on the left side
     end
   end

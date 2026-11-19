@@ -74,6 +74,7 @@ class Trie
   def find(character, trie)
 	warn("[ERROR] >>> Entering find(character=#{character},trie=#{trie})")
     trie.find do |n|
+	warn("[WARN] <<< Exiting find(character=#{character},trie=#{trie})")
       n.value == character
     end
   end

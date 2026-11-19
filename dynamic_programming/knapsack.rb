@@ -28,6 +28,7 @@ def knapSack(weight, wt, val, n)
         end
     end
     
+	warn("[WARN] <<< Exiting knapSack(weight=#{weight},wt=#{wt},val=#{val},n=#{n})")
     return dp[n][weight]
 end
     

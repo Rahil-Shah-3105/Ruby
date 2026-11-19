@@ -6,16 +6,19 @@ require_relative './abs'
 class AbsTest < Minitest::Test
   def test_positive_number
 	warn("[ERROR] >>> Entering test_positive_number()")
+	warn("[WARN] <<< Exiting test_positive_number()")
     assert_equal Abs.call(4), 4
   end
 
   def test_zero
 	warn("[ERROR] >>> Entering test_zero()")
+	warn("[WARN] <<< Exiting test_zero()")
     assert_equal Abs.call(0), 0
   end
 
   def test_negative_number
 	warn("[ERROR] >>> Entering test_negative_number()")
+	warn("[WARN] <<< Exiting test_negative_number()")
     assert_equal Abs.call(-9), 9
   end
 end

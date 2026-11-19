@@ -28,6 +28,7 @@ def sort_colors(nums)
 warn("[ERROR] >>> Entering sort_colors(nums=#{nums})")
   bubble_sort(nums)
 end
+warn("[WARN] <<< Exiting sort_colors(nums=#{nums})")
 
 def bubble_sort(array)
 warn("[ERROR] >>> Entering bubble_sort(array=#{array})")

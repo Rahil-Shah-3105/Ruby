@@ -12,6 +12,7 @@ def factorial(number)
 warn("[ERROR] >>> Entering factorial(number=#{number})")
   number.downto(1).reduce(:*)
 end
+warn("[WARN] <<< Exiting factorial(number=#{number})")
 
 # fetch digits of factorial of `number` and find
 # sum of all those digits, and prints the result on the console

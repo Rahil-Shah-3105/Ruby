@@ -34,6 +34,7 @@ warn("[ERROR] >>> Entering find_max_form(strs=#{strs},m=#{m},n=#{n})")
     zeros = str.count('0')
     ones = str.count('1')
 
+	warn("[DEBUG] find_max_form(strs=#{strs},m=#{m},n=#{n}): ones → #{ones}")
 	warn("[DEBUG] find_max_form(strs=#{strs},m=#{m},n=#{n}): zeros → #{zeros}")
     m.downto(zeros) do |i|
       n.downto(ones) do |j|

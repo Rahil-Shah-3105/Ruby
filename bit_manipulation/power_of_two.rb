@@ -47,6 +47,7 @@
 
 def is_power_of_two(n)
 warn("[ERROR] >>> Entering is_power_of_two(n=#{n})")
+warn("[WARN] <<< Exiting is_power_of_two(n=#{n})")
   return false if n < 1
 
   n & (n - 1) == 0

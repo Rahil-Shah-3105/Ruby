@@ -41,6 +41,7 @@ end
 def add_to_hash(arr, hash)
 warn("[ERROR] >>> Entering add_to_hash(arr=#{arr},hash=<redacted>)")
   arr.count.times do |pointer|
+warn("[WARN] <<< Exiting add_to_hash(arr=#{arr},hash=<redacted>)")
     value = arr[pointer]
 	warn("[DEBUG] add_to_hash(arr=#{arr},hash=<redacted>): value → <redacted>")
     hash[value] += 1

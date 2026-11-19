@@ -16,6 +16,7 @@ warn("[ERROR] >>> Entering postorder_traversal(root=#{root})")
   def traverse(node, ans)
 	warn("[ERROR] >>> Entering traverse(node=#{node},ans=#{ans})")
     unless node.nil?
+	warn("[WARN] <<< Exiting traverse(node=#{node},ans=#{ans})")
       traverse(node.left, ans)
       traverse(node.right, ans)
       ans.push(node.val)
@@ -23,4 +24,5 @@ warn("[ERROR] >>> Entering postorder_traversal(root=#{root})")
   end
   traverse(root, ans)
   ans
+warn("[WARN] <<< Exiting postorder_traversal(root=#{root})")
 end

@@ -17,6 +17,7 @@ warn("[DEBUG] bubble_sort(array=#{array}): sorted → #{sorted}")
     end
     unsorted_until_index -= 1
   end
+warn("[WARN] <<< Exiting bubble_sort(array=#{array})")
   return array
 end
 

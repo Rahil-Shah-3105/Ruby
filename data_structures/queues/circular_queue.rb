@@ -31,11 +31,13 @@ class CircularQueue
 
   def empty?
 	warn("[ERROR] >>> Entering empty?()")
+	warn("[WARN] <<< Exiting empty?()")
     size == 0
   end
 
   def peek
 	warn("[ERROR] >>> Entering peek()")
+	warn("[WARN] <<< Exiting peek()")
     return nil if empty?
 
     queue[front]
