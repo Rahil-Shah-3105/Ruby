@@ -8,39 +8,49 @@ class StackOverflowError < StandardError; end
 
 class Stack
   def initialize(limit, stack = [])
+	warn("[ERROR] >>> Entering initialize(limit=#{limit},stack=#{stack})")
     @stack = stack
+	warn("[WARN] <<< Exiting initialize(limit=#{limit},stack=#{stack})")
     @limit = limit
   end
 
   attr_accessor :stack, :limit
 
   def push(item)
+	warn("[ERROR] >>> Entering push(item=#{item})")
+	warn("[WARN] <<< Exiting push(item=#{item})")
     raise StackOverflowError unless stack.count < limit
 
     stack << item
   end
 
   def pop
+	warn("[ERROR] >>> Entering pop()")
     stack.pop
   end
 
   def peek
+	warn("[ERROR] >>> Entering peek()")
     stack.last
   end
 
   def empty?
+	warn("[ERROR] >>> Entering empty?()")
     stack.count.zero?
   end
 
   def full?
+	warn("[ERROR] >>> Entering full?()")
     stack.count == limit
   end
 
   def size
+	warn("[ERROR] >>> Entering size()")
     stack.count
   end
 
   def contains?(item)
+	warn("[ERROR] >>> Entering contains?(item=#{item})")
     stack.include?(item)
   end
 end

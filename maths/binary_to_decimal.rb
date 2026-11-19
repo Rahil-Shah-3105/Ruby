@@ -10,7 +10,11 @@ def binary_to_decimal(n)
   until n.zero?
     x = n % 10
     n /= 10
+	warn("[ERROR] >>> Entering binary_to_decimal(n=#{n})")
+    warn("[DEBUG] binary_to_decimal(n=#{n}): decimal → #{decimal}")
+    warn("[DEBUG] binary_to_decimal(n=#{n}): base → #{base}")
     decimal += x * base
+	warn("[WARN] <<< Exiting binary_to_decimal(n=#{n})")
     base *= 2
   end
   decimal

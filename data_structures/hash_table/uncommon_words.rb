@@ -24,9 +24,12 @@
 # Time Complexitiy: O(n)
 
 def find_uncommon_words(strA, strB)
+warn("[ERROR] >>> Entering find_uncommon_words(strA=#{strA},strB=#{strB})")
   array = strA.concat(' ', strB).split(' ')
   hash = Hash.new(0)
   result = []
+warn("[DEBUG] find_uncommon_words(strA=#{strA},strB=#{strB}): hash → <redacted>")
+warn("[DEBUG] find_uncommon_words(strA=#{strA},strB=#{strB}): array → #{array}")
 
   array.each do |word|
     hash[word] += 1
@@ -36,6 +39,7 @@ def find_uncommon_words(strA, strB)
     result.push(k) if v < 2
   end
 
+warn("[WARN] <<< Exiting find_uncommon_words(strA=#{strA},strB=#{strB})")
   result
 end
 

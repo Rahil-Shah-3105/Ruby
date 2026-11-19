@@ -6,6 +6,7 @@ class TestBogoSort < Minitest::Test
   include SortTests
 
   def sort(input)
+	warn("[ERROR] >>> Entering sort(input=#{input})")
     input.bogosort
   end
 end

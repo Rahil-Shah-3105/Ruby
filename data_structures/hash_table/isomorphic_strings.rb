@@ -27,15 +27,20 @@
 # Space Complexity: O(N)
 
 def isomorphic_strings_check(s, t)
+warn("[ERROR] >>> Entering isomorphic_strings_check(s=#{s},t=#{t})")
   # store character mappings
   map = {}
+warn("[DEBUG] isomorphic_strings_check(s=#{s},t=#{t}): map → #{map}")
   # store already mapped characters
   set = []
+warn("[DEBUG] isomorphic_strings_check(s=#{s},t=#{t}): set → #{set}")
 
   (0..s.length - 1).each do |i|
     # store characters to compare
     char1 = s[i]
+	warn("[DEBUG] isomorphic_strings_check(s=#{s},t=#{t}): char1 → #{char1}")
     char2 = t[i]
+	warn("[DEBUG] isomorphic_strings_check(s=#{s},t=#{t}): char2 → #{char2}")
 
     # if char1 is mapped
     if map[char1]
@@ -51,6 +56,7 @@ def isomorphic_strings_check(s, t)
       set << char2
     end
   end
+warn("[WARN] <<< Exiting isomorphic_strings_check(s=#{s},t=#{t})")
   true
 end
 

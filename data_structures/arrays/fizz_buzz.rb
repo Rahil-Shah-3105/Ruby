@@ -81,7 +81,9 @@ fizz_buzz(n)
 # @param {Integer} n
 # @return {String[]}
 def fizz_buzz(n)
+warn("[ERROR] >>> Entering fizz_buzz(n=#{n})")
   str = []
+warn("[DEBUG] fizz_buzz(n=#{n}): str → #{str}")
 
   n.times do |i|
     i += 1

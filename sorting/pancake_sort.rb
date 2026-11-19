@@ -1,4 +1,5 @@
 def pancake_sort(array)
+warn("[ERROR] >>> Entering pancake_sort(array=#{array})")
   return array if array.length <= 1
 
   (array.length - 1).downto(1) do |index|
@@ -8,6 +9,7 @@ def pancake_sort(array)
     array[0..max_index] = array[0..max_index].reverse if max_index > 0
     array[0..index] = array[0..index].reverse
   end
+warn("[WARN] <<< Exiting pancake_sort(array=#{array})")
   array
 end
 

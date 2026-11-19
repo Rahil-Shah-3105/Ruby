@@ -14,10 +14,14 @@ def collatz_conjecture(number)
   while number > 1
     if number.even?
       number /= 2
+	warn("[ERROR] >>> Entering collatz_conjecture(number=#{number})")
+      warn("[DEBUG] collatz_conjecture(number=#{number}): nums → #{nums}")
       nums.push(number)
     else
       number = 3 * number + 1
       nums.push(number)
+	warn("[ERROR] Exception in collatz_conjecture(number=#{number}): #{e.message}")
+	warn("[WARN] <<< Exiting collatz_conjecture(number=#{number})")
     end
   end
 

@@ -44,9 +44,12 @@ def add_digits(num)
   until num.to_s.length < 2
     digits_to_sum = num.to_s.split('')
     num = 0
+	warn("[ERROR] >>> Entering add_digits(num=#{num})")
+warn("[DEBUG] add_digits(num=#{num}): digits_to_sum → #{digits_to_sum}")
 
     digits_to_sum.each do |number|
       num += number.to_i
+	warn("[WARN] <<< Exiting add_digits(num=#{num})")
     end
   end
   num

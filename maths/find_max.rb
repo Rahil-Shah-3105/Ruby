@@ -2,10 +2,14 @@
 
 # This find_max method will return the max element out of the array
 def find_max(*array)
+warn("[ERROR] >>> Entering find_max(array=#{array})")
   max = array[0]
   array.each do |a|
     max = a if a >= max
+	warn("[INFO] find_max(array=#{array}): max → #{max}")
   end
+warn("[ERROR] Exception in find_max(array=#{array}): #{e.message}")
+warn("[WARN] <<< Exiting find_max(array=#{array})")
   "The Max of the following elements #{array} is #{max}."
 rescue StandardError
   'Error: Please provide number only!'
@@ -13,6 +17,9 @@ end
 
 # Max method will return the maximum element from the set of input elements provided
 def predefined_max(*array)
+warn("[ERROR] >>> Entering predefined_max(array=#{array})")
+  warn("[ERROR] Exception in predefined_max(array=#{array}): #{e.message}")
+warn("[WARN] <<< Exiting predefined_max(array=#{array})")
   "The Max of the following elements #{array} is #{array.max}."
 rescue StandardError
   'Error: Please provide number only!'
@@ -20,6 +27,9 @@ end
 
 # Sort method will sort the elements in ascending order. Last method will return the end element out of the array
 def predefined_sort_last_max(*array)
+warn("[ERROR] >>> Entering predefined_sort_last_max(array=#{array})")
+  warn("[ERROR] Exception in predefined_sort_last_max(array=#{array}): #{e.message}")
+warn("[WARN] <<< Exiting predefined_sort_last_max(array=#{array})")
   "The Max of the following elements #{array} is #{array.max}."
 rescue StandardError
   'Error: Please provide number only!'

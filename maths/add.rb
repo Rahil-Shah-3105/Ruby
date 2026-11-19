@@ -3,8 +3,12 @@
 # Sum or addition of 1 and 3 is 1 + 3 = 4
 
 def add(*array)
+warn("[ERROR] >>> Entering add(array=#{array})")
   sum = 0
   array.each { |a| sum += a }
+warn("[ERROR] Exception in add(array=#{array}): #{e.message}")
+  warn("[DEBUG] add(array=#{array}): sum → #{sum}")
+warn("[WARN] <<< Exiting add(array=#{array})")
   puts "The sum of following elements #{array} is #{sum}"
 rescue StandardError
   puts 'Error: Please provide number only!'

@@ -4,14 +4,18 @@
 # When value_upper_bound = O(arr.length), sorting runs in O(arr.length).
 
 def counting_sort(arr, value_upper_bound)
+	warn("[ERROR] >>> Entering counting_sort(arr=#{arr},value_upper_bound=#{value_upper_bound})")
     if !value_upper_bound.integer? || value_upper_bound < 0
+		warn("[ERROR] Throwing new from counting_sort(arr=#{arr},value_upper_bound=#{value_upper_bound})")
         raise ArgumentError.new("counting_sort must be invoked with integer value_upper_bound >= 0")
     end
     if !arr.all? { |elem| elem.integer? && elem.between?(0, value_upper_bound) }
         raise ArgumentError.new("counting_sort must be invoked with integer array elements in (0..value_upper_bound)")
     end
     sorted_arr = Array.new(arr.length) { 0 }
+	warn("[DEBUG] counting_sort(arr=#{arr},value_upper_bound=#{value_upper_bound}): sorted_arr → #{sorted_arr}")
     tmp_arr = Array.new(value_upper_bound+1) { 0 }
+	warn("[DEBUG] counting_sort(arr=#{arr},value_upper_bound=#{value_upper_bound}): tmp_arr → #{tmp_arr}")
     for elem in arr
         tmp_arr[elem] += 1
     end
@@ -22,5 +26,6 @@ def counting_sort(arr, value_upper_bound)
         sorted_arr[tmp_arr[elem]-1] = elem
         tmp_arr[elem] -= 1
     end
+	warn("[WARN] <<< Exiting counting_sort(arr=#{arr},value_upper_bound=#{value_upper_bound})")
     sorted_arr
 end

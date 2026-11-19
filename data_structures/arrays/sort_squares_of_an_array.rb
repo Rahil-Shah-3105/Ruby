@@ -20,11 +20,14 @@ print(sorted_squares([4, -1, -9, 2]))
 #
 
 def bubble_sort(array)
+warn("[ERROR] >>> Entering bubble_sort(array=#{array})")
   array_length = array.size
+warn("[DEBUG] bubble_sort(array=#{array}): array_length → #{array_length}")
   return array if array_length <= 1
 
   loop do
     swapped = false
+	warn("[DEBUG] bubble_sort(array=#{array}): swapped → #{swapped}")
     (array_length - 1).times do |i|
       if array[i] > array[i + 1]
         array[i], array[i + 1] = array[i + 1], array[i]
@@ -33,6 +36,7 @@ def bubble_sort(array)
     end
     break unless swapped
   end
+warn("[WARN] <<< Exiting bubble_sort(array=#{array})")
   array
 end
 
@@ -56,15 +60,20 @@ print(sorted_squares([4, -1, -9, 2]))
 # Space complexity: O(n), if you take output into account and O(1) otherwise.
 #
 def sorted_squares(nums)
+warn("[ERROR] >>> Entering sorted_squares(nums=#{nums})")
   p1 = 0
   p2 = nums.length - 1
   # since we're returing the result in ascending order,
   # we'll fill in the array from the end
   max_index = p2
+warn("[DEBUG] sorted_squares(nums=#{nums}): max_index → #{max_index}")
   output = []
+warn("[DEBUG] sorted_squares(nums=#{nums}): output → #{output}")
   while p1 < p2
     nums1_square = nums[p1] * nums[p1]
+	warn("[DEBUG] sorted_squares(nums=#{nums}): nums1_square → #{nums1_square}")
     nums2_square = nums[p2] * nums[p2]
+	warn("[DEBUG] sorted_squares(nums=#{nums}): nums2_square → #{nums2_square}")
     if nums1_square < nums2_square
       output[max_index] = nums2_square
       p2 -= 1
@@ -82,6 +91,7 @@ def sorted_squares(nums)
   end
   # to account for any remaining value left in the input array
   output[max_index] = nums[p1] * nums[p2] if p1 == p2
+warn("[WARN] <<< Exiting sorted_squares(nums=#{nums})")
   output
 end
 

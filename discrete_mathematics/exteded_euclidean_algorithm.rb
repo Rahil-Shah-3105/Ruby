@@ -1,6 +1,7 @@
 # https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm
 
 def extended_euclidean_gcd(a, b)
+warn("[ERROR] >>> Entering extended_euclidean_gcd(a=#{a},b=#{b})")
   x0 = a
   x1 = b
   s = 1
@@ -11,6 +12,7 @@ def extended_euclidean_gcd(a, b)
     x1 = x2
     s, t = t, s - q * t
   end
+warn("[WARN] <<< Exiting extended_euclidean_gcd(a=#{a},b=#{b})")
   x0
 end
 

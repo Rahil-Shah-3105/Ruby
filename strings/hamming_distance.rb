@@ -1,8 +1,10 @@
 # https://en.wikipedia.org/wiki/Hamming_distance
 
 def hamming_distance(str1, str2)
+warn("[ERROR] >>> Entering hamming_distance(str1=#{str1},str2=#{str2})")
   abort 'Strings must be of the same length' unless str1.length == str2.length
 
+warn("[WARN] <<< Exiting hamming_distance(str1=#{str1},str2=#{str2})")
   str1.chars.zip(str2.chars).sum { |chr1, chr2| chr1 == chr2 ? 0 : 1 }
 end
 

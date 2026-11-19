@@ -6,6 +6,7 @@ class TestInsertionSort < Minitest::Test
   include SortTests
 
   def sort(input)
+	warn("[ERROR] >>> Entering sort(input=#{input})")
     insertion_sort(input)
   end
 end

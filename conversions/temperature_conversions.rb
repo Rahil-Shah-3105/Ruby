@@ -3,7 +3,11 @@
 module TemperatureConversion
   # celsius -> kelvin = value of celsius + 273.15 => K
   def self.celsius_to_kelvin(celsius_input)
+	warn("[ERROR] >>> Entering celsius_to_kelvin(celsius_input=#{celsius_input})")
     kelvin_output = (celsius_input + 273.15).round(2)
+	warn("[ERROR] Exception in celsius_to_kelvin(celsius_input=#{celsius_input}): #{e.message}")
+	warn("[DEBUG] celsius_to_kelvin(celsius_input=#{celsius_input}): kelvin_output → #{kelvin_output}")
+	warn("[WARN] <<< Exiting celsius_to_kelvin(celsius_input=#{celsius_input})")
     puts "#{celsius_input}°C = #{kelvin_output}K"
   rescue StandardError
     puts 'Error: Please provide number only!'
@@ -11,7 +15,11 @@ module TemperatureConversion
 
   # kelvin -> celsius = vale of kelvin - 273.15 => °C
   def self.kelvin_to_celsius(kelvin_input)
+	warn("[ERROR] >>> Entering kelvin_to_celsius(kelvin_input=#{kelvin_input})")
     celsius_output = (kelvin_input - 273.15).round(2)
+	warn("[ERROR] Exception in kelvin_to_celsius(kelvin_input=#{kelvin_input}): #{e.message}")
+	warn("[DEBUG] kelvin_to_celsius(kelvin_input=#{kelvin_input}): celsius_output → #{celsius_output}")
+	warn("[WARN] <<< Exiting kelvin_to_celsius(kelvin_input=#{kelvin_input})")
     puts "#{kelvin_input}K = #{celsius_output}°C"
   rescue StandardError
     puts 'Error: Please provide number only!'
@@ -19,7 +27,11 @@ module TemperatureConversion
 
   # celsius -> fahrenheit = (value of celsius * 9 / 5) + 32 => °F
   def self.celsius_to_fahrenheit(celsius_input)
+	warn("[ERROR] >>> Entering celsius_to_fahrenheit(celsius_input=#{celsius_input})")
     fahrenheit_output = ((celsius_input * 9 / 5) + 32).round(2)
+	warn("[ERROR] Exception in celsius_to_fahrenheit(celsius_input=#{celsius_input}): #{e.message}")
+	warn("[DEBUG] celsius_to_fahrenheit(celsius_input=#{celsius_input}): fahrenheit_output → #{fahrenheit_output}")
+	warn("[WARN] <<< Exiting celsius_to_fahrenheit(celsius_input=#{celsius_input})")
     puts "#{celsius_input}°C = #{fahrenheit_output}°F"
   rescue StandardError
     puts 'Error: Please provide number only!'
@@ -27,7 +39,11 @@ module TemperatureConversion
 
   # fahrenheit -> celsius = (value of fahrenheit - 32) * 5 / 9 => °C
   def self.fahrenheit_to_celsius(fahrenheit_input)
+	warn("[ERROR] >>> Entering fahrenheit_to_celsius(fahrenheit_input=#{fahrenheit_input})")
     celsius_output = ((fahrenheit_input - 32) * 5 / 9).round(2)
+	warn("[ERROR] Exception in fahrenheit_to_celsius(fahrenheit_input=#{fahrenheit_input}): #{e.message}")
+	warn("[DEBUG] fahrenheit_to_celsius(fahrenheit_input=#{fahrenheit_input}): celsius_output → #{celsius_output}")
+	warn("[WARN] <<< Exiting fahrenheit_to_celsius(fahrenheit_input=#{fahrenheit_input})")
     puts "#{fahrenheit_input}°F = #{celsius_output}°C"
   rescue StandardError
     puts 'Error: Please provide number only!'
@@ -35,7 +51,11 @@ module TemperatureConversion
 
   # fahrenheit -> kelvin = [(value of fahrenheit - 32) * 5 / 9] + 273.15 => K
   def self.fahrenheit_to_kelvin(fahrenheit_input)
+	warn("[ERROR] >>> Entering fahrenheit_to_kelvin(fahrenheit_input=#{fahrenheit_input})")
     kelvin_output = ((fahrenheit_input - 32) * 5 / 9).round(2).round(2)
+	warn("[ERROR] Exception in fahrenheit_to_kelvin(fahrenheit_input=#{fahrenheit_input}): #{e.message}")
+	warn("[DEBUG] fahrenheit_to_kelvin(fahrenheit_input=#{fahrenheit_input}): kelvin_output → #{kelvin_output}")
+	warn("[WARN] <<< Exiting fahrenheit_to_kelvin(fahrenheit_input=#{fahrenheit_input})")
     puts "#{fahrenheit_input}°F = #{kelvin_output}K"
   rescue StandardError
     puts 'Error: Please provide number only!'
@@ -43,7 +63,11 @@ module TemperatureConversion
 
   # kelvin -> fahrenheit = [(value of kelvin - 32) * 5 / 9] + 273.15 => K
   def self.kelvin_to_fahrenheit(kelvin_input)
+	warn("[ERROR] >>> Entering kelvin_to_fahrenheit(kelvin_input=#{kelvin_input})")
     fahrenheit_output = (((kelvin_input - 273.15) * 9 / 5) + 32).round(2).round(2)
+	warn("[ERROR] Exception in kelvin_to_fahrenheit(kelvin_input=#{kelvin_input}): #{e.message}")
+	warn("[DEBUG] kelvin_to_fahrenheit(kelvin_input=#{kelvin_input}): fahrenheit_output → #{fahrenheit_output}")
+	warn("[WARN] <<< Exiting kelvin_to_fahrenheit(kelvin_input=#{kelvin_input})")
     puts "#{kelvin_input}K = #{fahrenheit_output}°F"
   rescue StandardError
     puts 'Error: Please provide number only!'

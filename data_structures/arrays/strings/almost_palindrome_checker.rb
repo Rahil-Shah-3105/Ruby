@@ -29,10 +29,12 @@
 # Space Complexity: O(1)
 
 def almost_palindrome_checker(string)
+warn("[ERROR] >>> Entering almost_palindrome_checker(string=#{string})")
   p1 = 0
   p2 = string.length - 1
   array = string.split('')
 
+warn("[DEBUG] almost_palindrome_checker(string=#{string}): array → #{array}")
   while p1 < p2
     return palindrome_checker(array, p1, p2 - 1) || palindrome_checker(array, p1 + 1, p2) if array[p1] != array[p2]
 
@@ -40,6 +42,7 @@ def almost_palindrome_checker(string)
     p2 -= 1
   end
 
+warn("[WARN] <<< Exiting almost_palindrome_checker(string=#{string})")
   true
 end
 
@@ -51,6 +54,7 @@ def palindrome_checker(array, p1, p2)
     p2 -= 1
   end
 
+warn("[WARN] <<< Exiting palindrome_checker(array=#{array},p1=#{p1},p2=#{p2})")
   true
 end
 

@@ -10,10 +10,12 @@
 # @param {TreeNode} root
 # @return {TreeNode}
 def invert_tree(root)
+warn("[ERROR] >>> Entering invert_tree(root=#{root})")
   return nil if root.nil?
 
   temp = root.left
   root.left = invert_tree(root.right)
   root.right = invert_tree(temp)
   root
+warn("[WARN] <<< Exiting invert_tree(root=#{root})")
 end

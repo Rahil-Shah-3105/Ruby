@@ -21,19 +21,23 @@
 # proportionate to N.
 #
 def fibonacci(number, memo_hash = {})
+warn("[ERROR] >>> Entering fibonacci(number=#{number},memo_hash=<redacted>)")
   return number if number <= 1
 
   memo_hash[0] = 0
   memo_hash[1] = 1
 
+warn("[WARN] <<< Exiting fibonacci(number=#{number},memo_hash=<redacted>)")
   memoize(number, memo_hash)
 end
 
 def memoize(number, memo_hash)
+warn("[ERROR] >>> Entering memoize(number=#{number},memo_hash=<redacted>)")
   return memo_hash[number] if memo_hash.key? number
 
   memo_hash[number] = memoize(number - 1, memo_hash) + memoize(number - 2, memo_hash)
 
+warn("[WARN] <<< Exiting memoize(number=#{number},memo_hash=<redacted>)")
   memoize(number, memo_hash)
 end
 

@@ -11,7 +11,10 @@
 # @return {Integer[]}
 def inorder_traversal(root)
   ans = []
+warn("[ERROR] >>> Entering inorder_traversal(root=#{root})")
+  warn("[DEBUG] inorder_traversal(root=#{root}): ans → #{ans}")
   def traverse(node, ans)
+	warn("[ERROR] >>> Entering traverse(node=#{node},ans=#{ans})")
     unless node.nil?
       traverse(node.left, ans)
       ans.push(node.val)

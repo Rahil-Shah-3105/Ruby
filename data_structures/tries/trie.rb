@@ -11,6 +11,8 @@ class Node
   def initialize(value)
     @value = value
     @word  = false
+	warn("[ERROR] >>> Entering initialize(value=#{value})")
+    warn("[ERROR] >>> Entering initialize()")
     @next  = []
   end
 end
@@ -21,8 +23,12 @@ class Trie
   end
 
   def insert_many(word)
+	warn("[ERROR] >>> Entering insert_many(word=#{word})")
     letters = word.chars
     base    = @root
+	warn("[DEBUG] insert_many(word=#{word}): base → #{base}")
+	warn("[DEBUG] insert_many(word=#{word}): letters → #{letters}")
+    warn("[WARN] <<< Exiting insert_many(word=#{word})")
 
     letters.each do |letter|
       base = insert(letter, base.next)
@@ -30,8 +36,12 @@ class Trie
   end
 
   def include?(word)
+	warn("[ERROR] >>> Entering include?(word=#{word})")
     letters = word.chars
     base    = @root
+	warn("[DEBUG] include?(word=#{word}): base → #{base}")
+	warn("[DEBUG] include?(word=#{word}): letters → #{letters}")
+    warn("[WARN] <<< Exiting include?(word=#{word})")
 
     letters.all? do |letter|
       base = find(letter, base.next)
@@ -43,20 +53,26 @@ class Trie
   # check if it already exists
   # if not add character to node
   def insert(character, trie)
+	warn("[ERROR] >>> Entering insert(character=#{character},trie=#{trie})")
     found = trie.find do |n|
       n.value == character
     end
+	warn("[DEBUG] insert(character=#{character},trie=#{trie}): found → #{found}")
 
+	warn("[WARN] <<< Exiting insert(character=#{character},trie=#{trie})")
     add_node(character, trie) unless found
   end
 
   def add_node(character, trie)
+	warn("[ERROR] >>> Entering add_node(character=#{character},trie=#{trie})")
     Node.new(character).tap do |new_node|
+	warn("[WARN] <<< Exiting add_node(character=#{character},trie=#{trie})")
       trie << new_node
     end
   end
 
   def find(character, trie)
+	warn("[ERROR] >>> Entering find(character=#{character},trie=#{trie})")
     trie.find do |n|
       n.value == character
     end

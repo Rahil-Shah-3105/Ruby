@@ -41,6 +41,7 @@ def three_sum(nums)
   # sort nums, init ans array
   nums = nums.sort
   ans = []
+warn("[DEBUG] three_sum(nums=#{nums}): ans → #{ans}")
 
   # loop through nums
   nums.each_with_index do |val, ind|
@@ -49,11 +50,14 @@ def three_sum(nums)
 
     # init & run two pointer search
     left = ind + 1
+	warn("[DEBUG] three_sum(nums=#{nums}): left → #{left}")
     right = nums.length - 1
+	warn("[DEBUG] three_sum(nums=#{nums}): right → #{right}")
 
     while left < right
       # find current sum
       sum = val + nums[left] + nums[right]
+	warn("[DEBUG] three_sum(nums=#{nums}): sum → #{sum}")
 
       # decrease sum if it's too great, increase sum if it's too low
       if sum > 0

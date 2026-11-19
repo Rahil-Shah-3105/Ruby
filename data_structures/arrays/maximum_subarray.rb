@@ -32,14 +32,17 @@
 # @param {Integer[]} nums
 # @return {Integer}
 def max_sub_array(nums)
+warn("[ERROR] >>> Entering max_sub_array(nums=#{nums})")
   # initialize max sum to first number
   max_sum = nums[0]
+warn("[DEBUG] max_sub_array(nums=#{nums}): max_sum → #{max_sum}")
 
   # return first number if array length is 1
   return max_sum if nums.length == 1
 
   # init current sum to 0
   current_sum = 0
+warn("[DEBUG] max_sub_array(nums=#{nums}): current_sum → #{current_sum}")
 
   # iterate through array, reset current_sum to 0 if it ever goes below 0, track max_sum with highest current_sum
   nums.each do |num|
@@ -50,6 +53,7 @@ def max_sub_array(nums)
     max_sum = [max_sum, current_sum].max
   end
 
+warn("[WARN] <<< Exiting max_sub_array(nums=#{nums})")
   max_sum
 end
 

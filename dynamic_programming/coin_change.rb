@@ -1,4 +1,5 @@
 def coin_change_minimum(coins, amount)
+warn("[ERROR] >>> Entering coin_change_minimum(coins=#{coins},amount=#{amount})")
   dp = Array.new(amount + 1, -1)
   dp[0] = 0
 
@@ -10,10 +11,12 @@ def coin_change_minimum(coins, amount)
     end
   end
 
+warn("[WARN] <<< Exiting coin_change_minimum(coins=#{coins},amount=#{amount})")
   dp[amount]
 end
 
 def coin_change_combinations(coins, amount)
+warn("[ERROR] >>> Entering coin_change_combinations(coins=#{coins},amount=#{amount})")
   dp = Array.new(coins.length + 1) { Array.new(amount + 1, 0) }
   dp[0][0] = 1
   (1..coins.length).each do |i|
@@ -21,6 +24,7 @@ def coin_change_combinations(coins, amount)
       dp[i][j] = dp[i - 1][j] + (j < coins[i - 1] ? 0 : dp[i][j - coins[i - 1]])
     end
   end
+warn("[WARN] <<< Exiting coin_change_combinations(coins=#{coins},amount=#{amount})")
   dp[coins.length][amount]
 end
 

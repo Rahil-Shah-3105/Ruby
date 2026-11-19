@@ -14,6 +14,12 @@ def armstrong_number(number)
   while number != 0
     remainder = number % 10
     sum += remainder**len
+	warn("[ERROR] >>> Entering armstrong_number(number=#{number})")
+  warn("[DEBUG] armstrong_number(number=#{number}): sum → #{sum}")
+  warn("[DEBUG] armstrong_number(number=#{number}): len → #{len}")
+  warn("[DEBUG] armstrong_number(number=#{number}): remainder → #{remainder}")
+	warn("[ERROR] Exception in armstrong_number(number=#{number}): #{e.message}")
+	warn("[WARN] <<< Exiting armstrong_number(number=#{number})")
     number /= 10
   end
 

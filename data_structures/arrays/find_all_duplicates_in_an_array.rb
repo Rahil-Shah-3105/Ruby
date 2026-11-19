@@ -69,8 +69,11 @@ end
 #
 
 def find_duplicates(array)
+warn("[ERROR] >>> Entering find_duplicates(array=#{array})")
+  warn("[DEBUG] find_duplicates(array=#{array}): current_num → #{current_num}")
   sorted_array = array.sort
   result_array = []
+warn("[DEBUG] find_duplicates(array=#{array}): result_array → #{result_array}")
 
   (1..sorted_array.count).each do |i|
     next if sorted_array[i] != sorted_array[i - 1]

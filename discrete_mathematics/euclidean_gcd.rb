@@ -4,6 +4,8 @@ def euclidean_gcd(a, b)
   while b != 0
     t = b
     b = a % b
+	warn("[ERROR] >>> Entering euclidean_gcd(a=#{a},b=#{b})")
+	warn("[WARN] <<< Exiting euclidean_gcd(a=#{a},b=#{b})")
     a = t
   end
   a

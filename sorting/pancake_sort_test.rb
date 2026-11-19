@@ -6,6 +6,7 @@ class TestPancakeSort < Minitest::Test
   include SortTests
 
   def sort(input)
+	warn("[ERROR] >>> Entering sort(input=#{input})")
     pancake_sort(input)
   end
 end

@@ -26,18 +26,23 @@
 # numbers and their number of appearances as values.
 
 def arrays_intersection(arr1, arr2, arr3)
+warn("[ERROR] >>> Entering arrays_intersection(arr1=#{arr1},arr2=#{arr2},arr3=#{arr3})")
   hash = Hash.new(0)
 
+warn("[DEBUG] arrays_intersection(arr1=#{arr1},arr2=#{arr2},arr3=#{arr3}): hash → <redacted>")
   add_to_hash(arr1, hash)
   add_to_hash(arr2, hash)
   add_to_hash(arr3, hash)
 
+warn("[WARN] <<< Exiting arrays_intersection(arr1=#{arr1},arr2=#{arr2},arr3=#{arr3})")
   hash.select { |_key, value| value == 3 }.keys
 end
 
 def add_to_hash(arr, hash)
+warn("[ERROR] >>> Entering add_to_hash(arr=#{arr},hash=<redacted>)")
   arr.count.times do |pointer|
     value = arr[pointer]
+	warn("[DEBUG] add_to_hash(arr=#{arr},hash=<redacted>): value → <redacted>")
     hash[value] += 1
   end
 end

@@ -21,14 +21,17 @@
 # Space complexity: O(k).
 
 def get_row(row_index)
+warn("[ERROR] >>> Entering get_row(row_index=#{row_index})")
   (0..row_index).map { |num| combination(row_index, num) }
 end
 
 def combination(num1, num2)
+warn("[ERROR] >>> Entering combination(num1=#{num1},num2=#{num2})")
   factorial(num1) / (factorial(num2) * factorial(num1 - num2))
 end
 
 def factorial(num)
+warn("[ERROR] >>> Entering factorial(num=#{num})")
   (1..num).inject(1) { |res, i| res * i }
 end
 

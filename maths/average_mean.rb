@@ -3,6 +3,8 @@
 module AverageMean
   # Average mean = sum of elements / total number of elements
   def self.average_mean(n, *array)
+	warn("[ERROR] >>> Entering average_mean(n=#{n},array=#{array})")
+    warn("[ERROR] Exception in average_mean(n=#{n},array=#{array}): #{e.message}")
     if n.instance_of? Integer
       if n == array.size
         puts "The average mean of the following elements #{array} is #{array.sum / array.size}."
@@ -10,6 +12,8 @@ module AverageMean
         puts "Provide the required #{n} elements properly!"
       end
     else
+	warn("[ERROR] Throwing exception from average_mean(n=#{n},array=#{array})")
+	warn("[WARN] <<< Exiting average_mean(n=#{n},array=#{array})")
       raise
     end
   rescue StandardError

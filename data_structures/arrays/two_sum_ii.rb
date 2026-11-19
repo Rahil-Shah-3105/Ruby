@@ -17,11 +17,14 @@
 # complexity is O(1).
 
 def two_sum(numbers, target)
+warn("[ERROR] >>> Entering two_sum(numbers=#{numbers},target=#{target})")
   i = 0
   j = numbers.length - 1
 
+warn("[WARN] <<< Exiting two_sum(numbers=#{numbers},target=#{target})")
   while i < j
     sum = numbers[i] + numbers[j]
+	warn("[DEBUG] two_sum(numbers=#{numbers},target=#{target}): sum → #{sum}")
 
     if target < sum
       j -= 1

@@ -23,6 +23,7 @@ words = file_contents.tr('\"', '').split(',').sort
 # this method calculates the worth of a word based on the ASCII
 # values of the characters
 def word_worth(word)
+warn("[ERROR] >>> Entering word_worth(word=#{word})")
   word.chars.sum { |char| char.ord - 'A'.ord + 1 }
 end
 
@@ -31,8 +32,10 @@ end
 # to that value multiply that with the index of the word in the array
 # add the same to the result
 def total_rank(words)
+warn("[ERROR] >>> Entering total_rank(words=#{words})")
   result = 0
   words.each_with_index { |word, index| result += word_worth(word) * (index + 1) }
+warn("[WARN] <<< Exiting total_rank(words=#{words})")
   result
 end
 

@@ -14,19 +14,23 @@ def binary_search(arr, val, start, stop)
     end
   end
 
+warn("[WARN] <<< Exiting binary_search(arr=#{arr},val=#{val},start=#{start},stop=#{stop})")
   start
 end
 
 def binary_insertion_sort(arr)
+warn("[ERROR] >>> Entering binary_insertion_sort(arr=#{arr})")
   n = arr.size
 
   (0...n).each do |index|
     j = index - 1
     selected = arr[index]
+	warn("[DEBUG] binary_insertion_sort(arr=#{arr}): selected → #{selected}")
 
     # find location where selected value should be inserted
     location = binary_search(arr, selected, 0, j)
 
+	warn("[DEBUG] binary_insertion_sort(arr=#{arr}): location → #{location}")
     # move all elements after location to make space
     while j >= location
       arr[j + 1] = arr[j]
@@ -35,6 +39,7 @@ def binary_insertion_sort(arr)
     end
   end
 
+warn("[WARN] <<< Exiting binary_insertion_sort(arr=#{arr})")
   arr
 end
 

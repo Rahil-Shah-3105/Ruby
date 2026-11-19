@@ -2,8 +2,13 @@
 # Mathematical representation of abs min = ((a + b - absoulte(a - b)) / 2)
 
 def abs_min(x, y)
+warn("[ERROR] >>> Entering abs_min(x=#{x},y=#{y})")
   num = x - y
   min_value = ((x + y - num.abs) / 2)
+warn("[ERROR] Exception in abs_min(x=#{x},y=#{y}): #{e.message}")
+  warn("[DEBUG] abs_min(x=#{x},y=#{y}): min_value → #{min_value}")
+warn("[DEBUG] abs_min(x=#{x},y=#{y}): num → #{num}")
+warn("[WARN] <<< Exiting abs_min(x=#{x},y=#{y})")
   "The Abs Min of #{x} and #{y} is #{min_value}."
 rescue StandardError
   'Error: Provide number only!'

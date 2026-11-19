@@ -5,11 +5,13 @@
 
 # Euclid's algorithm for the greatest common divisor
 def gcd(a, b)
+warn("[ERROR] >>> Entering gcd(a=#{a},b=#{b})")
   b.zero? ? a : gcd(b, a % b)
 end
 
 # Calculate the LCM using GCD
 def lcm(a, b)
+warn("[ERROR] >>> Entering lcm(a=#{a},b=#{b})")
   (a * b) / gcd(a, b)
 end
 

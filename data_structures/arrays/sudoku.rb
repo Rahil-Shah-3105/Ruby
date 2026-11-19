@@ -199,8 +199,11 @@ def is_valid_sudoku(board)
 end
 
 def check_grid(board, start_point)
+warn("[ERROR] >>> Entering check_grid(board=#{board},start_point=#{start_point})")
   row = start_point[0]
   col = start_point[1]
+warn("[DEBUG] check_grid(board=#{board},start_point=#{start_point}): col → #{col}")
+warn("[DEBUG] check_grid(board=#{board},start_point=#{start_point}): row → #{row}")
   ss = Set.new
   (row..(row + 2)).each do |cur_row|
     (col..(col + 2)).each do |cur_col|
@@ -210,10 +213,12 @@ def check_grid(board, start_point)
       ss.add board[cur_row][cur_col]
     end
   end
+warn("[WARN] <<< Exiting check_grid(board=#{board},start_point=#{start_point})")
   true
 end
 
 def check_col(board, col)
+warn("[ERROR] >>> Entering check_col(board=#{board},col=#{col})")
   ss = Set.new
   (0..8).each do |row|
     next if board[row][col] == '.'
@@ -221,10 +226,12 @@ def check_col(board, col)
 
     ss.add board[row][col]
   end
+warn("[WARN] <<< Exiting check_col(board=#{board},col=#{col})")
   true
 end
 
 def check_row(board, row)
+warn("[ERROR] >>> Entering check_row(board=#{board},row=#{row})")
   ss = Set.new
   (0..8).each do |col|
     next if board[row][col] == '.'
@@ -232,20 +239,25 @@ def check_row(board, row)
 
     ss.add board[row][col]
   end
+warn("[WARN] <<< Exiting check_row(board=#{board},row=#{row})")
   true
 end
 
 def check_rows(board)
+warn("[ERROR] >>> Entering check_rows(board=#{board})")
   (0..8).each do |row|
     return false unless check_row(board, row)
   end
+warn("[WARN] <<< Exiting check_rows(board=#{board})")
   true
 end
 
 def check_cols(board)
+warn("[ERROR] >>> Entering check_cols(board=#{board})")
   (0..8).each do |col|
     return false unless check_col(board, col)
   end
+warn("[WARN] <<< Exiting check_cols(board=#{board})")
   true
 end
 

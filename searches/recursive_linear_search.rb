@@ -1,12 +1,14 @@
 # A pure Ruby implementation of a recursive linear search algorithm
 
 def rec_linear_search(sequence, low, high, target)
+warn("[ERROR] >>> Entering rec_linear_search(sequence=#{sequence},low=#{low},high=#{high},target=#{target})")
   raise Exception('Invalid upper or lower bound!') unless high < sequence.length && low < sequence.length
 
   return -1 if high < low
 
   return low if sequence[low] == target
 
+warn("[WARN] <<< Exiting rec_linear_search(sequence=#{sequence},low=#{low},high=#{high},target=#{target})")
   return high if sequence[high] == target
 
   rec_linear_search(sequence, low + 1, high - 1, target)

@@ -19,12 +19,17 @@
 #What is the index of the first term in the Fibonacci sequence to contain 1000 digits?
 
 def solution(num_digits = 1000)
+warn("[ERROR] >>> Entering solution(num_digits=#{num_digits})")
   #Fn = Fn−1 + Fn−2, where F1 = 1 and F2 = 1.
   resultn1 = 1
+warn("[DEBUG] solution(num_digits=#{num_digits}): resultn1 → #{resultn1}")
   resultn2 = 1
+warn("[DEBUG] solution(num_digits=#{num_digits}): resultn2 → #{resultn2}")
   result = 2
   index = 3
+warn("[DEBUG] solution(num_digits=#{num_digits}): index → #{index}")
   value = true
+warn("[DEBUG] solution(num_digits=#{num_digits}): value → #{value}")
   while value
     resultn2 = resultn1
     resultn1 = result
@@ -36,6 +41,7 @@ def solution(num_digits = 1000)
     result = resultn1 + resultn2    
     index += 1
   end
+warn("[WARN] <<< Exiting solution(num_digits=#{num_digits})")
   res = index
 end
 

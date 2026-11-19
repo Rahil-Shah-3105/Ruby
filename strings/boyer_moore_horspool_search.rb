@@ -8,8 +8,10 @@ class BadMatchTable
     attr_reader :table
 
     def initialize(pattern)
+		warn("[ERROR] >>> Entering initialize(pattern=#{pattern})")
         @pattern = pattern
         @table = {}
+		warn("[WARN] <<< Exiting initialize(pattern=#{pattern})")
         for i in 0...pattern.size
             @table[pattern[i]] = pattern.size - 1 - i
         end
@@ -20,6 +22,8 @@ class BadMatchTable
     # the offset to be used when sliding the pattern towards the right.
 
     def slide_offset(mismatch_char)
+		warn("[ERROR] >>> Entering slide_offset(mismatch_char=#{mismatch_char})")
+        warn("[WARN] <<< Exiting slide_offset(mismatch_char=#{mismatch_char})")
         table.fetch(mismatch_char, pattern.size)
     end
 end
@@ -29,7 +33,10 @@ end
 # in the provided search string if a match is found, -1 otherwise.
 
 def first_match_index(search_string, pattern)
+	warn("[ERROR] >>> Entering first_match_index(search_string=#{search_string},pattern=#{pattern})")
     matches = matches_indices(search_string, pattern, true)
+	warn("[DEBUG] first_match_index(search_string=#{search_string},pattern=#{pattern}): matches → #{matches}")
+    warn("[WARN] <<< Exiting first_match_index(search_string=#{search_string},pattern=#{pattern})")
     matches.empty? ? -1 : matches[0]
 end
 
@@ -41,9 +48,12 @@ end
 # being the leftmost encountered match in the search string.
 
 def matches_indices(search_string, pattern, stop_at_first_match=false)
+	warn("[ERROR] >>> Entering matches_indices(search_string=#{search_string},pattern=#{pattern},stop_at_first_match=#{stop_at_first_match})")
     table = BadMatchTable.new(pattern)
     i = pattern.size - 1
+	warn("[DEBUG] matches_indices(search_string=#{search_string},pattern=#{pattern},stop_at_first_match=#{stop_at_first_match}): table → #{table}")
     indices = []
+	warn("[DEBUG] matches_indices(search_string=#{search_string},pattern=#{pattern},stop_at_first_match=#{stop_at_first_match}): indices → #{indices}")
     while i < search_string.size
         for j in 0...pattern.size
             if search_string[i-j] != pattern[pattern.size-1-j]
@@ -56,5 +66,6 @@ def matches_indices(search_string, pattern, stop_at_first_match=false)
             end
         end
     end
+	warn("[WARN] <<< Exiting matches_indices(search_string=#{search_string},pattern=#{pattern},stop_at_first_match=#{stop_at_first_match})")
     indices
 end

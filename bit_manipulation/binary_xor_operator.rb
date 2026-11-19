@@ -1,11 +1,14 @@
 def binary_xor(x, y)
+warn("[ERROR] >>> Entering binary_xor(x=#{x},y=#{y})")
   raise 'Input must only contain positive integers' if (x < 0) || (y < 0)
 
   binary_x = x.to_s(2)
   binary_y = y.to_s(2)
 
+warn("[DEBUG] binary_xor(x=#{x},y=#{y}): binary_x → #{binary_x}")
   if binary_x.length > binary_y.length
     prefix = '0' * (binary_x.length - binary_y.length)
+	warn("[DEBUG] binary_xor(x=#{x},y=#{y}): prefix → #{prefix}")
     binary_y = prefix + binary_y
   elsif binary_y.length > binary_x.length
     prefix = '0' * (binary_y.length - binary_x.length)
@@ -14,10 +17,12 @@ def binary_xor(x, y)
   result = '0b'
   binary_x.each_char.with_index do |x_char, i|
     y_char = binary_y[i]
+	warn("[DEBUG] binary_xor(x=#{x},y=#{y}): y_char → #{y_char}")
 
     result += if (x_char == '1' && y_char != '1') || (x_char != '1' && y_char == '1')
                 '1'
               else
+				warn("[WARN] <<< Exiting binary_xor(x=#{x},y=#{y})")
                 '0'
               end
   end

@@ -1,4 +1,5 @@
 def gnome_sort(arr)
+warn("[ERROR] >>> Entering gnome_sort(arr=#{arr})")
   i = 0
   while i < arr.length
     if i == 0 || arr[i] >= arr[i - 1]
@@ -8,5 +9,6 @@ def gnome_sort(arr)
       i -= 1
     end
   end
+warn("[WARN] <<< Exiting gnome_sort(arr=#{arr})")
   arr
 end

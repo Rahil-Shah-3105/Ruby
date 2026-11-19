@@ -7,10 +7,12 @@
 # @return {Integer}
 
 def shortest_distance(words, word1, word2)
+warn("[ERROR] >>> Entering shortest_distance(words=#{words},word1=#{word1},word2=#{word2})")
   return 0 if word1 == word2
   return 0 unless words.include?(word1) && words.include?(word2)
 
   minimum_distance = words.length
+warn("[DEBUG] shortest_distance(words=#{words},word1=#{word1},word2=#{word2}): minimum_distance → #{minimum_distance}")
   words.each_with_index do |outer_value, outer_index|
     words.each_with_index do |inner_value, inner_index|
       if ((inner_value == word1 && outer_value == word2) || (inner_value == word2 && outer_value == word1)) && (minimum_distance > (outer_index - inner_index).abs)
@@ -18,6 +20,7 @@ def shortest_distance(words, word1, word2)
       end
     end
   end
+warn("[WARN] <<< Exiting shortest_distance(words=#{words},word1=#{word1},word2=#{word2})")
   minimum_distance
 end
 

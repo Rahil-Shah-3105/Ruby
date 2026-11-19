@@ -37,16 +37,20 @@
 # stored in the hash table, which stores exactly n elements.
 
 def two_sum(nums, target)
+warn("[ERROR] >>> Entering two_sum(nums=#{nums},target=#{target})")
   hash = {}
 
+warn("[DEBUG] two_sum(nums=#{nums},target=#{target}): hash → <redacted>")
   # create a hash to store values and their indices
   nums.each_with_index do |num, i|
     hash[num] = i
   end
 
   # iterate over nums array to find the target (difference between sum target and num)
+warn("[WARN] <<< Exiting two_sum(nums=#{nums},target=#{target})")
   nums.each_with_index do |num, i|
     difference_target = target - num
+	warn("[DEBUG] two_sum(nums=#{nums},target=#{target}): difference_target → #{difference_target}")
 
     return [i, hash[difference_target]] if hash[difference_target] && hash[difference_target] != i
   end

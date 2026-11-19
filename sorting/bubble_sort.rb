@@ -1,8 +1,12 @@
 def bubble_sort(array)
+warn("[ERROR] >>> Entering bubble_sort(array=#{array})")
   array_length = array.length
   return array if array_length <= 1
   unsorted_until_index = array_length - 1
+warn("[DEBUG] bubble_sort(array=#{array}): unsorted_until_index → #{unsorted_until_index}")
+warn("[DEBUG] bubble_sort(array=#{array}): array_length → #{array_length}")
   sorted = false
+warn("[DEBUG] bubble_sort(array=#{array}): sorted → #{sorted}")
   until sorted
     sorted = true
     0.upto(unsorted_until_index - 1) do |i|

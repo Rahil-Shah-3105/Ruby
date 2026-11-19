@@ -16,6 +16,7 @@ def factorial(n)
     n -= 1
   end
 
+warn("[WARN] <<< Exiting factorial(n=#{n})")
   fac
 end
 

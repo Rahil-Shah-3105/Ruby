@@ -17,8 +17,10 @@
 # 1. Brute force solution
 #
 def calculate_products_of_all_other_elements(nums)
+warn("[ERROR] >>> Entering calculate_products_of_all_other_elements(nums=#{nums})")
   product_of_other_elements = Array.new(nums.count, 1)
 
+warn("[DEBUG] calculate_products_of_all_other_elements(nums=#{nums}): product_of_other_elements → #{product_of_other_elements}")
   nums.count.times do |i|
     nums.count.times do |j|
       next if i == j
@@ -27,6 +29,7 @@ def calculate_products_of_all_other_elements(nums)
     end
   end
 
+warn("[WARN] <<< Exiting calculate_products_of_all_other_elements(nums=#{nums})")
   product_of_other_elements
 end
 
@@ -49,12 +52,15 @@ puts(calculate_products_of_all_other_elements([1, 2, 3]))
 # Note: for the element at index '0', there are no elements to the left,
 # so the prefix_products[0] would be 1
 def build_prefix_products(nums)
+warn("[ERROR] >>> Entering build_prefix_products(nums=#{nums})")
   prefix_products = []
 
+warn("[DEBUG] build_prefix_products(nums=#{nums}): prefix_products → #{prefix_products}")
   nums.each do |num|
     prefix_products << if prefix_products.count > 0
                          prefix_products.last * num
                        else
+						warn("[WARN] <<< Exiting build_prefix_products(nums=#{nums})")
                          num
                        end
   end
@@ -67,12 +73,15 @@ end
 # Note: for the element at index 'length - 1', there are no elements to the right,
 # so the suffix_products[length - 1] would be 1
 def build_suffix_products(nums)
+warn("[ERROR] >>> Entering build_suffix_products(nums=#{nums})")
   suffix_products = []
 
+warn("[DEBUG] build_suffix_products(nums=#{nums}): suffix_products → #{suffix_products}")
   nums.reverse.each do |num|
     suffix_products << if suffix_products.count > 0
                          suffix_products.last * num
                        else
+						warn("[WARN] <<< Exiting build_suffix_products(nums=#{nums})")
                          num
                        end
   end
@@ -85,6 +94,7 @@ end
 # For the last element of the array, product except self would be prefix_products[i]
 # Else, multiple product of all elements to the left and to the right
 def output(prefix_products, suffix_products, nums)
+warn("[ERROR] >>> Entering output(prefix_products=#{prefix_products},suffix_products=#{suffix_products},nums=#{nums})")
   result = []
 
   nums.count.times do |index|
@@ -94,6 +104,7 @@ def output(prefix_products, suffix_products, nums)
                 prefix_products[index - 1]
               else
                 (prefix_products[index - 1] * suffix_products[index + 1])
+				warn("[WARN] <<< Exiting output(prefix_products=#{prefix_products},suffix_products=#{suffix_products},nums=#{nums})")
               end
   end
 
@@ -131,15 +142,18 @@ puts(products([1, 2, 3]))
 # array doesn't add to the space complexity.
 
 def products(nums)
+warn("[ERROR] >>> Entering products(nums=#{nums})")
   return [] if nums.count < 2
 
   res = [1]
+warn("[DEBUG] products(nums=#{nums}): res → #{res}")
 
   # res[i] contains the product of all the elements to the left
   # Note: for the element at index '0', there are no elements to the left,
   # so the res[0] would be 1
   (0..(nums.count - 2)).each do |i|
     num = nums[i]
+	warn("[DEBUG] products(nums=#{nums}): num → #{num}")
     res << num * res[i]
   end
 
@@ -147,6 +161,7 @@ def products(nums)
   # Note: for the element at index 'length - 1', there are no elements to the right,
   # so the product would be 1
   product = 1
+warn("[DEBUG] products(nums=#{nums}): product → #{product}")
 
   (nums.count - 1).downto(1) do |i|
     num = nums[i]
@@ -156,6 +171,7 @@ def products(nums)
     product *= num
   end
 
+warn("[WARN] <<< Exiting products(nums=#{nums})")
   res
 end
 

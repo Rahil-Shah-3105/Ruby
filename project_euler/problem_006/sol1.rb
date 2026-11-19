@@ -12,10 +12,12 @@
 #hundred natural numbers and the square of the sum.
 
 def solution(num=10)
+	warn("[ERROR] >>> Entering solution(num=#{num})")
 	x = 1
 	y = 1
 	result = 1
 	gap = 3
+	warn("[DEBUG] solution(num=#{num}): gap → #{gap}")
 	while y < num
   		x += gap
   		gap += 2
@@ -23,8 +25,11 @@ def solution(num=10)
   		result += x
 	end
 	r_n_pow2_plus_n_pow2 = result
+	warn("[DEBUG] solution(num=#{num}): r_n_pow2_plus_n_pow2 → #{r_n_pow2_plus_n_pow2}")
 	r_sum_n_pow2 = (((num / 2) + 0.5) * num) ** 2
+	warn("[DEBUG] solution(num=#{num}): r_sum_n_pow2 → #{r_sum_n_pow2}")
 
+	warn("[WARN] <<< Exiting solution(num=#{num})")
 	r_sum_n_pow2 - r_n_pow2_plus_n_pow2
 end
 

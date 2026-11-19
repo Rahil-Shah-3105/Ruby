@@ -1,4 +1,5 @@
 def shell_sort(a)
+warn("[ERROR] >>> Entering shell_sort(a=#{a})")
   n = a.length
   h = 1
 
@@ -20,5 +21,6 @@ def shell_sort(a)
     h /= 3
   end
 
+warn("[WARN] <<< Exiting shell_sort(a=#{a})")
   a
 end

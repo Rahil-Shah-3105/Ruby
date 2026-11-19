@@ -36,16 +36,20 @@
 # Time Complexity: O(n)
 #
 def find_richest_customer_wealth(accounts)
+warn("[ERROR] >>> Entering find_richest_customer_wealth(accounts=#{accounts})")
   result_hash = {}
   accounts.each_with_index do |customer, i|
+	warn("[DEBUG] find_richest_customer_wealth(accounts=#{accounts}): result_hash → <redacted>")
     result_hash[i] = customer.sum
   end
 
   highest_value = 0
+warn("[DEBUG] find_richest_customer_wealth(accounts=#{accounts}): highest_value → #{highest_value}")
   result_hash.each do |_k, v|
     highest_value = v if v > highest_value
   end
 
+warn("[WARN] <<< Exiting find_richest_customer_wealth(accounts=#{accounts})")
   highest_value
 end
 

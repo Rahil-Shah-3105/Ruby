@@ -5,24 +5,31 @@
 
 # find all factors of the given number
 def get_factors(number)
+warn("[ERROR] >>> Entering get_factors(number=#{number})")
   factors = []
   (1..Math.sqrt(number).to_i).each do |num|
     if (number % num).zero?
+	warn("[DEBUG] get_factors(number=#{number}): factors → #{factors}")
       factors << num
       factors << number / num
     end
   end
+warn("[WARN] <<< Exiting get_factors(number=#{number})")
   factors
 end
 
 # determine if a given number is a prime number
 def prime?(number)
+warn("[ERROR] >>> Entering prime?(number=#{number})")
   get_factors(number).length == 2
 end
 
 # find the largest prime
 def largest_prime_factor(number)
+warn("[ERROR] >>> Entering largest_prime_factor(number=#{number})")
   prime_factors = get_factors(number).select { |factor| prime?(factor) }
+warn("[DEBUG] largest_prime_factor(number=#{number}): prime_factors → #{prime_factors}")
+  warn("[WARN] <<< Exiting largest_prime_factor(number=#{number})")
   prime_factors.max
 end
 

@@ -54,9 +54,12 @@ puts find_jewels('z', 'ZZ')
 #
 
 def find_jewels(jewels, stones)
+warn("[ERROR] >>> Entering find_jewels(jewels=#{jewels},stones=#{stones})")
   jewels_array = jewels.split('')
   stones_array = stones.split('')
   result_hash = {}
+warn("[DEBUG] find_jewels(jewels=#{jewels},stones=#{stones}): stones_array → #{stones_array}")
+warn("[DEBUG] find_jewels(jewels=#{jewels},stones=#{stones}): jewels_array → #{jewels_array}")
   result = 0
 
   stones_array.each do |stone|
@@ -75,6 +78,7 @@ def find_jewels(jewels, stones)
     end
   end
 
+warn("[WARN] <<< Exiting find_jewels(jewels=#{jewels},stones=#{stones})")
   result
 end
 

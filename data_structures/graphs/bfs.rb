@@ -16,8 +16,10 @@ class GraphBfsResult
   attr_reader :distances
 
   def initialize(visited, parents, distances)
+	warn("[ERROR] >>> Entering initialize(visited=#{visited},parents=#{parents},distances=#{distances})")
     @visited = visited
     @parents = parents
+	warn("[WARN] <<< Exiting initialize(visited=#{visited},parents=#{parents},distances=#{distances})")
     @distances = distances
   end
 end
@@ -33,10 +35,15 @@ end
 # - |E| is the number of edges in the graph.
 
 def bfs(graph, start_node, seen_node_consumer: method(:do_nothing_on_node), visited_node_consumer: method(:do_nothing_on_node))
+warn("[ERROR] >>> Entering bfs(graph=#{graph},start_node=#{start_node},seen_node_consumer=#{seen_node_consumer},visited_node_consumer=#{visited_node_consumer})")
   seen = Set[]
   visited = Set[]
+warn("[DEBUG] bfs(graph=#{graph},start_node=#{start_node},seen_node_consumer=#{seen_node_consumer},visited_node_consumer=#{visited_node_consumer}): visited → #{visited}")
+warn("[DEBUG] bfs(graph=#{graph},start_node=#{start_node},seen_node_consumer=#{seen_node_consumer},visited_node_consumer=#{visited_node_consumer}): seen → #{seen}")
   parents = { start_node => nil }
+warn("[DEBUG] bfs(graph=#{graph},start_node=#{start_node},seen_node_consumer=#{seen_node_consumer},visited_node_consumer=#{visited_node_consumer}): parents → #{parents}")
   distances = { start_node => 0 }
+warn("[DEBUG] bfs(graph=#{graph},start_node=#{start_node},seen_node_consumer=#{seen_node_consumer},visited_node_consumer=#{visited_node_consumer}): distances → #{distances}")
 
   seen.add(start_node)
   seen_node_consumer.call(start_node)
@@ -44,6 +51,7 @@ def bfs(graph, start_node, seen_node_consumer: method(:do_nothing_on_node), visi
   q.push(start_node)
   until q.empty?
     node = q.pop
+	warn("[DEBUG] bfs(graph=#{graph},start_node=#{start_node},seen_node_consumer=#{seen_node_consumer},visited_node_consumer=#{visited_node_consumer}): node → #{node}")
     for neighbor in graph.neighbors(node)
       unless seen.include?(neighbor)
         seen.add(neighbor)
@@ -57,9 +65,11 @@ def bfs(graph, start_node, seen_node_consumer: method(:do_nothing_on_node), visi
     visited_node_consumer.call(node)
   end
 
+warn("[WARN] <<< Exiting bfs(graph=#{graph},start_node=#{start_node},seen_node_consumer=#{seen_node_consumer},visited_node_consumer=#{visited_node_consumer})")
   GraphBfsResult.new(visited, parents, distances)
 end
 
 private
 def do_nothing_on_node(node)
+warn("[ERROR] >>> Entering do_nothing_on_node(node=#{node})")
 end

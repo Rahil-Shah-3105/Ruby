@@ -3,9 +3,13 @@
 # Reference: https://en.wikipedia.org/wiki/Ohm's_law
 
 def ohms_law(i, r)
+warn("[ERROR] >>> Entering ohms_law(i=#{i},r=#{r})")
+  warn("[ERROR] Exception in ohms_law(i=#{i},r=#{r}): #{e.message}")
   if i > 0 && r > 0
     "The voltage for given #{i} ampheres current and #{r} ohms resistance is #{r * i} volts."
   else
+	warn("[ERROR] Throwing exception from ohms_law(i=#{i},r=#{r})")
+	warn("[WARN] <<< Exiting ohms_law(i=#{i},r=#{r})")
     raise
   end
 rescue StandardError

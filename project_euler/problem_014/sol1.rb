@@ -17,9 +17,12 @@
 #Which starting number, under one million, produces the longest chain?
 
 def solution()
+warn("[ERROR] >>> Entering solution()")
   index_best_result = 0
   for num in 2..1000000
+	warn("[DEBUG] solution(): index_best_result → #{index_best_result}")
     index_candidate = 0
+	warn("[DEBUG] solution(): index_candidate → #{index_candidate}")
     n = num
     while n > 1
       if n%2 == 0
@@ -32,8 +35,10 @@ def solution()
     if index_best_result < index_candidate
       index_best_result = index_candidate
       value = num
+	warn("[DEBUG] solution(): value → #{value}")
     end
   end
+warn("[WARN] <<< Exiting solution()")
   result = value
 end
 

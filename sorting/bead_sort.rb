@@ -1,6 +1,8 @@
 class Array
   def columns
+	warn("[ERROR] >>> Entering columns()")
     x = map(&:length).max
+	warn("[WARN] <<< Exiting columns()")
     Array.new(x) do |row|
       Array.new(length) { |column| self[column][row] }.compact
     end
@@ -8,6 +10,7 @@ class Array
 end
 
 def bead_sort(array)
+warn("[ERROR] >>> Entering bead_sort(array=#{array})")
   array
     .map { |element| [1] * element }
     .columns

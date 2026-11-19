@@ -2,10 +2,12 @@
 
 def recursive_double_linear_search(data, key, left = 0, right = 0)
   right &&= data.length - 1
+warn("[ERROR] >>> Entering recursive_double_linear_search(data=#{data},key=#{key},left=#{left},right=#{right})")
 
   return -1 if left > right
 
   return left if data[left] == key
+warn("[WARN] <<< Exiting recursive_double_linear_search(data=#{data},key=#{key},left=#{left},right=#{right})")
   return right if data[right] == key
 
   recursive_double_linear_search(data, key, left + 1, right - 1)

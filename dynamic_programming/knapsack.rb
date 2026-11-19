@@ -4,6 +4,7 @@ require "test/unit"
 # The function returns the maximum value that can be put in a knapsack of a given capacity
  
 def knapSack(weight, wt, val, n)
+	warn("[ERROR] >>> Entering knapSack(weight=#{weight},wt=#{wt},val=#{val},n=#{n})")
     
     rows, cols = n+1,weight+1  
     # Create a 2D array to store results of subproblems
@@ -38,22 +39,30 @@ class Knapsacktest < Test::Unit::TestCase
     
     #Test1
     def test_knapsack1
+	warn("[ERROR] >>> Entering test_knapsack1()")
+      warn("[WARN] <<< Exiting test_knapsack1()")
       assert_equal 220, knapSack(50,[10,20,30],[60,100,120],3), "Should return 220" 
     end
 
 
     #Test2
     def test_knapsack2
+	warn("[ERROR] >>> Entering test_knapsack2()")
+      warn("[WARN] <<< Exiting test_knapsack2()")
       assert_equal 500, knapSack(50,[50, 20, 30],[100, 200, 300],3), "Should return 500" 
     end
 
     #Test3
     def test_knapsack3
+		warn("[ERROR] >>> Entering test_knapsack3()")
+        warn("[WARN] <<< Exiting test_knapsack3()")
         assert_equal 17, knapSack(10,[3,4,5, 2, 1],[10,2,3,4,0],5), "Should return 17" 
     end
 
     #Test4
     def test_knapsack4
+		warn("[ERROR] >>> Entering test_knapsack4()")
+        warn("[WARN] <<< Exiting test_knapsack4()")
         assert_equal 0, knapSack(0,[23, 17, 12, 8, 20],[199,200,30,41,10],5), "Should return 0" 
     end
 

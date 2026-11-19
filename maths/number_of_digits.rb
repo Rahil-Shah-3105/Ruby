@@ -1,8 +1,10 @@
 # Given a number, find number of digits in it.
 
 def count_digits(n)
+warn("[ERROR] >>> Entering count_digits(n=#{n})")
   count = 0
   temp = n
+warn("[DEBUG] count_digits(n=#{n}): count → #{count}")
 
   return 1 if n == 0
 
@@ -11,6 +13,7 @@ def count_digits(n)
     temp /= 10
   end
 
+warn("[WARN] <<< Exiting count_digits(n=#{n})")
   count
 end
 

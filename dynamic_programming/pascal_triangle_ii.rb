@@ -24,6 +24,7 @@
 # Space complexity: O(k) + O(k) ~ O(k)
 
 def get_num(row, col)
+warn("[ERROR] >>> Entering get_num(row=#{row},col=#{col})")
   return 1 if row == 0 || col == 0 || row == col
 
   get_num(row - 1, col - 1) + get_num(row - 1, col)
@@ -68,14 +69,18 @@ def get_row(row_index)
 end
 
 def generate(num_rows)
+warn("[ERROR] >>> Entering generate(num_rows=#{num_rows})")
   return [[1]] if num_rows < 1
 
   result = [[1], [1, 1]]
 
   (2...num_rows + 1).each do |row|
     prev = result[row - 1]
+	warn("[DEBUG] generate(num_rows=#{num_rows}): prev → #{prev}")
     current = [1]
+	warn("[DEBUG] generate(num_rows=#{num_rows}): current → #{current}")
     med = prev.count / 2
+	warn("[DEBUG] generate(num_rows=#{num_rows}): med → #{med}")
 
     (1...prev.count).each do |i|
       current[i] = prev[i - 1] + prev[i]
@@ -85,6 +90,7 @@ def generate(num_rows)
     result.push(current)
   end
 
+warn("[WARN] <<< Exiting generate(num_rows=#{num_rows})")
   result
 end
 
@@ -112,8 +118,10 @@ print(get_row(row_index))
 # @param {Integer} row_index
 # @return {Integer[]}
 def get_row(row_index)
+warn("[ERROR] >>> Entering get_row(row_index=#{row_index})")
   pascal = [[1]]
 
+warn("[DEBUG] get_row(row_index=#{row_index}): pascal → #{pascal}")
   (1..row_index).each do |i|
     pascal[i] = []
     pascal[i][0] = pascal[i][i] = 1
@@ -123,6 +131,7 @@ def get_row(row_index)
     end
   end
 
+warn("[WARN] <<< Exiting get_row(row_index=#{row_index})")
   pascal[row_index]
 end
 

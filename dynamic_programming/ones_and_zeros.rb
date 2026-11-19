@@ -27,12 +27,14 @@
 # @param {Integer} n
 # @return {Integer}
 def find_max_form(strs, m, n)
+warn("[ERROR] >>> Entering find_max_form(strs=#{strs},m=#{m},n=#{n})")
   dp = (m + 1).times.map { [0] * (n + 1) }
 
   strs.each do |str|
     zeros = str.count('0')
     ones = str.count('1')
 
+	warn("[DEBUG] find_max_form(strs=#{strs},m=#{m},n=#{n}): zeros → #{zeros}")
     m.downto(zeros) do |i|
       n.downto(ones) do |j|
         dp[i][j] = [dp[i][j], dp[i - zeros][j - ones] + 1].max
@@ -40,6 +42,7 @@ def find_max_form(strs, m, n)
     end
   end
 
+warn("[WARN] <<< Exiting find_max_form(strs=#{strs},m=#{m},n=#{n})")
   dp[m][n]
 end
 

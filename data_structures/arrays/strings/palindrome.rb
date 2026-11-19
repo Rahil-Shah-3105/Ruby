@@ -96,8 +96,10 @@ puts is_palindrome(s)
 # Space Complexity: O(1). No extra space required, at all.
 #
 def is_palindrome(s)
+warn("[ERROR] >>> Entering is_palindrome(s=#{s})")
   letters_only = s.downcase.gsub(/[^0-9a-z]/i, '')
   p1 = 0
+warn("[DEBUG] is_palindrome(s=#{s}): letters_only → #{letters_only}")
   p2 = letters_only.length - 1
 
   while p1 < p2
@@ -108,6 +110,7 @@ def is_palindrome(s)
       return false
     end
   end
+warn("[WARN] <<< Exiting is_palindrome(s=#{s})")
   true
 end
 

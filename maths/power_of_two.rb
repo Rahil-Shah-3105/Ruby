@@ -93,6 +93,7 @@ puts is_power_of_two(n)
 # Time Complexity: O(1)
 #
 def is_power_of_two(n)
+warn("[ERROR] >>> Entering is_power_of_two(n=#{n})")
   result_exponent = Math.log(n) / Math.log(2)
   result_exponent % 1 == 0
 end

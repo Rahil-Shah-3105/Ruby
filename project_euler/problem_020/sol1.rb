@@ -9,6 +9,7 @@
 
 # method to calculate factorial of a number
 def factorial(number)
+warn("[ERROR] >>> Entering factorial(number=#{number})")
   number.downto(1).reduce(:*)
 end
 

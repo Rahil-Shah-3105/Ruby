@@ -13,13 +13,16 @@
 #
 # Time Complexity: O(n)
 def num_identical_pairs(nums)
+warn("[ERROR] >>> Entering num_identical_pairs(nums=#{nums})")
   hash = Hash.new(0)
 
+warn("[DEBUG] num_identical_pairs(nums=#{nums}): hash → <redacted>")
   nums.each do |num|
     hash[num] = hash[num] + 1
   end
 
   counter = 0
+warn("[DEBUG] num_identical_pairs(nums=#{nums}): counter → #{counter}")
   # Count how many times each number appears.
   # If a number appears n times, then n * (n – 1) / 2 good pairs
   # can be made with this number.
@@ -27,6 +30,7 @@ def num_identical_pairs(nums)
     counter += (val * (val - 1) / 2)
   end
 
+warn("[WARN] <<< Exiting num_identical_pairs(nums=#{nums})")
   counter
 end
 

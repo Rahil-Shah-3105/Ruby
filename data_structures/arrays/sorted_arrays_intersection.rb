@@ -29,6 +29,7 @@
 # @param {Integer[]} arr3
 # @return {Integer[]}
 def sorted_arrays_intersection(arr1, arr2, arr3)
+warn("[ERROR] >>> Entering sorted_arrays_intersection(arr1=#{arr1},arr2=#{arr2},arr3=#{arr3})")
   result = []
 
   # prepare three pointers to iterate through three arrays
@@ -51,6 +52,7 @@ def sorted_arrays_intersection(arr1, arr2, arr3)
     end
   end
 
+warn("[WARN] <<< Exiting sorted_arrays_intersection(arr1=#{arr1},arr2=#{arr2},arr3=#{arr3})")
   result
 end
 

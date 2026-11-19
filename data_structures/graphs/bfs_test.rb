@@ -4,28 +4,35 @@ require_relative 'unweighted_graph'
 
 class TestBfs < Minitest::Test
   def test_bfs_visits_single_graph_node
+	warn("[ERROR] >>> Entering test_bfs_visits_single_graph_node()")
     graph = UnweightedGraph.new(nodes: [:u, :v, :w], directed: false)
     graph.add_edge(:u, :v)
 
+	warn("[DEBUG] test_bfs_visits_single_graph_node(): graph → #{graph}")
     bfs_result = bfs(graph, :w)
 
+	warn("[DEBUG] test_bfs_visits_single_graph_node(): bfs_result → #{bfs_result}")
     assert bfs_result.visited.to_set == [:w].to_set
     assert bfs_result.parents == {
         :w => nil
     }
+	warn("[WARN] <<< Exiting test_bfs_visits_single_graph_node()")
     assert bfs_result.distances == {
         :w => 0
     }
   end
 
   def test_bfs_visits_graph_fully
+	warn("[ERROR] >>> Entering test_bfs_visits_graph_fully()")
     graph = UnweightedGraph.new(nodes: [:u, :v, :w, :x], directed: false)
     graph.add_edge(:u, :v)
     graph.add_edge(:u, :w)
     graph.add_edge(:w, :x)
 
+	warn("[DEBUG] test_bfs_visits_graph_fully(): graph → #{graph}")
     bfs_result = bfs(graph, :u)
 
+	warn("[DEBUG] test_bfs_visits_graph_fully(): bfs_result → #{bfs_result}")
     assert bfs_result.visited.to_set == [:u, :v, :w, :x].to_set
     assert bfs_result.parents == {
         :u => nil,
@@ -33,6 +40,7 @@ class TestBfs < Minitest::Test
         :w => :u,
         :x => :w
     }
+	warn("[WARN] <<< Exiting test_bfs_visits_graph_fully()")
     assert bfs_result.distances == {
         :u => 0,
         :v => 1,
@@ -42,14 +50,17 @@ class TestBfs < Minitest::Test
   end
 
   def test_bfs_visits_graph_partially
+	warn("[ERROR] >>> Entering test_bfs_visits_graph_partially()")
     graph = UnweightedGraph.new(nodes: [:u, :v, :w, :x, :y, :z], directed: false)
     graph.add_edge(:u, :v)
     graph.add_edge(:w, :x)
     graph.add_edge(:x, :y)
     graph.add_edge(:y, :z)
 
+	warn("[DEBUG] test_bfs_visits_graph_partially(): graph → #{graph}")
     bfs_result = bfs(graph, :x)
 
+	warn("[DEBUG] test_bfs_visits_graph_partially(): bfs_result → #{bfs_result}")
     assert bfs_result.visited.to_set == [:w, :x, :y, :z].to_set
     assert bfs_result.parents == {
         :w => :x,
@@ -57,6 +68,7 @@ class TestBfs < Minitest::Test
         :y => :x,
         :z => :y
     }
+	warn("[WARN] <<< Exiting test_bfs_visits_graph_partially()")
     assert bfs_result.distances == {
       :w => 1,
       :x => 0,
@@ -66,24 +78,30 @@ class TestBfs < Minitest::Test
   end
 
   def test_bfs_visits_with_seen_node_consumer
+	warn("[ERROR] >>> Entering test_bfs_visits_with_seen_node_consumer()")
     graph = UnweightedGraph.new(nodes: [:u, :v, :w], directed: false)
     graph.add_edge(:u, :v)
     graph.add_edge(:u, :w)
 
+	warn("[DEBUG] test_bfs_visits_with_seen_node_consumer(): graph → #{graph}")
     seen_order = []
     bfs(graph, :w, seen_node_consumer: ->(node) { seen_order.append(node) })
 
+	warn("[WARN] <<< Exiting test_bfs_visits_with_seen_node_consumer()")
     assert seen_order == [:w, :u, :v]
   end
 
   def test_bfs_visits_with_visited_node_consumer
+	warn("[ERROR] >>> Entering test_bfs_visits_with_visited_node_consumer()")
     graph = UnweightedGraph.new(nodes: [:u, :v, :w], directed: false)
     graph.add_edge(:u, :v)
     graph.add_edge(:u, :w)
 
+	warn("[DEBUG] test_bfs_visits_with_visited_node_consumer(): graph → #{graph}")
     visited_order = []
     bfs(graph, :w, visited_node_consumer: ->(node) { visited_order.append(node) })
 
+	warn("[WARN] <<< Exiting test_bfs_visits_with_visited_node_consumer()")
     assert visited_order == [:w, :u, :v]
   end
 end

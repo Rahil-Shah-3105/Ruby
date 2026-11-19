@@ -1,10 +1,12 @@
 # Fisher and Yates Shuffle is one of the simplest and most popular shuffling algorithm
 def fisher_yates_shuffle(array)
+warn("[ERROR] >>> Entering fisher_yates_shuffle(array=#{array})")
   n = array.length
   while n > 0
     i = rand(n -= 1)
     array[i], array[n] = array[n], array[i]
   end
+warn("[WARN] <<< Exiting fisher_yates_shuffle(array=#{array})")
   array
 end
 

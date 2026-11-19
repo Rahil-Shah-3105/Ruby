@@ -92,11 +92,15 @@ puts intersect(nums1, nums2)
 # Space Complexity: from O(logn+logm) to O(n+m), depending on the implementation of the sorting algorithm.
 #
 def intersect(nums1, nums2)
+warn("[ERROR] >>> Entering intersect(arr1=#{arr1},arr2=#{arr2})")
+  warn("[DEBUG] intersect(arr1=#{arr1},arr2=#{arr2}): shorter → #{shorter}")
+  warn("[DEBUG] intersect(arr1=#{arr1},arr2=#{arr2}): longer → #{longer}")
   result = []
   p1 = 0
   p2 = 0
   nums1 = nums1.sort
   nums2 = nums2.sort
+warn("[ERROR] >>> Entering intersect(nums1=#{nums1},nums2=#{nums2})")
   while p1 < nums1.length && p2 < nums2.length
     if nums1[p1] < nums2[p2]
       p1 += 1
@@ -109,6 +113,7 @@ def intersect(nums1, nums2)
     end
   end
 
+warn("[WARN] <<< Exiting intersect(nums1=#{nums1},nums2=#{nums2})")
   result
 end
 nums1 = [1, 2, 2, 1]

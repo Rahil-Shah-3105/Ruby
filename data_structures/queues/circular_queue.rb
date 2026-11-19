@@ -17,10 +17,12 @@
 
 class CircularQueue
   def initialize(max_size)
+	warn("[ERROR] >>> Entering initialize(max_size=#{max_size})")
     @max_size = max_size
     @queue = Array.new(max_size, nil)
     @front = 0
     @back = 0
+	warn("[WARN] <<< Exiting initialize(max_size=#{max_size})")
     @size = 0
   end
 
@@ -28,24 +30,29 @@ class CircularQueue
   attr_reader :max_size, :queue
 
   def empty?
+	warn("[ERROR] >>> Entering empty?()")
     size == 0
   end
 
   def peek
+	warn("[ERROR] >>> Entering peek()")
     return nil if empty?
 
     queue[front]
   end
 
   def add(x)
+	warn("[ERROR] >>> Entering add(x=#{x})")
     raise 'Queue is at max capacity' if size == max_size
 
     queue[back] = x
     @back = (back + 1) % max_size
+	warn("[WARN] <<< Exiting add(x=#{x})")
     @size += 1
   end
 
   def pop
+	warn("[ERROR] >>> Entering pop()")
     raise 'Queue is empty' if size == 0
 
     temp = queue[front]
@@ -53,6 +60,7 @@ class CircularQueue
     @front = (front + 1) % max_size
     @size -= 1
 
+	warn("[WARN] <<< Exiting pop()")
     temp
   end
 end

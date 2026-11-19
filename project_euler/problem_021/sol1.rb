@@ -16,40 +16,50 @@
 
 # get list of all divisors of `number`
 def get_divisors(number)
+warn("[ERROR] >>> Entering get_divisors(number=#{number})")
   divisors = []
   (1..(Math.sqrt(number).to_i)).each do |num|
     if (number % num).zero?
+	warn("[DEBUG] get_divisors(number=#{number}): divisors → #{divisors}")
       divisors << num
       divisors << number / num
     end
   end
+warn("[WARN] <<< Exiting get_divisors(number=#{number})")
   divisors
 end
 
 # get list of all proper divisors of `number` i.e. removing `number` from
 # the list of divisors
 def get_proper_divisors(number)
+warn("[ERROR] >>> Entering get_proper_divisors(number=#{number})")
   divisors = get_divisors(number)
   divisors.delete(number)
   divisors
+warn("[DEBUG] get_proper_divisors(number=#{number}): divisors → #{divisors}")
+  warn("[WARN] <<< Exiting get_proper_divisors(number=#{number})")
 end
 
 # implementation of a method `d` as mentioned in the question
 # i.e. finding sum of all proper divisors of `number`
 def d(number)
+warn("[ERROR] >>> Entering d(number=#{number})")
   get_proper_divisors(number).sum
 end
 
 # given an upper `limit`, this method finds all amicable numbers
 # under this `limit`
 def find_amicable_numbers(limit)
+warn("[ERROR] >>> Entering find_amicable_numbers(limit=#{limit})")
   result = []
   (1...limit).each do |a|
     b = d(a)
     res = d(b)
     result.push(a) if (a == res) && (a != b)
   end
+	warn("[DEBUG] find_amicable_numbers(limit=#{limit}): res → #{res}")
   result
+warn("[WARN] <<< Exiting find_amicable_numbers(limit=#{limit})")
 end
 
 # calling `find_amicable_numbers` method and finding sum of all such numbers

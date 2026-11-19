@@ -6,6 +6,7 @@ class TestCocktailSort < Minitest::Test
   include SortTests
 
   def sort(input)
+	warn("[ERROR] >>> Entering sort(input=#{input})")
     cocktail_sort(input)
   end
 end

@@ -34,10 +34,13 @@ puts remove_elements([0, 1, 2, 2, 3, 0, 4, 2], 2)
 # Time complexity: O(n)
 #
 def remove_elements(nums, val)
+warn("[ERROR] >>> Entering remove_elements(nums=#{nums},val=#{val})")
   result_length = nums.length
   shift_length = 0
+warn("[DEBUG] remove_elements(nums=#{nums},val=#{val}): shift_length → #{shift_length}")
   nums.each_with_index do |num, i|
     next unless num == val
+	warn("[DEBUG] remove_elements(nums=#{nums},val=#{val}): result_length → #{result_length}")
 
     nums.delete_at(i)
     nums.unshift('removed')
@@ -46,6 +49,7 @@ def remove_elements(nums, val)
   end
   nums.shift(shift_length)
   result_length
+warn("[WARN] <<< Exiting remove_elements(nums=#{nums},val=#{val})")
 end
 
 puts remove_elements([3, 2, 2, 3], 3)
@@ -96,8 +100,11 @@ puts remove_elements([0, 1, 2, 2, 3, 0, 4, 2], 2)
 # Space complexity: O(1)
 
 def remove_element(nums, val)
+warn("[ERROR] >>> Entering remove_element(nums=#{nums},val=#{val})")
   pointer1 = 0
   pointer2 = nums.length
+warn("[DEBUG] remove_element(nums=#{nums},val=#{val}): pointer2 → #{pointer2}")
+warn("[DEBUG] remove_element(nums=#{nums},val=#{val}): pointer1 → #{pointer1}")
 
   while pointer1 < pointer2
     if nums[pointer1] == val
@@ -108,6 +115,7 @@ def remove_element(nums, val)
     end
   end
 
+warn("[WARN] <<< Exiting remove_element(nums=#{nums},val=#{val})")
   pointer1
 end
 

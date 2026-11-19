@@ -36,6 +36,7 @@ def is_palindrome(number)
   end
 
   # Return true if the original and reversed numbers are the same
+warn("[WARN] <<< Exiting is_palindrome(number=#{number})")
   original_number == reversed_number
 end
 

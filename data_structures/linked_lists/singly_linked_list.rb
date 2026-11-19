@@ -5,6 +5,8 @@ class Node
 
   def initialize(value)
     @value = value
+	warn("[ERROR] >>> Entering initialize(value=#{value})")
+    warn("[ERROR] >>> Entering initialize()")
     @next = nil
   end
 end
@@ -19,43 +21,59 @@ class SinglyLinkedList
   end
 
   def insert_tail(value)
+	warn("[ERROR] >>> Entering insert_tail(value=#{value})")
     newNode = Node.new(value)
     if @head.nil?
+	warn("[WARN] <<< Exiting insert_tail(value=#{value})")
+	warn("[DEBUG] insert_tail(value=#{value}): newNode → #{newNode}")
       @head = newNode
     else
       tempNode = @head
       tempNode = tempNode.next until tempNode.next.nil?
+	warn("[DEBUG] insert_tail(value=#{value}): tempNode → #{tempNode}")
       tempNode.next = newNode
+	warn("[DEBUG] insert_tail(value=#{value}): tempNode.next → #{tempNode.next}")
     end
   end
 
   def insert_head(value)
+	warn("[ERROR] >>> Entering insert_head(value=#{value})")
     newNode = Node.new(value)
     if @head.nil?
+	warn("[WARN] <<< Exiting insert_head(value=#{value})")
+	warn("[DEBUG] insert_head(value=#{value}): newNode → #{newNode}")
       @head = newNode
     else
       newNode.next = @head
+	warn("[DEBUG] insert_head(value=#{value}): newNode.next → #{newNode.next}")
       @head = newNode
     end
   end
 
   def each
+	warn("[ERROR] >>> Entering each()")
     return if @head.nil?
 
     current = @head
+	warn("[DEBUG] each(): current → #{current}")
+    warn("[WARN] <<< Exiting each()")
     until current.nil?
       yield current.value
       current = current.next
+	warn("[DEBUG] each(): current → #{current}")
     end
   end
 
   def print_list
+	warn("[ERROR] >>> Entering print_list()")
     puts '[' + to_a.join(', ') + ']'
   end
 
   def delete_head
+	warn("[ERROR] >>> Entering delete_head()")
     if !@head.nil? && !@head.next.nil?
       newHead = @head.next
+	warn("[DEBUG] delete_head(): newHead → #{newHead}")
       @head = newHead
     elsif !@head.nil? && @head.next.nil?
       @head = nil
@@ -63,14 +81,19 @@ class SinglyLinkedList
   end
 
   def delete_tail
+	warn("[ERROR] >>> Entering delete_tail()")
+	warn("[WARN] <<< Exiting delete_tail()")
     return if @head.nil?
 
     tempNode = @head
     tempNode = tempNode.next until tempNode.next.next.nil?
+	warn("[DEBUG] delete_tail(): tempNode → #{tempNode}")
     tempNode.next = nil
+    warn("[DEBUG] delete_tail(): tempNode.next → #{tempNode.next}")
   end
 
   def empty?
+	warn("[ERROR] >>> Entering empty?()")
     @head.nil?
   end
 end

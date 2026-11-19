@@ -11,11 +11,13 @@ class DoublyLinkedList
   # Get the value of the index-th node in the linked list.
   # If the index is invalid, return -1.
   def get(index)
+	warn("[ERROR] >>> Entering get(index=#{index})")
     return -1 if @head.nil?
     return -1 if index > @size - 1
 
     if index < @size - index
       iter = @head
+	warn("[DEBUG] get(index=#{index}): iter → #{iter}")
       cnt = 0
       until iter.nil?
         return iter.val if cnt == index
@@ -31,6 +33,7 @@ class DoublyLinkedList
 
         iter = iter.prev
         cnt -= 1
+	warn("[WARN] <<< Exiting get(index=#{index})")
       end
     end
     -1
@@ -39,20 +42,26 @@ class DoublyLinkedList
   # Add a node of value val before the first element of the linked list.
   # After the insertion, the new node will be the first node of the linked list.
   def insert_head(val)
+	warn("[ERROR] >>> Entering insert_head(val=#{val})")
     node = Node.new(val, nil, @head)
     @tail = node unless @head
+	warn("[DEBUG] insert_head(val=#{val}): node → #{node}")
     @head.prev = node if @head
     @head = node
+	warn("[WARN] <<< Exiting insert_head(val=#{val})")
     @size += 1
   end
 
   # Append a node of value val to the last element of the linked list.
   def insert_tail(val)
+	warn("[ERROR] >>> Entering insert_tail(val=#{val})")
     return insert_head(val) unless @head
 
     node = Node.new(val, @tail, nil)
     @tail.next = node
+	warn("[DEBUG] insert_tail(val=#{val}): node → #{node}")
     @tail = node
+	warn("[WARN] <<< Exiting insert_tail(val=#{val})")
     @size += 1
   end
 
@@ -61,12 +70,14 @@ class DoublyLinkedList
   # to the end of linked list. If index is greater than the length, the node
   # will not be inserted.
   def add_at_index(index, val)
+	warn("[ERROR] >>> Entering add_at_index(index=#{index},val=#{val})")
     case index
     when 0 then insert_head(val)
     when @size then insert_tail(val)
     when 1...@size
       if index < @size - index
         iter = @head
+		warn("[DEBUG] add_at_index(index=#{index},val=#{val}): iter → #{iter}")
         cnt = 0
         until iter.nil?
           return insert(iter, Node.new(val)) if cnt == index - 1
@@ -88,15 +99,21 @@ class DoublyLinkedList
   end
 
   def insert(node, new_node)
+	warn("[ERROR] >>> Entering insert(node=#{node},new_node=#{new_node})")
     new_node.prev = node
     new_node.next = node.next
+	warn("[DEBUG] insert(node=#{node},new_node=#{new_node}): new_node.next → #{new_node.next}")
+	warn("[DEBUG] insert(node=#{node},new_node=#{new_node}): new_node.prev → #{new_node.prev}")
     node.next.prev = new_node
     node.next = new_node
+	warn("[DEBUG] insert(node=#{node},new_node=#{new_node}): node.next → #{node.next}")
+    warn("[WARN] <<< Exiting insert(node=#{node},new_node=#{new_node})")
     @size += 1
   end
 
   # Delete the index-th node in the linked list, if the index is valid.
   def delete_at_index(index)
+	warn("[ERROR] >>> Entering delete_at_index(index=#{index})")
     case index
     when 0
       return unless @head
@@ -108,6 +125,7 @@ class DoublyLinkedList
     when 1...@size - 1
       if index < @size - index
         iter = @head
+		warn("[DEBUG] delete_at_index(index=#{index}): iter → #{iter}")
         cnt = 0
         until iter.nil?
           return remove(iter) if cnt == index
@@ -129,6 +147,7 @@ class DoublyLinkedList
   end
 
   def remove(node)
+	warn("[ERROR] >>> Entering remove(node=#{node})")
     if node == @head
       @head = @head.next
       @head.prev = nil
@@ -139,11 +158,14 @@ class DoublyLinkedList
       node.prev.next = node.next
       node.next.prev = node.prev
     end
+	warn("[WARN] <<< Exiting remove(node=#{node})")
     @size -= 1
   end
 
   def print_values(head = @head)
+	warn("[ERROR] >>> Entering print_values(head=#{head})")
     print "#{head.val} --> "
+	warn("[WARN] <<< Exiting print_values(head=#{head})")
     if head.next.nil?
       puts("nil\n")
     else
@@ -156,8 +178,11 @@ class Node
   attr_accessor :val, :prev, :next
 
   def initialize(val = nil, prev = nil, next_ = nil)
+	warn("[ERROR] >>> Entering initialize()")
+    warn("[ERROR] >>> Entering initialize(val=#{val},prev=#{prev},next_=#{next_})")
     @val = val
     @prev = prev
+	warn("[WARN] <<< Exiting initialize(val=#{val},prev=#{prev},next_=#{next_})")
     @next = next_
   end
 end

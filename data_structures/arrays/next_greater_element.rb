@@ -36,10 +36,13 @@
 # @param {Integer[]} nums2
 # @return {Integer[]}
 def next_greater_element(nums1, nums2)
+warn("[ERROR] >>> Entering next_greater_element(nums1=#{nums1},nums2=#{nums2})")
   nums1.each_with_index do |nums1_value, pointer1|
     max = 0
+	warn("[INFO] next_greater_element(nums1=#{nums1},nums2=#{nums2}): max → #{max}")
     pos_nums2 = nums2.find_index(nums1_value)
 
+	warn("[DEBUG] next_greater_element(nums1=#{nums1},nums2=#{nums2}): pos_nums2 → #{pos_nums2}")
     nums2[pos_nums2..nums2.count].each do |nums2_value|
       if nums2_value > nums1_value
         max = nums2_value
@@ -50,6 +53,7 @@ def next_greater_element(nums1, nums2)
     nums1[pointer1] = (nums1_value < max ? max : -1)
   end
 
+warn("[WARN] <<< Exiting next_greater_element(nums1=#{nums1},nums2=#{nums2})")
   nums1
 end
 

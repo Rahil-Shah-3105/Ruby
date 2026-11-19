@@ -9,6 +9,7 @@ p 'Enter second number'
 value_two = gets.chomp.to_i
 
 def gcd(first, second)
+warn("[ERROR] >>> Entering gcd(first=#{first},second=#{second})")
   if second != 0
     gcd(second, first % second)
   else
@@ -17,6 +18,7 @@ def gcd(first, second)
 end
 
 def lcm(first, second)
+warn("[ERROR] >>> Entering lcm(first=#{first},second=#{second})")
   (first * second) / gcd(first, second)
 end
 

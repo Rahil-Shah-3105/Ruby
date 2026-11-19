@@ -11,7 +11,10 @@
 # @return {Integer[]}
 def postorder_traversal(root)
   ans = []
+warn("[ERROR] >>> Entering postorder_traversal(root=#{root})")
+  warn("[DEBUG] postorder_traversal(root=#{root}): ans → #{ans}")
   def traverse(node, ans)
+	warn("[ERROR] >>> Entering traverse(node=#{node},ans=#{ans})")
     unless node.nil?
       traverse(node.left, ans)
       traverse(node.right, ans)

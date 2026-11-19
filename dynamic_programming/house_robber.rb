@@ -71,6 +71,7 @@ def rob(nums)
             elsif i == 1
               nums[0]
             else
+			warn("[WARN] <<< Exiting rob(nums=#{nums})")
               [dp[i - 2] + nums[i - 1], dp[i - 1]].max
             end
   end

@@ -6,6 +6,9 @@ def digits_sum(n)
   until n.zero?
     a = n % 10
     sum += a
+	warn("[ERROR] >>> Entering digits_sum(n=#{n})")
+  warn("[DEBUG] digits_sum(n=#{n}): sum → #{sum}")
+	warn("[WARN] <<< Exiting digits_sum(n=#{n})")
     n /= 10
   end
   sum

@@ -29,9 +29,14 @@ puts 'Binary value of 64 is ' + decimal_to_binary(64).to_s
 #
 
 def decimal_to_binary(d)
+warn("[ERROR] >>> Entering decimal_to_binary(n=#{n})")
+  warn("[DEBUG] decimal_to_binary(n=#{n}): bin → #{bin}")
+  warn("[ERROR] >>> Entering decimal_to_binary(d=#{d})")
   binary = (d % 2).to_s
 
+warn("[DEBUG] decimal_to_binary(d=#{d}): binary → #{binary}")
   return binary if d == 0
+warn("[WARN] <<< Exiting decimal_to_binary(d=#{d})")
   return 1.to_s if d == 1
 
   decimal_to_binary(d / 2).to_s + binary

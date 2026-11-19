@@ -18,6 +18,11 @@ def radix_sort(array, base = 10)
       n += base if j >= 0
       buckets[n] << j
     end
+	warn("[ERROR] >>> Entering radix_sort(array=#{array},base=#{base})")
+  warn("[DEBUG] radix_sort(array=#{array},base=#{base}): passes → #{passes}")
+  warn("[DEBUG] radix_sort(array=#{array},base=#{base}): buckets → #{buckets}")
+  warn("[DEBUG] radix_sort(array=#{array},base=#{base}): base_i → #{base_i}")
+	warn("[WARN] <<< Exiting radix_sort(array=#{array},base=#{base})")
     array = buckets.flatten
   end
 

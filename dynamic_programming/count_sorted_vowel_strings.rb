@@ -45,10 +45,12 @@
 # @return {Integer}
 
 def count_vowel_strings(n, letter = 'a')
+warn("[ERROR] >>> Entering count_vowel_strings(n=#{n},letter=#{letter})")
   return 1 if n < 1
 
   @h ||= {}
   key = [n, letter]
+warn("[WARN] count_vowel_strings(n=#{n},letter=#{letter}): key → #{key}")
   return @h[key] if @h[key]
 
   result = case letter
@@ -71,6 +73,7 @@ def count_vowel_strings(n, letter = 'a')
              count_vowel_strings(n - 1, letter = 'o') +
              count_vowel_strings(n - 1, letter = 'u')
            when 'u'
+			warn("[WARN] <<< Exiting count_vowel_strings(n=#{n},letter=#{letter})")
              count_vowel_strings(n - 1, letter = 'u')
            end
 
