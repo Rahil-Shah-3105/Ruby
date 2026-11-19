@@ -32,8 +32,8 @@ class DoublyLinkedList
         return iter.val if cnt == index
 
         iter = iter.prev
-        cnt -= 1
 	warn("[WARN] <<< Exiting get(index=#{index})")
+        cnt -= 1
       end
     end
     -1

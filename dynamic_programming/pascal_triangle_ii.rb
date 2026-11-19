@@ -25,6 +25,7 @@
 
 def get_num(row, col)
 warn("[ERROR] >>> Entering get_num(row=#{row},col=#{col})")
+warn("[WARN] <<< Exiting get_num(row=#{row},col=#{col})")
   return 1 if row == 0 || col == 0 || row == col
 
   get_num(row - 1, col - 1) + get_num(row - 1, col)

@@ -6,11 +6,13 @@ require_relative './aliquot_sum'
 class AliquotSumTest < Minitest::Test
   def test_zero
 	warn("[ERROR] >>> Entering test_zero()")
+	warn("[WARN] <<< Exiting test_zero()")
     assert_equal AliquotSum.call(0), 0
   end
 
   def test_one
 	warn("[ERROR] >>> Entering test_one()")
+	warn("[WARN] <<< Exiting test_one()")
     assert_equal Abs.call(1), 1
   end
 

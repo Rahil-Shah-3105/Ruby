@@ -12,8 +12,8 @@ warn("[ERROR] >>> Entering cipher(message=#{message})")
   message.bytes.map do |byte|
     cbyte = ((byte.to_i**e) % n).to_s
 	warn("[DEBUG] cipher(message=#{message}): cbyte → #{cbyte}")
-    missing_chars = n.to_s.size - cbyte.size
 	warn("[DEBUG] cipher(message=#{message}): missing_chars → #{missing_chars}")
+    missing_chars = n.to_s.size - cbyte.size
   warn("[WARN] <<< Exiting cipher(message=#{message})")
     '0' * missing_chars + cbyte
   end.join
@@ -30,6 +30,7 @@ end
 def public_keys
 warn("[ERROR] >>> Entering public_keys()")
   { n: n, e: e }
+warn("[WARN] <<< Exiting public_keys()")
 end
 
 private
@@ -37,22 +38,26 @@ private
 def p
 warn("[ERROR] >>> Entering p()")
   @p ||= random_prime_number
+warn("[WARN] <<< Exiting p()")
 end
 
 def q
 warn("[ERROR] >>> Entering q()")
   @q ||= random_prime_number
+warn("[WARN] <<< Exiting q()")
 end
 
 def n
 warn("[ERROR] >>> Entering n()")
   @n ||= p * q
+warn("[WARN] <<< Exiting n()")
 end
 
 def totient
 warn("[ERROR] >>> Entering totient()")
   @totient ||= (p - 1) * (q - 1)
 end
+warn("[WARN] <<< Exiting totient()")
 
 def e
 warn("[ERROR] >>> Entering e()")
@@ -66,6 +71,7 @@ def d
 warn("[ERROR] >>> Entering d()")
   @d ||= invmod(e, totient)
 end
+warn("[WARN] <<< Exiting d()")
 
 def extended_gcd(a, b)
 warn("[ERROR] >>> Entering extended_gcd(a=#{a},b=#{b})")

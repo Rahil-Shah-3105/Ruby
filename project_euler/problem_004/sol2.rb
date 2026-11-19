@@ -6,6 +6,7 @@
 class Integer
   def parindrome?
 	warn("[ERROR] >>> Entering parindrome?()")
+	warn("[WARN] <<< Exiting parindrome?()")
     self == reverse
   end
 

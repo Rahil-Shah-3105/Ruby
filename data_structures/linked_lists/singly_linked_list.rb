@@ -31,8 +31,8 @@ class SinglyLinkedList
       tempNode = @head
       tempNode = tempNode.next until tempNode.next.nil?
 	warn("[DEBUG] insert_tail(value=#{value}): tempNode → #{tempNode}")
-      tempNode.next = newNode
 	warn("[DEBUG] insert_tail(value=#{value}): tempNode.next → #{tempNode.next}")
+      tempNode.next = newNode
     end
   end
 
@@ -59,19 +59,21 @@ class SinglyLinkedList
     warn("[WARN] <<< Exiting each()")
     until current.nil?
       yield current.value
-      current = current.next
 	warn("[DEBUG] each(): current → #{current}")
+      current = current.next
     end
   end
 
   def print_list
 	warn("[ERROR] >>> Entering print_list()")
+	warn("[WARN] <<< Exiting print_list()")
     puts '[' + to_a.join(', ') + ']'
   end
 
   def delete_head
 	warn("[ERROR] >>> Entering delete_head()")
     if !@head.nil? && !@head.next.nil?
+	warn("[WARN] <<< Exiting delete_head()")
       newHead = @head.next
 	warn("[DEBUG] delete_head(): newHead → #{newHead}")
       @head = newHead
@@ -88,12 +90,13 @@ class SinglyLinkedList
     tempNode = @head
     tempNode = tempNode.next until tempNode.next.next.nil?
 	warn("[DEBUG] delete_tail(): tempNode → #{tempNode}")
-    tempNode.next = nil
     warn("[DEBUG] delete_tail(): tempNode.next → #{tempNode.next}")
+    tempNode.next = nil
   end
 
   def empty?
 	warn("[ERROR] >>> Entering empty?()")
+	warn("[WARN] <<< Exiting empty?()")
     @head.nil?
   end
 end

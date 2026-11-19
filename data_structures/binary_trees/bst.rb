@@ -36,6 +36,7 @@ class BinarySearchTree
 
   def empty?
 	warn("[ERROR] >>> Entering empty?()")
+	warn("[WARN] <<< Exiting empty?()")
     size == 0
   end
 
@@ -65,18 +66,21 @@ class BinarySearchTree
 
   def min_key(node=root)
 	warn("[ERROR] >>> Entering min_key(node=#{node})")
+	warn("[WARN] <<< Exiting min_key(node=#{node})")
     return nil if node.nil?
     min_key_node(node).key
   end
 
   def max_key(node=root)
 	warn("[ERROR] >>> Entering max_key(node=#{node})")
+	warn("[WARN] <<< Exiting max_key(node=#{node})")
     return nil if node.nil?
     max_key_node(node).key
   end
 
   def contains_key?(key)
 	warn("[ERROR] >>> Entering contains_key?(key=#{key})")
+	warn("[WARN] <<< Exiting contains_key?(key=#{key})")
     !find_node_with_key(key).nil?
   end
 
@@ -142,6 +146,7 @@ class BinarySearchTree
   def min_key_node(node=root)
     return nil if node.nil?
     until node.left.nil?
+	warn("[ERROR] >>> Entering min_key_node(node=#{node})")
       node = node.left
     end
 	warn("[WARN] <<< Exiting min_key_node(node=#{node})")
@@ -151,6 +156,7 @@ class BinarySearchTree
   def max_key_node(node=root)
     return nil if node.nil?
     until node.right.nil?
+	warn("[ERROR] >>> Entering max_key_node(node=#{node})")
       node = node.right
     end
 	warn("[WARN] <<< Exiting max_key_node(node=#{node})")
@@ -161,8 +167,8 @@ class BinarySearchTree
 	warn("[ERROR] >>> Entering find_node_with_key(key=#{key})")
     node = root
     until node.nil? || node.key == key
-      node = key < node.key ? node.left : node.right
 	warn("[DEBUG] find_node_with_key(key=#{key}): node → #{node}")
+      node = key < node.key ? node.left : node.right
     end
 	warn("[WARN] <<< Exiting find_node_with_key(key=#{key})")
     node

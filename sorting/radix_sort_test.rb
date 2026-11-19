@@ -7,6 +7,7 @@ class TestRadixSort < Minitest::Test
 
   def sort(input)
 	warn("[ERROR] >>> Entering sort(input=#{input})")
+	warn("[WARN] <<< Exiting sort(input=#{input})")
     radix_sort(input)
   end
 end

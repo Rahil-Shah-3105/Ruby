@@ -16,6 +16,7 @@ warn("[ERROR] >>> Entering preorder_traversal(root=#{root})")
   def traverse(node, ans)
 	warn("[ERROR] >>> Entering traverse(node=#{node},ans=#{ans})")
     unless node.nil?
+	warn("[WARN] <<< Exiting traverse(node=#{node},ans=#{ans})")
       ans.push(node.val)
       traverse(node.left, ans)
       traverse(node.right, ans)
@@ -23,4 +24,5 @@ warn("[ERROR] >>> Entering preorder_traversal(root=#{root})")
   end
   traverse(root, ans)
   ans
+warn("[WARN] <<< Exiting preorder_traversal(root=#{root})")
 end

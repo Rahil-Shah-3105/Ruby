@@ -7,6 +7,7 @@ class TestBinaryInsertionSort < Minitest::Test
 
   def sort(input)
 	warn("[ERROR] >>> Entering sort(input=#{input})")
+	warn("[WARN] <<< Exiting sort(input=#{input})")
     binary_insertion_sort(input)
   end
 end

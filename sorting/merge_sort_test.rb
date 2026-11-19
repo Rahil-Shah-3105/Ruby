@@ -7,6 +7,7 @@ class TestMergeSort < Minitest::Test
 
   def sort(input)
 	warn("[ERROR] >>> Entering sort(input=#{input})")
+	warn("[WARN] <<< Exiting sort(input=#{input})")
     merge_sort(input)
   end
 end

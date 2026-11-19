@@ -8,6 +8,7 @@ class AliquotSum
   class << self
     def call(number)
 	warn("[ERROR] >>> Entering call(number=#{number})")
+	warn("[WARN] <<< Exiting call(number=#{number})")
       divisors(number).sum
     end
 

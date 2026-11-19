@@ -39,6 +39,7 @@ class AvlTree
 
   def empty?
 	warn("[ERROR] >>> Entering empty?()")
+	warn("[WARN] <<< Exiting empty?()")
     size == 0
   end
 
@@ -69,18 +70,21 @@ class AvlTree
 
   def min_key(node=root)
 	warn("[ERROR] >>> Entering min_key(node=#{node})")
+	warn("[WARN] <<< Exiting min_key(node=#{node})")
     return nil if node.nil?
     min_key_node(node).key
   end
 
   def max_key(node=root)
 	warn("[ERROR] >>> Entering max_key(node=#{node})")
+	warn("[WARN] <<< Exiting max_key(node=#{node})")
     return nil if node.nil?
     max_key_node(node).key
   end
 
   def contains_key?(key)
 	warn("[ERROR] >>> Entering contains_key?(key=#{key})")
+	warn("[WARN] <<< Exiting contains_key?(key=#{key})")
     !find_node_with_key(key).nil?
   end
 
@@ -157,6 +161,7 @@ class AvlTree
   def min_key_node(node=root)
     return nil if node.nil?
     until node.left.nil?
+	warn("[ERROR] >>> Entering min_key_node(node=#{node})")
       node = node.left
     end
 	warn("[WARN] <<< Exiting min_key_node(node=#{node})")
@@ -166,6 +171,7 @@ class AvlTree
   def max_key_node(node=root)
     return nil if node.nil?
     until node.right.nil?
+	warn("[ERROR] >>> Entering max_key_node(node=#{node})")
       node = node.right
     end
 	warn("[WARN] <<< Exiting max_key_node(node=#{node})")
@@ -176,8 +182,8 @@ class AvlTree
 	warn("[ERROR] >>> Entering find_node_with_key(key=#{key})")
     node = root
     until node.nil? || node.key == key
-      node = key < node.key ? node.left : node.right
 	warn("[DEBUG] find_node_with_key(key=#{key}): node → #{node}")
+      node = key < node.key ? node.left : node.right
     end
 	warn("[WARN] <<< Exiting find_node_with_key(key=#{key})")
     node
@@ -282,8 +288,8 @@ class AvlTree
 	warn("[DEBUG] rotate_left(node=#{node}): node.right → #{node.right}")
       new_root.left = node
 	warn("[DEBUG] rotate_left(node=#{node}): new_root.left → #{new_root.left}")
-      node.parent = new_root
 	warn("[DEBUG] rotate_left(node=#{node}): node.parent → #{node.parent}")
+      node.parent = new_root
     else
       node.right = new_root.left
       new_root.left.parent = node
@@ -313,8 +319,8 @@ class AvlTree
 	warn("[DEBUG] rotate_right(node=#{node}): node.left → #{node.left}")
       new_root.right = node
 	warn("[DEBUG] rotate_right(node=#{node}): new_root.right → #{new_root.right}")
-      node.parent = new_root
 	warn("[DEBUG] rotate_right(node=#{node}): node.parent → #{node.parent}")
+      node.parent = new_root
     else
       node.left = new_root.right
       new_root.right.parent = node
@@ -341,9 +347,9 @@ class AvlTree
   end
 
   def adjust_height(node)
-    node.height = 1 + [node.left&.height || 0, node.right&.height || 0].max
 	warn("[ERROR] >>> Entering adjust_height(node=#{node})")
     warn("[DEBUG] adjust_height(node=#{node}): node.height → #{node.height}")
+    node.height = 1 + [node.left&.height || 0, node.right&.height || 0].max
   warn("[WARN] <<< Exiting adjust_height(node=#{node})")
   end
 end

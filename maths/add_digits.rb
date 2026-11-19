@@ -24,6 +24,7 @@
 def add_digits(num)
 warn("[ERROR] >>> Entering add_digits(num=#{num})")
   return 0 if num == 0
+warn("[WARN] <<< Exiting add_digits(num=#{num})")
   return 9 if num % 9 == 0
 
   num % 9

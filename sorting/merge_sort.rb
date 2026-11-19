@@ -7,6 +7,7 @@ warn("[DEBUG] merge_sort(array=#{array}): mid → #{mid}")
   first_array = array.slice(0..mid - 1)
   second_array = array.slice(mid..-1)
 
+warn("[DEBUG] merge_sort(array=#{array}): second_array → #{second_array}")
   first_array = merge_sort first_array
 warn("[DEBUG] merge_sort(array=#{array}): first_array → #{first_array}")
   second_array = merge_sort second_array

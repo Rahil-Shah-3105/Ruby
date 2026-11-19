@@ -25,6 +25,7 @@ words = file_contents.tr('\"', '').split(',').sort
 def word_worth(word)
 warn("[ERROR] >>> Entering word_worth(word=#{word})")
   word.chars.sum { |char| char.ord - 'A'.ord + 1 }
+warn("[WARN] <<< Exiting word_worth(word=#{word})")
 end
 
 # this method takes the words as an input

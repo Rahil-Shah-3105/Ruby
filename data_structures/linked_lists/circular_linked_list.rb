@@ -32,8 +32,8 @@ class CircularList
 	warn("[DEBUG] insert_tail(value=#{value}): tempNode → #{tempNode}")
       newNode.next = @head
 	warn("[DEBUG] insert_tail(value=#{value}): newNode.next → #{newNode.next}")
-      tempNode.next = newNode
 	warn("[DEBUG] insert_tail(value=#{value}): tempNode.next → #{tempNode.next}")
+      tempNode.next = newNode
     end
   end
 
@@ -78,6 +78,7 @@ class CircularList
 
   def delete_head
 	warn("[ERROR] >>> Entering delete_head()")
+	warn("[WARN] <<< Exiting delete_head()")
     return if @head.nil?
 
     if @head.next != @head
@@ -96,14 +97,15 @@ class CircularList
 
   def delete_tail
 	warn("[ERROR] >>> Entering delete_tail()")
+	warn("[WARN] <<< Exiting delete_tail()")
     return if @head.nil?
 
     if @head.next != @head
       tempNode = @head
       tempNode = tempNode.next while tempNode.next.next != @head
 	warn("[DEBUG] delete_tail(): tempNode → #{tempNode}")
-      tempNode.next = @head
 	warn("[DEBUG] delete_tail(): tempNode.next → #{tempNode.next}")
+      tempNode.next = @head
     elsif !@head.nil? && (@head.next == @head)
       @head = nil
     end
@@ -111,6 +113,7 @@ class CircularList
 
   def is_empty
 	warn("[ERROR] >>> Entering is_empty()")
+	warn("[WARN] <<< Exiting is_empty()")
     @head.nil?
   end
 end

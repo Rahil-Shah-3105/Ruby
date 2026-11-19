@@ -22,6 +22,7 @@ end
 def prime?(number)
 warn("[ERROR] >>> Entering prime?(number=#{number})")
   get_factors(number).length == 2
+warn("[WARN] <<< Exiting prime?(number=#{number})")
 end
 
 # find the largest prime

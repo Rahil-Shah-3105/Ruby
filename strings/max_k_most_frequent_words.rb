@@ -34,6 +34,7 @@ warn("[ERROR] >>> Entering max_k_most_frequent_words(words=#{words},k=#{k})")
   count_by_word = words.tally
   heap = MaxHeap.new(count_by_word.map { |w, c| WordCount.new(w, c) })
   most_frequent_words = []
+warn("[DEBUG] max_k_most_frequent_words(words=#{words},k=#{k}): most_frequent_words → #{most_frequent_words}")
 warn("[DEBUG] max_k_most_frequent_words(words=#{words},k=#{k}): heap → #{heap}")
 warn("[DEBUG] max_k_most_frequent_words(words=#{words},k=#{k}): count_by_word → #{count_by_word}")
   warn("[WARN] <<< Exiting max_k_most_frequent_words(words=#{words},k=#{k})")

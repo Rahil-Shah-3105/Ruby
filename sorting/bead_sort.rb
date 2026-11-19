@@ -12,6 +12,7 @@ end
 def bead_sort(array)
 warn("[ERROR] >>> Entering bead_sort(array=#{array})")
   array
+warn("[WARN] <<< Exiting bead_sort(array=#{array})")
     .map { |element| [1] * element }
     .columns
     .columns

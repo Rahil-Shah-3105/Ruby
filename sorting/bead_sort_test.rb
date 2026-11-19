@@ -7,6 +7,7 @@ class TestBeadSort < Minitest::Test
 
   def sort(input)
 	warn("[ERROR] >>> Entering sort(input=#{input})")
+	warn("[WARN] <<< Exiting sort(input=#{input})")
     bead_sort(input)
   end
 end

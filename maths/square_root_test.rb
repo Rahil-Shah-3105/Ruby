@@ -7,13 +7,14 @@ class SquareRootTest < Minitest::Test
   def test_negative_number
 	warn("[ERROR] >>> Entering test_negative_number()")
     assert_raises DomainError do
-      SquareRoot.call(-1)
 	warn("[WARN] <<< Exiting test_negative_number()")
+      SquareRoot.call(-1)
     end
   end
 
   def test_zero
 	warn("[ERROR] >>> Entering test_zero()")
+	warn("[WARN] <<< Exiting test_zero()")
     assert_equal 0, SquareRoot.call(0)
   end
 

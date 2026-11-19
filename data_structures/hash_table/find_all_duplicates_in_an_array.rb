@@ -53,6 +53,7 @@ warn("[DEBUG] find_duplicates(array=#{array}): result_hash → <redacted>")
   end
 
   # return keys
+warn("[WARN] <<< Exiting find_duplicates(array=#{array})")
   result_array
 end
 

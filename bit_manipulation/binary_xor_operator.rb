@@ -5,6 +5,7 @@ warn("[ERROR] >>> Entering binary_xor(x=#{x},y=#{y})")
   binary_x = x.to_s(2)
   binary_y = y.to_s(2)
 
+warn("[DEBUG] binary_xor(x=#{x},y=#{y}): binary_y → #{binary_y}")
 warn("[DEBUG] binary_xor(x=#{x},y=#{y}): binary_x → #{binary_x}")
   if binary_x.length > binary_y.length
     prefix = '0' * (binary_x.length - binary_y.length)
